@@ -13,7 +13,8 @@ const wsClients = new Map();
 
 function setup(fastify) {
   fastify.wsClients = wsClients;
-  fastify.get('/ws', { websocket: true }, (socket, req) => {
+  fastify.get("/ws", { websocket: true }, (connection, req) => {
+    const socket = connection.socket;
     let deviceId = null;
 
     socket.on('message', (raw) => {
