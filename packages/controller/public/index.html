@@ -28,32 +28,28 @@
   input, textarea, select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.5rem 0.75rem; border-radius: 6px; font-size: 0.9rem; font-family: inherit; }
   input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); }
   textarea { font-family: 'Courier New', monospace; font-size: 0.8rem; }
-  btn, .btn { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; }
+  .btn { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; }
   .btn:hover { opacity: 0.85; }
   .btn.danger { background: var(--red); }
   .btn.secondary { background: var(--border); color: var(--text); }
   .btn.cast { background: #1565c0; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-  .sign-name { font-weight: 600; }
   .form-row { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
   label { font-size: 0.85rem; color: var(--muted); }
-  .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-  .tab { background: none; border: none; color: var(--muted); padding: 0.6rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; font-size: 0.9rem; }
-  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-  #preview-frame { width: 100%; height: 400px; border: 1px solid var(--border); border-radius: 6px; background: #000; }
-  .cast-device { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg); border-radius: 6px; margin-bottom: 0.5rem; }
   .section { display: none; }
   .section.active { display: block; }
+  .pl-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .cast-device { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg); border-radius: 6px; margin-bottom: 0.5rem; }
 </style>
 </head>
 <body>
 <nav>
   <h1>📺 WiSign</h1>
-  <button class="active" onclick="show('screens')">🖥 Screens</button>
-  <button onclick="show('signs')">📄 Signs</button>
-  <button onclick="show('assign')">🎯 Assign</button>
-  <button onclick="show('playlists')">🔄 Playlists</button>
-  <button onclick="show('cast')">📡 Cast</button>
+  <button class="active" onclick="show('screens',this)">🖥 Screens</button>
+  <button onclick="show('signs',this)">📄 Signs</button>
+  <button onclick="show('assign',this)">🎯 Assign</button>
+  <button onclick="show('playlists',this)">🔄 Playlists</button>
+  <button onclick="show('cast',this)">📡 Cast</button>
 </nav>
 <main>
 
@@ -82,7 +78,7 @@
   <div id="signs-list" class="grid"></div>
 </div>
 
-<!-- ASSIGN -->
+<!-- ASSIGN (single sign) -->
 <div id="sec-assign" class="section">
   <h2>Assign Sign to Screen</h2>
   <div class="card" style="max-width:500px">
@@ -96,7 +92,7 @@
 <!-- PLAYLISTS -->
 <div id="sec-playlists" class="section">
   <h2>Playlists</h2>
-  <div class="card" style="max-width:600px;margin-bottom:1.5rem">
+  <div class="card" style="max-width:640px;margin-bottom:1.5rem">
     <h3 style="margin-bottom:1rem;font-size:1rem">New Playlist</h3>
     <div class="form-row"><label>Name</label><input id="new-pl-name" placeholder="Playlist name" style="max-width:300px"></div>
     <div id="pl-items"></div>
@@ -110,7 +106,7 @@
     <h3 style="margin-bottom:1rem;font-size:1rem">Assign Playlist to Screen</h3>
     <div class="form-row"><label>Screen</label><select id="pl-assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
     <div class="form-row"><label>Playlist</label><select id="pl-assign-playlist" style="width:100%"></select></div>
-    <button class="btn" onclick="doAssignPlaylist()">Push Playlist →</button>
+    <button class="btn" onclick="doAssignPlaylist()">▶ Start Playlist →</button>
     <div id="pl-assign-result" style="margin-top:1rem;color:var(--green)"></div>
   </div>
 </div>
@@ -123,7 +119,7 @@
     <div id="cast-devices-list"><p class="muted">Scanning...</p></div>
     <button class="btn secondary" style="margin-top:1rem" onclick="loadCastDevices()">🔄 Refresh</button>
   </div>
-  <div class="card" style="max-width:500px; margin-top:1rem">
+  <div class="card" style="max-width:500px;margin-top:1rem">
     <h3 style="margin-bottom:1rem;font-size:1rem">Cast a Sign</h3>
     <div class="form-row"><label>Device</label><select id="cast-device" style="width:100%"></select></div>
     <div class="form-row"><label>Sign</label><select id="cast-sign" style="width:100%"></select></div>
@@ -133,28 +129,29 @@
 </div>
 
 </main>
-
 <script>
-const $ = id => document.getElementById(id);
+const g = id => document.getElementById(id);
 
-// Navigation
-function show(sec) {
+function show(sec, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  $(`sec-${sec}`).classList.add('active');
-  event.target.classList.add('active');
+  g('sec-' + sec).classList.add('active');
+  if (btn) btn.classList.add('active');
   if (sec === 'screens') loadScreens();
   if (sec === 'signs') loadSigns();
-  if (sec === 'assign') { loadScreensSelect(); loadSignsSelect('assign-sign'); }
-  if (sec === 'cast') { loadCastDevices(); loadSignsSelect('cast-sign'); }
+  if (sec === 'assign') { loadScreensInto('assign-screen'); loadSignsInto('assign-sign'); }
   if (sec === 'playlists') initPlaylists();
+  if (sec === 'cast') { loadCastDevices(); loadSignsInto('cast-sign'); }
 }
 
-// Screens
+// ── Screens ───────────────────────────────────────────────────────────────────
 async function loadScreens() {
   const screens = await fetch('/api/screens').then(r => r.json());
-  const el = $('screens-list');
-  if (!screens.length) { el.innerHTML = '<p class="muted">No screens registered yet. Connect a player to get started.</p>'; return; }
+  const el = g('screens-list');
+  if (!screens.length) {
+    el.innerHTML = '<p class="muted">No screens registered yet. Connect a player to get started.</p>';
+    return;
+  }
   el.innerHTML = screens.map(s => `
     <div class="card">
       <div class="row" style="margin-bottom:0.5rem">
@@ -163,38 +160,41 @@ async function loadScreens() {
       </div>
       <div class="muted">${s.location || 'No location'} · ${s.platform}</div>
       <div class="muted" style="margin-top:0.25rem">IP: ${s.ip || '—'} · Last seen: ${s.last_seen_at ? new Date(s.last_seen_at + 'Z').toLocaleTimeString() : 'never'}</div>
-      ${s.current_assignment ? `<div class="muted" style="margin-top:0.25rem">Sign: ${s.current_assignment.sign_id || '—'}</div>` : ''}
+      ${s.current_assignment ? `<div class="muted" style="margin-top:0.25rem">
+        ${s.current_assignment.mode === 'playlist'
+          ? `▶ Playlist · sign ${(s.current_assignment.index || 0) + 1}`
+          : `Sign: ${s.current_assignment.sign_id || '—'}`}
+      </div>` : ''}
     </div>
   `).join('');
 }
 
-// Signs
+// ── Signs ─────────────────────────────────────────────────────────────────────
 function toggleSignType() {
-  const t = $('new-sign-type').value;
-  $('html-field').style.display = t === 'raw_html' ? '' : 'none';
-  $('url-field').style.display = t === 'url' ? '' : 'none';
+  const t = g('new-sign-type').value;
+  g('html-field').style.display = t === 'raw_html' ? '' : 'none';
+  g('url-field').style.display = t === 'url' ? '' : 'none';
 }
 
 async function createSign() {
-  const name = $('new-sign-name').value.trim();
-  const type = $('new-sign-type').value;
+  const name = g('new-sign-name').value.trim();
+  const type = g('new-sign-type').value;
   if (!name) return alert('Name required');
-  const body = { name, type, html: $('new-sign-html').value, url: $('new-sign-url').value };
-  await fetch('/api/signs', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
-  $('new-sign-name').value = ''; $('new-sign-html').value = ''; $('new-sign-url').value = '';
+  await fetch('/api/signs', { method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ name, type, html: g('new-sign-html').value, url: g('new-sign-url').value }) });
+  g('new-sign-name').value = ''; g('new-sign-html').value = ''; g('new-sign-url').value = '';
   loadSigns();
 }
 
 async function loadSigns() {
   const signs = await fetch('/api/signs').then(r => r.json());
-  const el = $('signs-list');
-  el.innerHTML = signs.map(s => `
+  g('signs-list').innerHTML = signs.map(s => `
     <div class="card">
       <div class="row" style="margin-bottom:0.5rem">
-        <span class="sign-name">${s.name}</span>
+        <strong>${s.name}</strong>
         <span class="badge" style="background:var(--border)">${s.type}</span>
       </div>
-      <div class="muted">v${s.version} · Updated ${new Date(s.updated_at).toLocaleDateString()}</div>
+      <div class="muted">v${s.version} · ${new Date(s.updated_at).toLocaleDateString()}</div>
       <div class="row" style="margin-top:0.75rem;gap:0.5rem">
         <a href="/api/signs/${s.id}/render" target="_blank"><button class="btn secondary" style="font-size:0.8rem">Preview</button></a>
         <button class="btn danger" style="font-size:0.8rem" onclick="deleteSign('${s.id}')">Delete</button>
@@ -205,112 +205,80 @@ async function loadSigns() {
 
 async function deleteSign(id) {
   if (!confirm('Delete this sign?')) return;
-  await fetch(`/api/signs/${id}`, { method: 'DELETE' });
+  await fetch('/api/signs/' + id, { method: 'DELETE' });
   loadSigns();
 }
 
-// Assign
-async function loadScreensSelect() {
+// ── Assign (single sign) ──────────────────────────────────────────────────────
+async function loadScreensInto(elId) {
   const screens = await fetch('/api/screens').then(r => r.json());
-  const sel = $('assign-screen');
-  sel.innerHTML = '<option value="all">All Screens</option>' +
+  g(elId).innerHTML = '<option value="all">All Screens</option>' +
     screens.map(s => `<option value="${s.id}">${s.display_name} (${s.status})</option>`).join('');
 }
 
-async function loadSignsSelect(elId) {
+async function loadSignsInto(elId) {
   const signs = await fetch('/api/signs').then(r => r.json());
-  const sel = $(elId);
-  sel.innerHTML = signs.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+  g(elId).innerHTML = signs.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
 }
 
 async function doAssign() {
-  const target_id = $('assign-screen').value;
-  const ref_id = $('assign-sign').value;
+  const target_id = g('assign-screen').value;
+  const ref_id = g('assign-sign').value;
   if (!ref_id) return alert('Select a sign');
   const res = await fetch('/api/assign', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
+    method: 'POST', headers: {'Content-Type':'application/json'},
     body: JSON.stringify({ target_type: target_id === 'all' ? 'all' : 'screen', target_id, mode: 'sign', ref_id })
   }).then(r => r.json());
-  $('assign-result').textContent = `✅ Assigned to ${res.screens_targeted} screen(s)`;
+  g('assign-result').textContent = res.ok ? `Assigned to ${res.screens_targeted} screen(s)` : res.error;
 }
-
-// Cast
-async function loadCastDevices() {
-  const devices = await fetch('/api/cast/devices').then(r => r.json());
-  const el = $('cast-devices-list');
-  const sel = $('cast-device');
-  if (!devices.length) {
-    el.innerHTML = '<p class="muted">No Cast devices found. Make sure they are on the same network.</p>';
-    sel.innerHTML = '';
-    return;
-  }
-  el.innerHTML = devices.map(d => `
-    <div class="cast-device">
-      <div>
-        <strong>${d.name}</strong>
-        <div class="muted">${d.model} · ${d.host}</div>
-      </div>
-      <span class="badge ${d.status === 'available' ? 'online' : 'offline'}">${d.status}</span>
-    </div>
-  `).join('');
-  sel.innerHTML = devices.map(d => `<option value="${d.id}">${d.name}</option>`).join('');
-}
-
-async function doCast() {
-  const device_id = $('cast-device').value;
-  const sign_id = $('cast-sign').value;
-  if (!device_id || !sign_id) return alert('Select a device and sign');
-  const res = await fetch('/api/cast/assign', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({ device_id, sign_id })
-  }).then(r => r.json());
-  $('cast-result').textContent = res.ok ? `✅ Casting to TV` : `❌ ${res.error}`;
-}
-
 
 // ── Playlists ─────────────────────────────────────────────────────────────────
-let plSignOptions = [];
+let _signs = [];
 
 async function initPlaylists() {
-  const signs = await fetch('/api/signs').then(r => r.json());
-  plSignOptions = signs;
+  _signs = await fetch('/api/signs').then(r => r.json());
+  if (!g('pl-items').children.length) addPlItem();
   loadPlaylists();
-  loadScreensSelectEl('pl-assign-screen');
-  loadPlaylistsSelect();
-  if (!.children.length) addPlItem();
+  loadScreensInto('pl-assign-screen');
+  loadPlaylistsInto('pl-assign-playlist');
 }
 
 function addPlItem() {
-  const idx = .children.length;
   const div = document.createElement('div');
-  div.className = 'row'; div.style.marginBottom = '0.5rem'; div.dataset.idx = idx;
-  div.innerHTML =
-    '<select style="flex:1">' + plSignOptions.map(s => '<option value="' + s.id + '">' + s.name + '</option>').join('') + '</select>' +
-    '<input type="number" value="10" min="1" style="width:80px" title="seconds"> <span class="muted" style="font-size:0.8rem">sec</span>' +
-    '<button class="btn danger" style="font-size:0.8rem;padding:0.3rem 0.6rem" onclick="this.parentElement.remove()">✕</button>';
-  .appendChild(div);
+  div.className = 'pl-item';
+  const sel = document.createElement('select');
+  sel.style.flex = '1';
+  sel.innerHTML = _signs.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+  const dur = document.createElement('input');
+  dur.type = 'number'; dur.value = '10'; dur.min = '1'; dur.style.width = '80px'; dur.title = 'seconds';
+  const lbl = document.createElement('span');
+  lbl.className = 'muted'; lbl.style.fontSize = '0.8rem'; lbl.textContent = 'sec';
+  const btn = document.createElement('button');
+  btn.className = 'btn danger'; btn.style.cssText = 'font-size:0.8rem;padding:0.3rem 0.6rem';
+  btn.textContent = '✕'; btn.onclick = () => div.remove();
+  div.append(sel, dur, lbl, btn);
+  g('pl-items').appendChild(div);
 }
 
 function getPlItems() {
-  return Array.from(.children).map(row => ({
+  return Array.from(g('pl-items').children).map(row => ({
     sign_id: row.querySelector('select').value,
     duration_sec: parseInt(row.querySelector('input').value) || 10
   }));
 }
 
 async function createPlaylist() {
-  const name = .value.trim();
+  const name = g('new-pl-name').value.trim();
   if (!name) return alert('Name required');
   const items = getPlItems();
   if (!items.length) return alert('Add at least one sign');
-  await fetch('/api/playlists', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name, items }) });
-  .value = '';
-  .innerHTML = '';
+  await fetch('/api/playlists', { method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ name, items }) });
+  g('new-pl-name').value = '';
+  g('pl-items').innerHTML = '';
   addPlItem();
   loadPlaylists();
-  loadPlaylistsSelect();
+  loadPlaylistsInto('pl-assign-playlist');
 }
 
 async function loadPlaylists() {
@@ -319,15 +287,14 @@ async function loadPlaylists() {
     fetch('/api/signs').then(r => r.json())
   ]);
   const signMap = Object.fromEntries(signs.map(s => [s.id, s.name]));
-  const el = ;
-  el.innerHTML = lists.map(p => `
+  g('playlists-list').innerHTML = lists.map(p => `
     <div class="card">
       <div class="row" style="margin-bottom:0.5rem">
         <strong>${p.name}</strong>
         <span class="muted" style="font-size:0.8rem">${p.items.length} sign(s)</span>
       </div>
-      <div style="font-size:0.8rem;color:var(--muted)">
-        ${p.items.map((item,i) => `<span>${i+1}. ${signMap[item.sign_id] || item.sign_id} (${item.duration_sec}s)</span>`).join(' → ')}
+      <div style="font-size:0.82rem;color:var(--muted);line-height:1.8">
+        ${p.items.map((item, i) => `<span>${i + 1}. ${signMap[item.sign_id] || 'Unknown'} <span style="color:var(--accent)">${item.duration_sec}s</span></span>`).join(' → ')}
       </div>
       <div class="row" style="margin-top:0.75rem">
         <button class="btn danger" style="font-size:0.8rem" onclick="deletePlaylist('${p.id}')">Delete</button>
@@ -336,38 +303,63 @@ async function loadPlaylists() {
   `).join('') || '<p class="muted">No playlists yet.</p>';
 }
 
-async function deletePlaylist(id) {
-  if (!confirm('Delete playlist?')) return;
-  await fetch('/api/playlists/' + id, { method: 'DELETE' });
-  loadPlaylists(); loadPlaylistsSelect();
-}
-
-async function loadPlaylistsSelect() {
+async function loadPlaylistsInto(elId) {
   const lists = await fetch('/api/playlists').then(r => r.json());
-  .innerHTML = lists.map(p => '<option value="' + p.id + '">' + p.name + '</option>').join('');
+  g(elId).innerHTML = lists.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
 }
 
-async function loadScreensSelectEl(elId) {
-  const screens = await fetch('/api/screens').then(r => r.json());
-  const sel = $(elId);
-  sel.innerHTML = '<option value="all">All Screens</option>' +
-    screens.map(s => '<option value="' + s.id + '">' + s.display_name + ' (' + s.status + ')</option>').join('');
+async function deletePlaylist(id) {
+  if (!confirm('Delete this playlist?')) return;
+  await fetch('/api/playlists/' + id, { method: 'DELETE' });
+  loadPlaylists(); loadPlaylistsInto('pl-assign-playlist');
 }
 
 async function doAssignPlaylist() {
-  const target_id = .value;
-  const ref_id = .value;
+  const target_id = g('pl-assign-screen').value;
+  const ref_id = g('pl-assign-playlist').value;
   if (!ref_id) return alert('Select a playlist');
   const res = await fetch('/api/assign', {
     method: 'POST', headers: {'Content-Type':'application/json'},
     body: JSON.stringify({ target_type: target_id === 'all' ? 'all' : 'screen', target_id, mode: 'playlist', ref_id })
   }).then(r => r.json());
-  .textContent = res.ok ? '✅ Playlist started on ' + res.screens_targeted + ' screen(s)' : '❌ ' + res.error;
+  g('pl-assign-result').textContent = res.ok
+    ? `Playlist started on ${res.screens_targeted} screen(s)`
+    : res.error;
 }
 
-// Initial load + auto-refresh
+// ── Cast ──────────────────────────────────────────────────────────────────────
+async function loadCastDevices() {
+  const devices = await fetch('/api/cast/devices').then(r => r.json());
+  const el = g('cast-devices-list');
+  const sel = g('cast-device');
+  if (!devices.length) {
+    el.innerHTML = '<p class="muted">No Cast devices found. Make sure they are on the same network.</p>';
+    sel.innerHTML = '';
+    return;
+  }
+  el.innerHTML = devices.map(d => `
+    <div class="cast-device">
+      <div><strong>${d.name}</strong><div class="muted">${d.model} · ${d.host}</div></div>
+      <span class="badge ${d.status === 'available' ? 'online' : 'offline'}">${d.status}</span>
+    </div>
+  `).join('');
+  sel.innerHTML = devices.map(d => `<option value="${d.id}">${d.name}</option>`).join('');
+}
+
+async function doCast() {
+  const device_id = g('cast-device').value;
+  const sign_id = g('cast-sign').value;
+  if (!device_id || !sign_id) return alert('Select a device and sign');
+  const res = await fetch('/api/cast/assign', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ device_id, sign_id })
+  }).then(r => r.json());
+  g('cast-result').textContent = res.ok ? 'Casting to TV' : res.error;
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
 loadScreens();
-setInterval(() => { if ($('sec-screens').classList.contains('active')) loadScreens(); }, 5000);
+setInterval(() => { if (g('sec-screens').classList.contains('active')) loadScreens(); }, 5000);
 </script>
 </body>
 </html>
