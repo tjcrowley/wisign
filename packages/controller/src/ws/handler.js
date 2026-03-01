@@ -1,4 +1,5 @@
 'use strict';
+const playlistManager = require('../playlist-manager');
 const { v4: uuidv4 } = require('uuid');
 const db = require('../db');
 
@@ -94,7 +95,8 @@ function handleRegister(socket, msg) {
   };
   socket.send(JSON.stringify(reply));
 
-  // If there's an existing assignment, push it immediately
+  // Resume playlist or push existing sign
+  if (!playlistManager.resumeIfNeeded(screen)) {
   if (currentAssignment?.sign_id) {
     const renderUrl = `http://${_fastify.serverHost}:${_fastify.serverPort}/api/signs/${currentAssignment.sign_id}/render`;
     socket.send(JSON.stringify({
@@ -104,6 +106,7 @@ function handleRegister(socket, msg) {
       payload: { mode: 'url', url: renderUrl, cache_policy: 'no-cache' }
     }));
   }
+  } // end resumeIfNeeded
 
   console.log(`[WS] Registered: ${payload.display_name || device_id} (${payload.platform})`);
 }

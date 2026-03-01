@@ -30,10 +30,12 @@ async function start() {
   fastify.serverHost = getLanIP();
 
   require('./ws/handler').setup(fastify);
+  require('./playlist-manager').init(fastify);
 
   fastify.register(require('./routes/screens'));
   fastify.register(require('./routes/signs'));
   fastify.register(require('./routes/assign'));
+  fastify.register(require('./routes/playlists'));
   fastify.register(require('./routes/cast'));
 
   await fastify.listen({ port: PORT, host: HOST });

@@ -52,6 +52,7 @@
   <button class="active" onclick="show('screens')">🖥 Screens</button>
   <button onclick="show('signs')">📄 Signs</button>
   <button onclick="show('assign')">🎯 Assign</button>
+  <button onclick="show('playlists')">🔄 Playlists</button>
   <button onclick="show('cast')">📡 Cast</button>
 </nav>
 <main>
@@ -92,6 +93,28 @@
   </div>
 </div>
 
+<!-- PLAYLISTS -->
+<div id="sec-playlists" class="section">
+  <h2>Playlists</h2>
+  <div class="card" style="max-width:600px;margin-bottom:1.5rem">
+    <h3 style="margin-bottom:1rem;font-size:1rem">New Playlist</h3>
+    <div class="form-row"><label>Name</label><input id="new-pl-name" placeholder="Playlist name" style="max-width:300px"></div>
+    <div id="pl-items"></div>
+    <div class="row" style="margin-top:0.75rem;gap:0.5rem">
+      <button class="btn secondary" onclick="addPlItem()">+ Add Sign</button>
+      <button class="btn" onclick="createPlaylist()">Create Playlist</button>
+    </div>
+  </div>
+  <div id="playlists-list" class="grid"></div>
+  <div class="card" style="max-width:500px;margin-top:1.5rem">
+    <h3 style="margin-bottom:1rem;font-size:1rem">Assign Playlist to Screen</h3>
+    <div class="form-row"><label>Screen</label><select id="pl-assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
+    <div class="form-row"><label>Playlist</label><select id="pl-assign-playlist" style="width:100%"></select></div>
+    <button class="btn" onclick="doAssignPlaylist()">Push Playlist →</button>
+    <div id="pl-assign-result" style="margin-top:1rem;color:var(--green)"></div>
+  </div>
+</div>
+
 <!-- CAST -->
 <div id="sec-cast" class="section">
   <h2>Cast Devices</h2>
@@ -124,6 +147,7 @@ function show(sec) {
   if (sec === 'signs') loadSigns();
   if (sec === 'assign') { loadScreensSelect(); loadSignsSelect('assign-sign'); }
   if (sec === 'cast') { loadCastDevices(); loadSignsSelect('cast-sign'); }
+  if (sec === 'playlists') initPlaylists();
 }
 
 // Screens
@@ -243,6 +267,102 @@ async function doCast() {
     body: JSON.stringify({ device_id, sign_id })
   }).then(r => r.json());
   $('cast-result').textContent = res.ok ? `✅ Casting to TV` : `❌ ${res.error}`;
+}
+
+
+// ── Playlists ─────────────────────────────────────────────────────────────────
+let plSignOptions = [];
+
+async function initPlaylists() {
+  const signs = await fetch('/api/signs').then(r => r.json());
+  plSignOptions = signs;
+  loadPlaylists();
+  loadScreensSelectEl('pl-assign-screen');
+  loadPlaylistsSelect();
+  if (!.children.length) addPlItem();
+}
+
+function addPlItem() {
+  const idx = .children.length;
+  const div = document.createElement('div');
+  div.className = 'row'; div.style.marginBottom = '0.5rem'; div.dataset.idx = idx;
+  div.innerHTML =
+    '<select style="flex:1">' + plSignOptions.map(s => '<option value="' + s.id + '">' + s.name + '</option>').join('') + '</select>' +
+    '<input type="number" value="10" min="1" style="width:80px" title="seconds"> <span class="muted" style="font-size:0.8rem">sec</span>' +
+    '<button class="btn danger" style="font-size:0.8rem;padding:0.3rem 0.6rem" onclick="this.parentElement.remove()">✕</button>';
+  .appendChild(div);
+}
+
+function getPlItems() {
+  return Array.from(.children).map(row => ({
+    sign_id: row.querySelector('select').value,
+    duration_sec: parseInt(row.querySelector('input').value) || 10
+  }));
+}
+
+async function createPlaylist() {
+  const name = .value.trim();
+  if (!name) return alert('Name required');
+  const items = getPlItems();
+  if (!items.length) return alert('Add at least one sign');
+  await fetch('/api/playlists', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name, items }) });
+  .value = '';
+  .innerHTML = '';
+  addPlItem();
+  loadPlaylists();
+  loadPlaylistsSelect();
+}
+
+async function loadPlaylists() {
+  const [lists, signs] = await Promise.all([
+    fetch('/api/playlists').then(r => r.json()),
+    fetch('/api/signs').then(r => r.json())
+  ]);
+  const signMap = Object.fromEntries(signs.map(s => [s.id, s.name]));
+  const el = ;
+  el.innerHTML = lists.map(p => `
+    <div class="card">
+      <div class="row" style="margin-bottom:0.5rem">
+        <strong>${p.name}</strong>
+        <span class="muted" style="font-size:0.8rem">${p.items.length} sign(s)</span>
+      </div>
+      <div style="font-size:0.8rem;color:var(--muted)">
+        ${p.items.map((item,i) => `<span>${i+1}. ${signMap[item.sign_id] || item.sign_id} (${item.duration_sec}s)</span>`).join(' → ')}
+      </div>
+      <div class="row" style="margin-top:0.75rem">
+        <button class="btn danger" style="font-size:0.8rem" onclick="deletePlaylist('${p.id}')">Delete</button>
+      </div>
+    </div>
+  `).join('') || '<p class="muted">No playlists yet.</p>';
+}
+
+async function deletePlaylist(id) {
+  if (!confirm('Delete playlist?')) return;
+  await fetch('/api/playlists/' + id, { method: 'DELETE' });
+  loadPlaylists(); loadPlaylistsSelect();
+}
+
+async function loadPlaylistsSelect() {
+  const lists = await fetch('/api/playlists').then(r => r.json());
+  .innerHTML = lists.map(p => '<option value="' + p.id + '">' + p.name + '</option>').join('');
+}
+
+async function loadScreensSelectEl(elId) {
+  const screens = await fetch('/api/screens').then(r => r.json());
+  const sel = $(elId);
+  sel.innerHTML = '<option value="all">All Screens</option>' +
+    screens.map(s => '<option value="' + s.id + '">' + s.display_name + ' (' + s.status + ')</option>').join('');
+}
+
+async function doAssignPlaylist() {
+  const target_id = .value;
+  const ref_id = .value;
+  if (!ref_id) return alert('Select a playlist');
+  const res = await fetch('/api/assign', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ target_type: target_id === 'all' ? 'all' : 'screen', target_id, mode: 'playlist', ref_id })
+  }).then(r => r.json());
+  .textContent = res.ok ? '✅ Playlist started on ' + res.screens_targeted + ' screen(s)' : '❌ ' + res.error;
 }
 
 // Initial load + auto-refresh

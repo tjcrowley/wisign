@@ -39,6 +39,14 @@ db.exec(`
     updated_at TEXT DEFAULT (datetime('now'))
   );
 
+  CREATE TABLE IF NOT EXISTS playlists (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    items TEXT DEFAULT '[]',
+    created_at TEXT DEFAULT (datetime('now')),
+    updated_at TEXT DEFAULT (datetime('now'))
+  );
+
   CREATE TABLE IF NOT EXISTS assignments (
     id TEXT PRIMARY KEY,
     target_type TEXT NOT NULL,
