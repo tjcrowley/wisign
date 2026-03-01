@@ -11,7 +11,9 @@ const connections = new Map();
 // Map of device_id -> ws (shared with assign route)
 const wsClients = new Map();
 
+let _fastify;
 function setup(fastify) {
+  _fastify = fastify;
   fastify.wsClients = wsClients;
   fastify.get("/ws", { websocket: true }, (connection, req) => {
     const socket = connection.socket;
@@ -94,7 +96,7 @@ function handleRegister(socket, msg) {
 
   // If there's an existing assignment, push it immediately
   if (currentAssignment?.sign_id) {
-    const renderUrl = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${currentAssignment.sign_id}/render`;
+    const renderUrl = `http://${_fastify.serverHost}:${_fastify.serverPort}/api/signs/${currentAssignment.sign_id}/render`;
     socket.send(JSON.stringify({
       type: 'LOAD_SIGN',
       request_id: uuidv4(),
