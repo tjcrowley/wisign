@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WiSign Admin</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --border: #2a2d3e;
+    --accent: #6366f1; --accent2: #e94560; --text: #e2e8f0;
+    --muted: #64748b; --green: #22c55e; --yellow: #f59e0b; --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; display: flex; height: 100vh; overflow: hidden; }
+  nav { width: 200px; background: var(--surface); border-right: 1px solid var(--border); padding: 1.5rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; flex-shrink: 0; }
+  nav h1 { font-size: 1.2rem; color: var(--accent); margin-bottom: 1rem; font-weight: 700; letter-spacing: 1px; }
+  nav button { background: none; border: none; color: var(--muted); padding: 0.6rem 0.8rem; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.9rem; transition: all 0.15s; }
+  nav button:hover, nav button.active { background: var(--border); color: var(--text); }
+  main { flex: 1; overflow-y: auto; padding: 2rem; }
+  h2 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+  .row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .badge { padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+  .badge.online { background: #16532d; color: var(--green); }
+  .badge.offline { background: #450a0a; color: var(--red); }
+  .badge.degraded { background: #451a00; color: var(--yellow); }
+  .muted { color: var(--muted); font-size: 0.85rem; }
+  input, textarea, select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.5rem 0.75rem; border-radius: 6px; font-size: 0.9rem; font-family: inherit; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); }
+  textarea { font-family: 'Courier New', monospace; font-size: 0.8rem; }
+  btn, .btn { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; }
+  .btn:hover { opacity: 0.85; }
+  .btn.danger { background: var(--red); }
+  .btn.secondary { background: var(--border); color: var(--text); }
+  .btn.cast { background: #1565c0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .sign-name { font-weight: 600; }
+  .form-row { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  label { font-size: 0.85rem; color: var(--muted); }
+  .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .tab { background: none; border: none; color: var(--muted); padding: 0.6rem 1rem; cursor: pointer; border-bottom: 2px solid transparent; font-size: 0.9rem; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  #preview-frame { width: 100%; height: 400px; border: 1px solid var(--border); border-radius: 6px; background: #000; }
+  .cast-device { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg); border-radius: 6px; margin-bottom: 0.5rem; }
+  .section { display: none; }
+  .section.active { display: block; }
+</style>
+</head>
+<body>
+<nav>
+  <h1>📺 WiSign</h1>
+  <button class="active" onclick="show('screens')">🖥 Screens</button>
+  <button onclick="show('signs')">📄 Signs</button>
+  <button onclick="show('assign')">🎯 Assign</button>
+  <button onclick="show('cast')">📡 Cast</button>
+</nav>
+<main>
+
+<!-- SCREENS -->
+<div id="sec-screens" class="section active">
+  <h2>Screens</h2>
+  <div id="screens-list" class="grid"></div>
+</div>
+
+<!-- SIGNS -->
+<div id="sec-signs" class="section">
+  <h2>Signs</h2>
+  <div class="card" style="margin-bottom:1.5rem">
+    <h3 style="margin-bottom:1rem;font-size:1rem">New Sign</h3>
+    <div class="form-row"><label>Name</label><input id="new-sign-name" placeholder="Sign name" style="max-width:300px"></div>
+    <div class="form-row"><label>Type</label>
+      <select id="new-sign-type" onchange="toggleSignType()" style="max-width:200px">
+        <option value="raw_html">Raw HTML</option>
+        <option value="url">URL</option>
+      </select>
+    </div>
+    <div id="html-field" class="form-row"><label>HTML</label><textarea id="new-sign-html" rows="10" style="width:100%;min-height:200px" placeholder="<!DOCTYPE html>..."></textarea></div>
+    <div id="url-field" class="form-row" style="display:none"><label>URL</label><input id="new-sign-url" placeholder="https://example.com" style="width:100%"></div>
+    <button class="btn" onclick="createSign()">Create Sign</button>
+  </div>
+  <div id="signs-list" class="grid"></div>
+</div>
+
+<!-- ASSIGN -->
+<div id="sec-assign" class="section">
+  <h2>Assign Sign to Screen</h2>
+  <div class="card" style="max-width:500px">
+    <div class="form-row"><label>Screen</label><select id="assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
+    <div class="form-row"><label>Sign</label><select id="assign-sign" style="width:100%"></select></div>
+    <button class="btn" onclick="doAssign()">Push to Screen →</button>
+    <div id="assign-result" style="margin-top:1rem;color:var(--green)"></div>
+  </div>
+</div>
+
+<!-- CAST -->
+<div id="sec-cast" class="section">
+  <h2>Cast Devices</h2>
+  <p class="muted" style="margin-bottom:1rem">Chromecasts and Cast-enabled TVs discovered on your network.</p>
+  <div class="card" style="max-width:600px">
+    <div id="cast-devices-list"><p class="muted">Scanning...</p></div>
+    <button class="btn secondary" style="margin-top:1rem" onclick="loadCastDevices()">🔄 Refresh</button>
+  </div>
+  <div class="card" style="max-width:500px; margin-top:1rem">
+    <h3 style="margin-bottom:1rem;font-size:1rem">Cast a Sign</h3>
+    <div class="form-row"><label>Device</label><select id="cast-device" style="width:100%"></select></div>
+    <div class="form-row"><label>Sign</label><select id="cast-sign" style="width:100%"></select></div>
+    <button class="btn cast" onclick="doCast()">📡 Cast to TV</button>
+    <div id="cast-result" style="margin-top:1rem;color:var(--green)"></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// Navigation
+function show(sec) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  $(`sec-${sec}`).classList.add('active');
+  event.target.classList.add('active');
+  if (sec === 'screens') loadScreens();
+  if (sec === 'signs') loadSigns();
+  if (sec === 'assign') { loadScreensSelect(); loadSignsSelect('assign-sign'); }
+  if (sec === 'cast') { loadCastDevices(); loadSignsSelect('cast-sign'); }
+}
+
+// Screens
+async function loadScreens() {
+  const screens = await fetch('/api/screens').then(r => r.json());
+  const el = $('screens-list');
+  if (!screens.length) { el.innerHTML = '<p class="muted">No screens registered yet. Connect a player to get started.</p>'; return; }
+  el.innerHTML = screens.map(s => `
+    <div class="card">
+      <div class="row" style="margin-bottom:0.5rem">
+        <span class="badge ${s.status}">${s.status}</span>
+        <strong>${s.display_name}</strong>
+      </div>
+      <div class="muted">${s.location || 'No location'} · ${s.platform}</div>
+      <div class="muted" style="margin-top:0.25rem">IP: ${s.ip || '—'} · Last seen: ${s.last_seen_at ? new Date(s.last_seen_at + 'Z').toLocaleTimeString() : 'never'}</div>
+      ${s.current_assignment ? `<div class="muted" style="margin-top:0.25rem">Sign: ${s.current_assignment.sign_id || '—'}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+// Signs
+function toggleSignType() {
+  const t = $('new-sign-type').value;
+  $('html-field').style.display = t === 'raw_html' ? '' : 'none';
+  $('url-field').style.display = t === 'url' ? '' : 'none';
+}
+
+async function createSign() {
+  const name = $('new-sign-name').value.trim();
+  const type = $('new-sign-type').value;
+  if (!name) return alert('Name required');
+  const body = { name, type, html: $('new-sign-html').value, url: $('new-sign-url').value };
+  await fetch('/api/signs', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+  $('new-sign-name').value = ''; $('new-sign-html').value = ''; $('new-sign-url').value = '';
+  loadSigns();
+}
+
+async function loadSigns() {
+  const signs = await fetch('/api/signs').then(r => r.json());
+  const el = $('signs-list');
+  el.innerHTML = signs.map(s => `
+    <div class="card">
+      <div class="row" style="margin-bottom:0.5rem">
+        <span class="sign-name">${s.name}</span>
+        <span class="badge" style="background:var(--border)">${s.type}</span>
+      </div>
+      <div class="muted">v${s.version} · Updated ${new Date(s.updated_at).toLocaleDateString()}</div>
+      <div class="row" style="margin-top:0.75rem;gap:0.5rem">
+        <a href="/api/signs/${s.id}/render" target="_blank"><button class="btn secondary" style="font-size:0.8rem">Preview</button></a>
+        <button class="btn danger" style="font-size:0.8rem" onclick="deleteSign('${s.id}')">Delete</button>
+      </div>
+    </div>
+  `).join('') || '<p class="muted">No signs yet.</p>';
+}
+
+async function deleteSign(id) {
+  if (!confirm('Delete this sign?')) return;
+  await fetch(`/api/signs/${id}`, { method: 'DELETE' });
+  loadSigns();
+}
+
+// Assign
+async function loadScreensSelect() {
+  const screens = await fetch('/api/screens').then(r => r.json());
+  const sel = $('assign-screen');
+  sel.innerHTML = '<option value="all">All Screens</option>' +
+    screens.map(s => `<option value="${s.id}">${s.display_name} (${s.status})</option>`).join('');
+}
+
+async function loadSignsSelect(elId) {
+  const signs = await fetch('/api/signs').then(r => r.json());
+  const sel = $(elId);
+  sel.innerHTML = signs.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+}
+
+async function doAssign() {
+  const target_id = $('assign-screen').value;
+  const ref_id = $('assign-sign').value;
+  if (!ref_id) return alert('Select a sign');
+  const res = await fetch('/api/assign', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ target_type: target_id === 'all' ? 'all' : 'screen', target_id, mode: 'sign', ref_id })
+  }).then(r => r.json());
+  $('assign-result').textContent = `✅ Assigned to ${res.screens_targeted} screen(s)`;
+}
+
+// Cast
+async function loadCastDevices() {
+  const devices = await fetch('/api/cast/devices').then(r => r.json());
+  const el = $('cast-devices-list');
+  const sel = $('cast-device');
+  if (!devices.length) {
+    el.innerHTML = '<p class="muted">No Cast devices found. Make sure they are on the same network.</p>';
+    sel.innerHTML = '';
+    return;
+  }
+  el.innerHTML = devices.map(d => `
+    <div class="cast-device">
+      <div>
+        <strong>${d.name}</strong>
+        <div class="muted">${d.model} · ${d.host}</div>
+      </div>
+      <span class="badge ${d.status === 'available' ? 'online' : 'offline'}">${d.status}</span>
+    </div>
+  `).join('');
+  sel.innerHTML = devices.map(d => `<option value="${d.id}">${d.name}</option>`).join('');
+}
+
+async function doCast() {
+  const device_id = $('cast-device').value;
+  const sign_id = $('cast-sign').value;
+  if (!device_id || !sign_id) return alert('Select a device and sign');
+  const res = await fetch('/api/cast/assign', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ device_id, sign_id })
+  }).then(r => r.json());
+  $('cast-result').textContent = res.ok ? `✅ Casting to TV` : `❌ ${res.error}`;
+}
+
+// Initial load + auto-refresh
+loadScreens();
+setInterval(() => { if ($('sec-screens').classList.contains('active')) loadScreens(); }, 5000);
+</script>
+</body>
+</html>

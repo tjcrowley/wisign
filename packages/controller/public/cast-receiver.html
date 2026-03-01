@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WiSign Cast Receiver</title>
+<!--
+  This page is the Custom Cast Receiver for WiSign.
+  
+  To use it:
+  1. Host this file at a publicly accessible URL (or your controller's LAN IP)
+  2. Register it at https://cast.google.com/publish
+  3. Set WISIGN_CAST_APP_ID=<your-app-id> in your environment
+  
+  The receiver loads the sign URL in a fullscreen iframe.
+-->
+<style>
+  * { margin: 0; padding: 0; }
+  body { background: #000; overflow: hidden; width: 100vw; height: 100vh; }
+  iframe { width: 100%; height: 100%; border: none; }
+</style>
+<script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+</head>
+<body>
+<cast-media-player></cast-media-player>
+<iframe id="sign-frame" style="display:none"></iframe>
+<script>
+const context = cast.framework.CastReceiverContext.getInstance();
+const playerManager = context.getPlayerManager();
+
+playerManager.setMessageInterceptor(cast.framework.messages.MessageType.LOAD, (request) => {
+  const url = request.media && request.media.contentId;
+  if (url && (url.startsWith('http') || url.startsWith('/'))) {
+    // Load HTML sign in iframe instead of media player
+    const frame = document.getElementById('sign-frame');
+    frame.src = url;
+    frame.style.display = 'block';
+    document.querySelector('cast-media-player').style.display = 'none';
+    return null; // Intercept — don't pass to media player
+  }
+  return request;
+});
+
+context.start();
+</script>
+</body>
+</html>
