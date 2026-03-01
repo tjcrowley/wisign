@@ -94,7 +94,7 @@ function handleRegister(socket, msg) {
 
   // If there's an existing assignment, push it immediately
   if (currentAssignment?.sign_id) {
-    const renderUrl = `http://localhost:${process.env.WISIGN_PORT || 3000}/api/signs/${currentAssignment.sign_id}/render`;
+    const renderUrl = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${currentAssignment.sign_id}/render`;
     socket.send(JSON.stringify({
       type: 'LOAD_SIGN',
       request_id: uuidv4(),

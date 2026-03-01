@@ -30,7 +30,7 @@ async function assignRoutes(fastify) {
     // Push via WebSocket (fastify.wsClients is set in ws/handler.js)
     const sign = db.prepare('SELECT * FROM signs WHERE id = ?').get(ref_id);
     if (sign && fastify.wsClients) {
-      const renderUrl = `http://localhost:${fastify.serverPort}/api/signs/${ref_id}/render`;
+      const renderUrl = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${ref_id}/render`;
       const msg = JSON.stringify({
         type: 'LOAD_SIGN',
         request_id: id,
