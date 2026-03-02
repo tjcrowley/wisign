@@ -1,23 +1,24 @@
 'use strict';
 /**
- * Chromecast / Cast-enabled device manager
+ * FTSign Chromecast manager
  *
- * Uses castv2-client + Puppeteer screenshots to cast sign content via the
- * Default Media Receiver — no Cast developer registration required.
- *
- * Playlist support: server-side loop per device, cycling screenshots on a timer.
+ * Launches DefaultMediaReceiver once per device and reuses the player
+ * session for all subsequent loads — avoids "Load cancelled" errors
+ * that occur when re-launching the app for every playlist slide.
  */
 
 const { Client, DefaultMediaReceiver } = require('castv2-client');
 const Bonjour = require('bonjour-service').Bonjour;
 
-const devices  = new Map(); // device_id -> device info
-const clients  = new Map(); // device_id -> castv2 Client
-const playlists = new Map(); // device_id -> { items, index, timer, baseUrl }
+const devices   = new Map(); // device_id -> device info
+const clients   = new Map(); // device_id -> { client, player }
+const playlists = new Map(); // device_id -> { items, index, timer, baseUrl, active }
+
+// ── Discovery ─────────────────────────────────────────────────────────────────
 
 function init() {
-  const bonjour  = new Bonjour();
-  const browser  = bonjour.find({ type: 'googlecast' });
+  const bonjour = new Bonjour();
+  const browser = bonjour.find({ type: 'googlecast' });
 
   browser.on('up', (service) => {
     const id = service.txt?.id || service.name;
@@ -39,6 +40,7 @@ function init() {
     const dev = devices.get(id);
     if (dev) {
       dev.status = 'unavailable';
+      clients.delete(id);
       console.log(`[Cast] Lost: ${dev.name}`);
     }
   });
@@ -50,65 +52,84 @@ function getDevices() {
   return Array.from(devices.values()).map(d => ({
     ...d,
     playlist: playlists.has(d.id) ? {
-      index:    playlists.get(d.id).index,
-      total:    playlists.get(d.id).items.length,
-      sign_id:  playlists.get(d.id).items[playlists.get(d.id).index]?.sign_id
+      index:   playlists.get(d.id).index,
+      total:   playlists.get(d.id).items.length,
+      sign_id: playlists.get(d.id).items[playlists.get(d.id).index]?.sign_id
     } : null
   }));
 }
 
-// ── Connection ────────────────────────────────────────────────────────────────
+// ── Session management ────────────────────────────────────────────────────────
 
-function connectDevice(deviceId) {
+/**
+ * Get (or create) a { client, player } session for a device.
+ * Launches DefaultMediaReceiver only once; subsequent calls reuse the player.
+ */
+function getSession(deviceId) {
   return new Promise((resolve, reject) => {
+    const existing = clients.get(deviceId);
+    if (existing && existing.player) return resolve(existing);
+
     const device = devices.get(deviceId);
     if (!device) return reject(new Error(`Device ${deviceId} not found`));
 
-    if (clients.has(deviceId)) return resolve(clients.get(deviceId));
-
     const client = new Client();
+    client.setMaxListeners(20);
+
     client.connect({ host: device.host, port: device.port }, () => {
-      clients.set(deviceId, client);
-      resolve(client);
-    });
-    client.on('error', () => clients.delete(deviceId));
-    client.on('close',  () => clients.delete(deviceId));
-  });
-}
+      client.launch(DefaultMediaReceiver, (err, player) => {
+        if (err) {
+          client.close();
+          return reject(err);
+        }
+        const session = { client, player };
+        clients.set(deviceId, session);
 
-// ── Single sign cast ──────────────────────────────────────────────────────────
+        // Clean up session if player or client closes
+        player.on('close', () => clients.delete(deviceId));
+        client.on('error', () => clients.delete(deviceId));
+        client.on('close', () => clients.delete(deviceId));
 
-async function castUrl(deviceId, url) {
-  const client = await connectDevice(deviceId);
-  return new Promise((resolve, reject) => {
-    client.launch(DefaultMediaReceiver, (err, player) => {
-      if (err) return reject(err);
-      const media = {
-        contentId:   url,
-        contentType: 'image/jpeg',
-        streamType:  'NONE',
-        metadata: { type: 0, metadataType: 0, title: 'FTSign' }
-      };
-      player.load(media, { autoplay: true }, (err, status) => {
-        if (err) return reject(err);
-        resolve(status);
+        resolve(session);
       });
     });
+
+    client.on('error', (err) => {
+      clients.delete(deviceId);
+      reject(err);
+    });
   });
 }
 
-// ── Playlist cast ─────────────────────────────────────────────────────────────
+// ── Single image load ─────────────────────────────────────────────────────────
 
-/**
- * Start a server-side playlist loop on a cast device.
- * @param {string} deviceId
- * @param {Array}  items    - [{ sign_id, duration_sec }, ...]
- * @param {string} baseUrl  - e.g. http://192.168.x.x:3000
- */
+async function castUrl(deviceId, url) {
+  // If session is stale (e.g. after network change), clear it so we reconnect
+  const session = await getSession(deviceId);
+
+  return new Promise((resolve, reject) => {
+    const media = {
+      contentId:   url,
+      contentType: 'image/jpeg',
+      streamType:  'NONE',
+      metadata: { type: 0, metadataType: 0, title: 'FTSign' }
+    };
+    session.player.load(media, { autoplay: true }, (err, status) => {
+      if (err) {
+        // Session may be dead — clear it so next call reconnects
+        clients.delete(deviceId);
+        return reject(err);
+      }
+      resolve(status);
+    });
+  });
+}
+
+// ── Playlist loop ─────────────────────────────────────────────────────────────
+
 async function castPlaylist(deviceId, items, baseUrl) {
   if (!items || !items.length) throw new Error('Playlist has no items');
 
-  // Stop any existing loop on this device
   stopPlaylist(deviceId);
 
   const state = { items, index: 0, baseUrl, timer: null, active: true };
@@ -124,12 +145,11 @@ async function castPlaylist(deviceId, items, baseUrl) {
       await castUrl(deviceId, url);
       console.log(`[Cast] Playlist ${deviceId}: sign ${state.index + 1}/${state.items.length} (${item.duration_sec}s)`);
     } catch (err) {
-      console.error(`[Cast] Playlist cast error on ${deviceId}:`, err.message);
+      console.error(`[Cast] Playlist error on ${deviceId}:`, err.message);
     }
 
     if (!state.active) return;
 
-    // Advance index and schedule next
     state.index = (state.index + 1) % state.items.length;
     state.timer = setTimeout(castNext, item.duration_sec * 1000);
   }
@@ -146,13 +166,16 @@ function stopPlaylist(deviceId) {
   playlists.delete(deviceId);
 }
 
-// ── Stop all ──────────────────────────────────────────────────────────────────
+// ── Stop ──────────────────────────────────────────────────────────────────────
 
 async function stopCast(deviceId) {
   stopPlaylist(deviceId);
-  const client = clients.get(deviceId);
-  if (!client) return;
-  return new Promise((resolve) => client.stop(resolve));
+  const session = clients.get(deviceId);
+  clients.delete(deviceId);
+  if (!session) return;
+  return new Promise((resolve) => {
+    try { session.client.stop(resolve); } catch { resolve(); }
+  });
 }
 
 module.exports = { init, getDevices, castUrl, castPlaylist, stopCast };
