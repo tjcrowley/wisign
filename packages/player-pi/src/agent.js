@@ -53,6 +53,20 @@ function findChromium() {
   return null;
 }
 
+async function waitForDisplay() {
+  const displayReady = () => {
+    if (process.env.WAYLAND_DISPLAY) return true;
+    try { fs.statSync('/tmp/.X11-unix/X0'); return true; } catch {}
+    return false;
+  };
+  for (let i = 0; i < 60; i++) {
+    if (displayReady()) { console.log('[Display] Ready'); return; }
+    if (i === 0) console.log('[Display] Waiting for display server...');
+    await sleep(1000);
+  }
+  console.log('[Display] Timeout — trying anyway');
+}
+
 function launchChromium() {
   const bin = findChromium();
   if (!bin) {
@@ -282,6 +296,7 @@ function discover() {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function main() {
+  await waitForDisplay();
   launchChromium();
   await sleep(2500);
   await connectCDP();
