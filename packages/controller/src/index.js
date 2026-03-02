@@ -3,11 +3,11 @@ const Fastify = require('fastify');
 const path = require('path');
 const os = require('os');
 
-const PORT = parseInt(process.env.WISIGN_PORT || '3000', 10);
-const HOST = process.env.WISIGN_HOST || '0.0.0.0';
+const PORT = parseInt(process.env.FTSIGN_PORT || '3000', 10);
+const HOST = process.env.FTSIGN_HOST || '0.0.0.0';
 
 function getLanIP() {
-  if (process.env.WISIGN_LAN_IP) return process.env.WISIGN_LAN_IP;
+  if (process.env.FTSIGN_LAN_IP) return process.env.FTSIGN_LAN_IP;
   for (const ifaces of Object.values(os.networkInterfaces())) {
     for (const iface of ifaces) {
       if (iface.family === 'IPv4' && !iface.internal) return iface.address;
@@ -42,7 +42,7 @@ async function start() {
   await fastify.listen({ port: PORT, host: HOST });
 
   const lanIP = getLanIP();
-  console.log(`\n🖥️  WiSign Controller`);
+  console.log(`\n🖥️  FTSign Controller`);
   console.log(`   Local:   http://localhost:${PORT}`);
   console.log(`   Network: http://${lanIP}:${PORT}`);
   console.log(`📡 WebSocket: ws://${lanIP}:${PORT}/ws\n`);

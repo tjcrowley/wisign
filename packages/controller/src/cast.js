@@ -87,7 +87,7 @@ async function castUrl(deviceId, url) {
         contentId:   url,
         contentType: 'image/jpeg',
         streamType:  'NONE',
-        metadata: { type: 0, metadataType: 0, title: 'WiSign' }
+        metadata: { type: 0, metadataType: 0, title: 'FTSign' }
       };
       player.load(media, { autoplay: true }, (err, status) => {
         if (err) return reject(err);

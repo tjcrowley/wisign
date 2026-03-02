@@ -50,12 +50,12 @@ function createWindow() {
   showWaiting();
 }
 
-function showWaiting(message = 'Connecting to WiSign Controller...') {
+function showWaiting(message = 'Connecting to FTSign Controller...') {
   const html = `data:text/html,<!DOCTYPE html><html><head><style>
     body{background:#0f1117;color:#6366f1;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;flex-direction:column;gap:1rem}
     h2{font-size:3vw}p{color:#64748b;font-size:1.5vw}small{color:#374151}
   </style></head><body>
-    <h2>📺 WiSign Player</h2>
+    <h2>📺 FTSign Player</h2>
     <p>${message}</p>
     <small>Device ID: ${DEVICE_ID.slice(0, 8)}...</small>
   </body></html>`;
@@ -64,13 +64,13 @@ function showWaiting(message = 'Connecting to WiSign Controller...') {
 
 // mDNS discovery
 function discoverController() {
-  if (process.env.WISIGN_CONTROLLER) {
-    controllerHost = process.env.WISIGN_CONTROLLER;
+  if (process.env.FTSIGN_CONTROLLER) {
+    controllerHost = process.env.FTSIGN_CONTROLLER;
     connectWS();
     return;
   }
 
-  const DISC_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
+  const DISC_PORT = parseInt(process.env.FTSIGN_DISCOVERY_PORT || '3002', 10);
   let found = false;
 
   // UDP broadcast
@@ -79,7 +79,7 @@ function discoverController() {
   udp.on('message', (buf, rinfo) => {
     try {
       const msg = JSON.parse(buf.toString());
-      if (msg.type !== 'WISIGN_CONTROLLER') return;
+      if (msg.type !== 'FTSIGN_CONTROLLER') return;
       const wsUrl = 'ws://' + rinfo.address + ':' + msg.port + '/ws';
       if (!found) { found = true; try { udp.close(); } catch {} }
       if (controllerHost !== wsUrl) { controllerHost = wsUrl; connectWS(); }
@@ -88,7 +88,7 @@ function discoverController() {
 
   // mDNS fallback
   const bonjour = new Bonjour();
-  const browser = bonjour.find({ type: 'wisign' });
+  const browser = bonjour.find({ type: 'ftsign' });
   browser.on('up', (service) => {
     if (found) return;
     found = true;
@@ -102,7 +102,7 @@ function discoverController() {
   setTimeout(() => {
     if (!found) {
       bonjour.destroy();
-      const fallback = process.env.WISIGN_CONTROLLER || 'ws://localhost:3000/ws';
+      const fallback = process.env.FTSIGN_CONTROLLER || 'ws://localhost:3000/ws';
       console.log('[Discovery] Timeout — trying fallback: ' + fallback);
       controllerHost = fallback;
       connectWS();

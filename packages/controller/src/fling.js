@@ -11,11 +11,11 @@
  *   We query each discovered device's DIAL server to get its friendly name.
  *
  * Casting:
- *   We launch the Amazon Silk Browser (or a sideloaded WiSign receiver APK)
+ *   We launch the Amazon Silk Browser (or a sideloaded FTSign receiver APK)
  *   via the DIAL REST API, passing the sign URL as a query param.
  *
  *   Default app: "com.amazon.webviewservice" (Silk Browser)
- *   Override:    WISIGN_FIRE_APP_ID env var (e.g. your sideloaded APK package)
+ *   Override:    FTSIGN_FIRE_APP_ID env var (e.g. your sideloaded APK package)
  *
  *   Silk Browser DIAL launch payload:
  *     v=<url-encoded sign URL>
@@ -29,7 +29,7 @@
 const http = require('http');
 const { Client: SsdpClient } = require('node-ssdp');
 
-const FIRE_APP_ID = process.env.WISIGN_FIRE_APP_ID || 'com.amazon.webviewservice';
+const FIRE_APP_ID = process.env.FTSIGN_FIRE_APP_ID || 'com.amazon.webviewservice';
 const DIAL_ST = 'urn:dial-multiscreen-org:service:dial:1';
 
 // device_id -> { id, name, host, dialPort, dialPath, status, type }
@@ -197,7 +197,7 @@ async function castUrl(deviceId, url) {
 }
 
 /**
- * Stop the running WiSign app on a Fire TV via DIAL DELETE.
+ * Stop the running FTSign app on a Fire TV via DIAL DELETE.
  */
 async function stopCast(deviceId) {
   const device = devices.get(deviceId);

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * WiSign Pi Agent
- * Connects to the WiSign controller via WebSocket and controls
+ * FTSign Pi Agent
+ * Connects to the FTSign controller via WebSocket and controls
  * Chromium via the Chrome DevTools Protocol (CDP).
  *
  * Discovery order:
- *  1. WISIGN_CONTROLLER env var (manual override — most reliable on managed networks)
+ *  1. FTSIGN_CONTROLLER env var (manual override — most reliable on managed networks)
  *  2. UDP broadcast listener (port 3002) — works on any flat network
  *  3. mDNS fallback — works on simple home/office networks
  */
@@ -21,12 +21,12 @@ const { v4: uuidv4 } = require('uuid');
 const WebSocket = require('ws');
 const { Bonjour } = require('bonjour-service');
 
-const PORT           = parseInt(process.env.WISIGN_PORT || '3000', 10);
-const DISCOVERY_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
-const CDP_PORT       = parseInt(process.env.WISIGN_CDP_PORT || '9222', 10);
-const CONTROLLER     = process.env.WISIGN_CONTROLLER || null;
-const DEV            = process.env.WISIGN_DEV === '1';
-const DATA_DIR       = process.env.WISIGN_DATA || path.join(os.homedir(), '.wisign-player');
+const PORT           = parseInt(process.env.FTSIGN_PORT || '3000', 10);
+const DISCOVERY_PORT = parseInt(process.env.FTSIGN_DISCOVERY_PORT || '3002', 10);
+const CDP_PORT       = parseInt(process.env.FTSIGN_CDP_PORT || '9222', 10);
+const CONTROLLER     = process.env.FTSIGN_CONTROLLER || null;
+const DEV            = process.env.FTSIGN_DEV === '1';
+const DATA_DIR       = process.env.FTSIGN_DATA || path.join(os.homedir(), '.ftsign-player');
 const ID_FILE        = path.join(DATA_DIR, 'device-id.json');
 const HB_INTERVAL    = 10;
 
@@ -39,7 +39,7 @@ function getDeviceId() {
   return id;
 }
 const DEVICE_ID = getDeviceId();
-console.log(`[WiSign Pi] Device ID: ${DEVICE_ID}`);
+console.log(`[FTSign Pi] Device ID: ${DEVICE_ID}`);
 
 // ── Chromium ──────────────────────────────────────────────────────────────────
 let chromiumProc = null;
@@ -139,13 +139,13 @@ function showMessage(title, sub = '') {
     `font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;` +
     `height:100vh;flex-direction:column;gap:1rem;text-align:center}` +
     `h2{font-size:3vw}p{color:#64748b;font-size:1.5vw}small{color:#374151;font-size:1vw}` +
-    `</style></head><body><h2>📺 WiSign</h2><p>${title}</p><small>${sub}</small></body></html>`
+    `</style></head><body><h2>📺 FTSign</h2><p>${title}</p><small>${sub}</small></body></html>`
   );
   navigateTo(`data:text/html,${enc}`);
 }
 
-// ── WiSign WS ─────────────────────────────────────────────────────────────────
-let wisignWs      = null;
+// ── FTSign WS ─────────────────────────────────────────────────────────────────
+let ftsignWs      = null;
 let lastSignUrl   = null;
 let heartbeatTimer = null;
 let wsPingTimer    = null;
@@ -161,17 +161,17 @@ function getLocalIP() {
 }
 
 function connectController(wsUrl) {
-  if (controllerUrl === wsUrl && wisignWs?.readyState === WebSocket.OPEN) return;
+  if (controllerUrl === wsUrl && ftsignWs?.readyState === WebSocket.OPEN) return;
   controllerUrl = wsUrl;
-  if (wisignWs) { try { wisignWs.terminate(); } catch {} }
-  console.log(`[WiSign] Connecting to ${wsUrl}`);
+  if (ftsignWs) { try { ftsignWs.terminate(); } catch {} }
+  console.log(`[FTSign] Connecting to ${wsUrl}`);
   showMessage('Connecting to controller...', wsUrl + ' (v2)');
 
-  wisignWs = new WebSocket(wsUrl, { handshakeTimeout: 8000 });
+  ftsignWs = new WebSocket(wsUrl, { handshakeTimeout: 8000 });
 
-  wisignWs.on('open', () => {
-    console.log('[WiSign] Connected ✓');
-    wisignWs.send(JSON.stringify({
+  ftsignWs.on('open', () => {
+    console.log('[FTSign] Connected ✓');
+    ftsignWs.send(JSON.stringify({
       type: 'REGISTER', device_id: DEVICE_ID, timestamp: new Date().toISOString(),
       payload: {
         display_name: os.hostname(), platform: 'raspberry_pi',
@@ -182,8 +182,8 @@ function connectController(wsUrl) {
     clearInterval(heartbeatTimer);
     clearInterval(wsPingTimer);
     heartbeatTimer = setInterval(() => {
-      if (wisignWs?.readyState === WebSocket.OPEN) {
-        wisignWs.send(JSON.stringify({
+      if (ftsignWs?.readyState === WebSocket.OPEN) {
+        ftsignWs.send(JSON.stringify({
           type: 'HEARTBEAT', device_id: DEVICE_ID, timestamp: new Date().toISOString(),
           payload: { uptime_sec: Math.floor(os.uptime()), ip: getLocalIP(), free_mem_mb: Math.floor(os.freemem() / 1048576) }
         }));
@@ -192,15 +192,15 @@ function connectController(wsUrl) {
 
     // WS-level ping to keep connection alive through managed switches
     wsPingTimer = setInterval(() => {
-      if (wisignWs?.readyState === WebSocket.OPEN) wisignWs.ping();
+      if (ftsignWs?.readyState === WebSocket.OPEN) ftsignWs.ping();
     }, 15000); // ping every 15s to prevent switch timeouts
   });
 
-  wisignWs.on('message', (raw) => {
+  ftsignWs.on('message', (raw) => {
     let msg; try { msg = JSON.parse(raw.toString()); } catch { return; }
     switch (msg.type) {
       case 'REGISTER_OK':
-        console.log('[WiSign] Registered ✓');
+        console.log('[FTSign] Registered ✓');
         if (!msg.payload?.current_assignment?.sign_id) showMessage('Ready', os.hostname());
         break;
       case 'LOAD_SIGN': {
@@ -209,7 +209,7 @@ function connectController(wsUrl) {
           lastSignUrl = url;
           try { fs.writeFileSync(path.join(DATA_DIR, "last-sign.txt"), url); } catch {}
           navigateTo(url);
-          wisignWs.send(JSON.stringify({
+          ftsignWs.send(JSON.stringify({
             type: 'ACK', request_id: msg.request_id, device_id: DEVICE_ID,
             timestamp: new Date().toISOString(),
             payload: { status: 'rendered', sign_id: msg.payload?.sign_id, render_time_ms: 0 }
@@ -218,36 +218,36 @@ function connectController(wsUrl) {
         break;
       }
       case 'PING':
-        wisignWs.send(JSON.stringify({ type: 'PONG', device_id: DEVICE_ID, timestamp: new Date().toISOString() }));
+        ftsignWs.send(JSON.stringify({ type: 'PONG', device_id: DEVICE_ID, timestamp: new Date().toISOString() }));
         break;
     }
   });
 
-  wisignWs.on('close', (code, reason) => {
-    console.log('[WiSign] Disconnected code=' + code + ' reason=' + reason);
+  ftsignWs.on('close', (code, reason) => {
+    console.log('[FTSign] Disconnected code=' + code + ' reason=' + reason);
     clearInterval(heartbeatTimer);
     clearInterval(wsPingTimer);
     if (!lastSignUrl) showMessage('Closed: ' + code, (lastWsError || (reason ? reason.toString() : 'no reason')) + ' — reconnecting'); lastWsError = null;
     setTimeout(() => connectController(wsUrl), 5000);
   });
 
-  wisignWs.on('error', err => { console.error('[WiSign] Error:', err.message); lastWsError = err.message; });
+  ftsignWs.on('error', err => { console.error('[FTSign] Error:', err.message); lastWsError = err.message; });
 }
 
 // ── Discovery ─────────────────────────────────────────────────────────────────
 function discover() {
   // 1. Manual override (best for managed/multi-subnet networks)
   if (CONTROLLER) {
-    console.log(`[Discovery] Using WISIGN_CONTROLLER: ${CONTROLLER}`);
+    console.log(`[Discovery] Using FTSIGN_CONTROLLER: ${CONTROLLER}`);
     connectController(CONTROLLER);
     return;
   }
 
   console.log('[Discovery] Listening for controller...');
   console.log(`[Discovery]   UDP broadcast on port ${DISCOVERY_PORT}`);
-  console.log('[Discovery]   mDNS _wisign._tcp.local');
-  console.log('[Discovery]   Set WISIGN_CONTROLLER=ws://<ip>:3000/ws to skip discovery');
-  showMessage('Scanning for controller...', `UDP:${DISCOVERY_PORT} · mDNS · or set WISIGN_CONTROLLER`);
+  console.log('[Discovery]   mDNS _ftsign._tcp.local');
+  console.log('[Discovery]   Set FTSIGN_CONTROLLER=ws://<ip>:3000/ws to skip discovery');
+  showMessage('Scanning for controller...', `UDP:${DISCOVERY_PORT} · mDNS · or set FTSIGN_CONTROLLER`);
 
   let found = false;
 
@@ -260,7 +260,7 @@ function discover() {
   udp.on('message', (buf, rinfo) => {
     try {
       const msg = JSON.parse(buf.toString());
-      if (msg.type !== 'WISIGN_CONTROLLER') return;
+      if (msg.type !== 'FTSIGN_CONTROLLER') return;
       const wsUrl = `ws://${rinfo.address}:${msg.port}/ws`;
       if (!found) {
         found = true;
@@ -275,7 +275,7 @@ function discover() {
   // 3. mDNS fallback
   try {
     const bonjour = new Bonjour();
-    const browser = bonjour.find({ type: 'wisign' });
+    const browser = bonjour.find({ type: 'ftsign' });
     browser.on('up', (svc) => {
       if (found) return;
       found = true;

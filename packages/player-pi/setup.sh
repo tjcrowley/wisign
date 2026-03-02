@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-echo "🍓 WiSign Pi Player Setup"
+echo "🍓 FTSign Pi Player Setup"
 echo "========================="
 
 # Node.js
@@ -42,9 +42,9 @@ echo "→ Installing systemd service..."
 PLAYER_DIR="$(pwd)"
 PLAYER_USER="${SUDO_USER:-pi}"
 
-sudo tee /etc/systemd/system/wisign-player.service > /dev/null << SVCEOF
+sudo tee /etc/systemd/system/ftsign-player.service > /dev/null << SVCEOF
 [Unit]
-Description=WiSign Pi Player
+Description=FTSign Pi Player
 After=network-online.target graphical.target
 Wants=network-online.target
 
@@ -64,22 +64,22 @@ Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_RUNTIME_DIR=/run/user/1000
 
 # Override controller URL if mDNS doesn't work on your network:
-# Environment=WISIGN_CONTROLLER=ws://192.168.1.100:3000/ws
+# Environment=FTSIGN_CONTROLLER=ws://192.168.1.100:3000/ws
 
 [Install]
 WantedBy=graphical.target
 SVCEOF
 
 sudo systemctl daemon-reload
-sudo systemctl enable wisign-player.service
+sudo systemctl enable ftsign-player.service
 
 # Also add autostart entry as fallback for desktop session
 AUTOSTART_DIR="/home/${PLAYER_USER}/.config/autostart"
 mkdir -p "$AUTOSTART_DIR"
-tee "$AUTOSTART_DIR/wisign-player.desktop" > /dev/null << DEOF
+tee "$AUTOSTART_DIR/ftsign-player.desktop" > /dev/null << DEOF
 [Desktop Entry]
 Type=Application
-Name=WiSign Player
+Name=FTSign Player
 Exec=/usr/bin/node ${PLAYER_DIR}/src/agent.js
 Hidden=false
 NoDisplay=false
@@ -87,11 +87,11 @@ X-GNOME-Autostart-enabled=true
 DEOF
 
 echo ""
-echo "✅ WiSign Pi Player installed!"
+echo "✅ FTSign Pi Player installed!"
 echo ""
 echo "Commands:"
-echo "  sudo systemctl start wisign-player    # start now"
-echo "  sudo systemctl status wisign-player   # check status"
-echo "  journalctl -u wisign-player -f        # view logs"
+echo "  sudo systemctl start ftsign-player    # start now"
+echo "  sudo systemctl status ftsign-player   # check status"
+echo "  journalctl -u ftsign-player -f        # view logs"
 echo ""
 echo "Reboot to start automatically: sudo reboot"

@@ -7,6 +7,6 @@ git pull
 echo "→ Installing deps..."
 npm install --prefix packages/player-pi --omit=dev 2>/dev/null
 echo "→ Restarting service..."
-sudo systemctl restart wisign-player
+sudo systemctl restart ftsign-player
 echo "→ Done. Logs:"
-journalctl -u wisign-player -n 20 --no-pager
+journalctl -u ftsign-player -n 20 --no-pager

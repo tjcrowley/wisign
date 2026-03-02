@@ -1,5 +1,5 @@
 {
-  "name": "@wisign/player",
+  "name": "@ftsign/player",
   "version": "0.1.0",
   "main": "src/main.js",
   "scripts": {

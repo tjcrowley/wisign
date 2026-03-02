@@ -1,18 +1,18 @@
 'use strict';
 /**
- * WiSign Discovery
+ * FTSign Discovery
  *
  * Advertises the controller on the LAN using two methods:
  *  1. UDP broadcast (port 3002) — works on any flat network, no multicast needed
  *  2. mDNS/Bonjour — works on simple home/office networks
  *
  * Players listen for the UDP broadcast and connect automatically.
- * Falls back to WISIGN_CONTROLLER env var for cross-subnet setups.
+ * Falls back to FTSIGN_CONTROLLER env var for cross-subnet setups.
  */
 const dgram = require('dgram');
 const os = require('os');
 
-const DISCOVERY_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
+const DISCOVERY_PORT = parseInt(process.env.FTSIGN_DISCOVERY_PORT || '3002', 10);
 const BROADCAST_INTERVAL = 5000; // ms
 
 let udpSocket = null;
@@ -49,7 +49,7 @@ function getBroadcastAddresses() {
 
 function advertise(httpPort) {
   const payload = JSON.stringify({
-    type: 'WISIGN_CONTROLLER',
+    type: 'FTSIGN_CONTROLLER',
     port: httpPort,
     ips: getLanIPs(),
     version: '0.1.0'
@@ -85,8 +85,8 @@ function advertise(httpPort) {
   try {
     const { Bonjour } = require('bonjour-service');
     mdnsBonjour = new Bonjour();
-    mdnsBonjour.publish({ name: 'WiSign Controller', type: 'wisign', port: httpPort, txt: { version: '0.1.0' } });
-    console.log('[Discovery] mDNS advertising _wisign._tcp.local');
+    mdnsBonjour.publish({ name: 'FTSign Controller', type: 'ftsign', port: httpPort, txt: { version: '0.1.0' } });
+    console.log('[Discovery] mDNS advertising _ftsign._tcp.local');
   } catch (err) {
     console.warn('[Discovery] mDNS unavailable:', err.message);
   }

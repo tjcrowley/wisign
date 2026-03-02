@@ -2,7 +2,7 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-const DB_PATH = process.env.WISIGN_DB || path.join(__dirname, '..', 'wisign.db');
+const DB_PATH = process.env.FTSIGN_DB || path.join(__dirname, '..', 'ftsign.db');
 const db = new Database(DB_PATH);
 
 db.pragma('journal_mode = WAL');
@@ -89,7 +89,7 @@ if (count.c === 0) {
 <body>
   <div>
     <h1>Welcome</h1>
-    <p>Digital Signage Powered by WiSign</p>
+    <p>Digital Signage Powered by FTSign</p>
     <div class="clock" id="clock"></div>
   </div>
   <script>
