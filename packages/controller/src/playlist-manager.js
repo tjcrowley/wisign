@@ -27,7 +27,12 @@ function getPlaylist(playlist_id) {
   return p;
 }
 
+const lastSent = new Map(); // screen_id -> sign_id
+
 function sendSign(screen, sign_id) {
+  if (lastSent.get(screen.id) === sign_id) {
+    // Only skip duplicate if it was JUST sent (not a rotation)
+  }
   const ws = _fastify.wsClients?.get(screen.device_id);
   if (!ws || ws.readyState !== 1) return;
   ws.send(JSON.stringify({
@@ -72,15 +77,15 @@ function scheduleNext(screen_id, device_id, playlist_id, index) {
  * Start or resume a playlist on a screen.
  * If resumeIndex is provided, starts from that position.
  */
-function startPlaylist(screen, playlist_id, resumeIndex = 0) {
+function startPlaylist(screen, playlist_id, resumeIndex = 0, skipSend = false) {
   const playlist = getPlaylist(playlist_id);
   if (!playlist || !playlist.items.length) return;
 
   const index = resumeIndex % playlist.items.length;
   const item = playlist.items[index];
 
-  // Send current sign immediately
-  sendSign(screen, item.sign_id);
+  // Send current sign immediately (unless skipping)
+  if (!skipSend) sendSign(screen, item.sign_id);
 
   // Update DB
   db.prepare("UPDATE screens SET current_assignment = ? WHERE id = ?")

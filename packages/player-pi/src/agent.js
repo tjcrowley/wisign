@@ -111,8 +111,11 @@ function cdpSend(method, params = {}) {
   cdpWs.send(JSON.stringify({ id: cdpMsgId++, method, params }));
 }
 
+let _currentUrl = null;
 function navigateTo(url) {
-  console.log(`[CDP] Navigate → ${url}`);
+  if (url === _currentUrl) return; // already showing this
+  _currentUrl = url;
+  console.log('[CDP] Navigate → ' + url);
   cdpSend('Page.navigate', { url });
 }
 
