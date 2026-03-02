@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const WebSocket = require('ws');
+const dgram = require('dgram');
 const { Bonjour } = require('bonjour-service');
 
 const isDev = process.argv.includes('--dev');
@@ -63,33 +64,50 @@ function showWaiting(message = 'Connecting to WiSign Controller...') {
 
 // mDNS discovery
 function discoverController() {
-  const bonjour = new Bonjour();
-  const browser = bonjour.find({ type: 'wisign' });
+  if (process.env.WISIGN_CONTROLLER) {
+    controllerHost = process.env.WISIGN_CONTROLLER;
+    connectWS();
+    return;
+  }
+
+  const DISC_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
   let found = false;
 
+  // UDP broadcast
+  const udp = dgram.createSocket({ type: 'udp4', reuseAddr: true });
+  udp.bind(DISC_PORT, () => { udp.setBroadcast(true); });
+  udp.on('message', (buf, rinfo) => {
+    try {
+      const msg = JSON.parse(buf.toString());
+      if (msg.type !== 'WISIGN_CONTROLLER') return;
+      const wsUrl = 'ws://' + rinfo.address + ':' + msg.port + '/ws';
+      if (!found) { found = true; try { udp.close(); } catch {} }
+      if (controllerHost !== wsUrl) { controllerHost = wsUrl; connectWS(); }
+    } catch {}
+  });
+
+  // mDNS fallback
+  const bonjour = new Bonjour();
+  const browser = bonjour.find({ type: 'wisign' });
   browser.on('up', (service) => {
     if (found) return;
     found = true;
     const host = service.host || (service.addresses && service.addresses[0]) || 'localhost';
     const port = service.port || 3000;
-    console.log(`[Discovery] Found controller at ${host}:${port}`);
-    controllerHost = `ws://${host}:${port}/ws`;
+    controllerHost = 'ws://' + host + ':' + port + '/ws';
     bonjour.destroy();
     connectWS();
   });
 
-  // Fallback after 10s
   setTimeout(() => {
     if (!found) {
       bonjour.destroy();
       const fallback = process.env.WISIGN_CONTROLLER || 'ws://localhost:3000/ws';
-      console.log(`[Discovery] Timeout — trying fallback: ${fallback}`);
+      console.log('[Discovery] Timeout — trying fallback: ' + fallback);
       controllerHost = fallback;
       connectWS();
     }
-  }, 10000);
-
-  console.log('[Discovery] Scanning for WiSign controller...');
+  }, 15000);
 }
 
 function connectWS() {

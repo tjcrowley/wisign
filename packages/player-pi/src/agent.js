@@ -4,25 +4,33 @@
  * WiSign Pi Agent
  * Connects to the WiSign controller via WebSocket and controls
  * Chromium via the Chrome DevTools Protocol (CDP).
+ *
+ * Discovery order:
+ *  1. WISIGN_CONTROLLER env var (manual override — most reliable on managed networks)
+ *  2. UDP broadcast listener (port 3002) — works on any flat network
+ *  3. mDNS fallback — works on simple home/office networks
  */
 
-const http = require('http');
+const http     = require('http');
+const dgram    = require('dgram');
 const { spawn, execSync } = require('child_process');
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
+const os       = require('os');
+const fs       = require('fs');
+const path     = require('path');
 const { v4: uuidv4 } = require('uuid');
 const WebSocket = require('ws');
 const { Bonjour } = require('bonjour-service');
 
-const PORT        = parseInt(process.env.WISIGN_PORT || '3000', 10);
-const CDP_PORT    = parseInt(process.env.WISIGN_CDP_PORT || '9222', 10);
-const CONTROLLER  = process.env.WISIGN_CONTROLLER || null;
-const DEV         = process.env.WISIGN_DEV === '1';
-const DATA_DIR    = process.env.WISIGN_DATA || path.join(os.homedir(), '.wisign-player');
-const ID_FILE     = path.join(DATA_DIR, 'device-id.json');
-const HB_INTERVAL = 10;
+const PORT           = parseInt(process.env.WISIGN_PORT || '3000', 10);
+const DISCOVERY_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
+const CDP_PORT       = parseInt(process.env.WISIGN_CDP_PORT || '9222', 10);
+const CONTROLLER     = process.env.WISIGN_CONTROLLER || null;
+const DEV            = process.env.WISIGN_DEV === '1';
+const DATA_DIR       = process.env.WISIGN_DATA || path.join(os.homedir(), '.wisign-player');
+const ID_FILE        = path.join(DATA_DIR, 'device-id.json');
+const HB_INTERVAL    = 10;
 
+// ── Device ID ─────────────────────────────────────────────────────────────────
 function getDeviceId() {
   try { return JSON.parse(fs.readFileSync(ID_FILE, 'utf8')).id; } catch {}
   fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -30,13 +38,13 @@ function getDeviceId() {
   fs.writeFileSync(ID_FILE, JSON.stringify({ id }));
   return id;
 }
-
 const DEVICE_ID = getDeviceId();
 console.log(`[WiSign Pi] Device ID: ${DEVICE_ID}`);
 
+// ── Chromium ──────────────────────────────────────────────────────────────────
 let chromiumProc = null;
-let cdpWs = null;
-let cdpMsgId = 1;
+let cdpWs        = null;
+let cdpMsgId     = 1;
 
 function findChromium() {
   for (const bin of ['chromium-browser', 'chromium', 'google-chrome-stable', 'google-chrome']) {
@@ -87,7 +95,7 @@ async function connectCDP() {
       const page = targets.find(t => t.type === 'page');
       if (page) {
         cdpWs = new WebSocket(page.webSocketDebuggerUrl);
-        cdpWs.on('open', () => console.log('[CDP] Connected'));
+        cdpWs.on('open', () => console.log('[CDP] Connected to Chromium'));
         cdpWs.on('close', () => { cdpWs = null; setTimeout(connectCDP, 2000); });
         cdpWs.on('error', () => { cdpWs = null; });
         return;
@@ -119,8 +127,11 @@ function showMessage(title, sub = '') {
   navigateTo(`data:text/html,${enc}`);
 }
 
-let wisignWs = null;
+// ── WiSign WS ─────────────────────────────────────────────────────────────────
+let wisignWs      = null;
 let heartbeatTimer = null;
+let controllerUrl = null;
+let discovering   = false;
 
 function getLocalIP() {
   for (const iface of Object.values(os.networkInterfaces()).flat()) {
@@ -130,6 +141,8 @@ function getLocalIP() {
 }
 
 function connectController(wsUrl) {
+  if (controllerUrl === wsUrl && wisignWs?.readyState === WebSocket.OPEN) return;
+  controllerUrl = wsUrl;
   if (wisignWs) { try { wisignWs.terminate(); } catch {} }
   console.log(`[WiSign] Connecting to ${wsUrl}`);
   showMessage('Connecting to controller...', wsUrl);
@@ -137,6 +150,7 @@ function connectController(wsUrl) {
   wisignWs = new WebSocket(wsUrl);
 
   wisignWs.on('open', () => {
+    console.log('[WiSign] Connected ✓');
     wisignWs.send(JSON.stringify({
       type: 'REGISTER', device_id: DEVICE_ID, timestamp: new Date().toISOString(),
       payload: {
@@ -191,22 +205,63 @@ function connectController(wsUrl) {
   wisignWs.on('error', err => console.error('[WiSign] Error:', err.message));
 }
 
+// ── Discovery ─────────────────────────────────────────────────────────────────
 function discover() {
-  if (CONTROLLER) { connectController(CONTROLLER); return; }
-  console.log('[Discovery] Scanning for WiSign controller...');
-  showMessage('Scanning for controller...', 'mDNS');
-  const bonjour = new Bonjour();
-  const browser = bonjour.find({ type: 'wisign' });
+  // 1. Manual override (best for managed/multi-subnet networks)
+  if (CONTROLLER) {
+    console.log(`[Discovery] Using WISIGN_CONTROLLER: ${CONTROLLER}`);
+    connectController(CONTROLLER);
+    return;
+  }
+
+  console.log('[Discovery] Listening for controller...');
+  console.log(`[Discovery]   UDP broadcast on port ${DISCOVERY_PORT}`);
+  console.log('[Discovery]   mDNS _wisign._tcp.local');
+  console.log('[Discovery]   Set WISIGN_CONTROLLER=ws://<ip>:3000/ws to skip discovery');
+  showMessage('Scanning for controller...', `UDP:${DISCOVERY_PORT} · mDNS · or set WISIGN_CONTROLLER`);
+
   let found = false;
-  browser.on('up', (svc) => {
-    if (found) return; found = true;
-    const host = svc.host || svc.addresses?.[0] || 'localhost';
-    bonjour.destroy();
-    connectController(`ws://${host}:${svc.port || 3000}/ws`);
+
+  // 2. UDP broadcast listener
+  const udp = dgram.createSocket({ type: 'udp4', reuseAddr: true });
+  udp.bind(DISCOVERY_PORT, () => {
+    udp.setBroadcast(true);
+    console.log(`[Discovery] Listening on UDP ${DISCOVERY_PORT}`);
   });
-  setTimeout(() => {
-    if (!found) { bonjour.destroy(); connectController(`ws://localhost:${PORT}/ws`); }
-  }, 15000);
+  udp.on('message', (buf, rinfo) => {
+    try {
+      const msg = JSON.parse(buf.toString());
+      if (msg.type !== 'WISIGN_CONTROLLER') return;
+      const wsUrl = `ws://${rinfo.address}:${msg.port}/ws`;
+      if (!found) {
+        found = true;
+        console.log(`[Discovery] Found controller via UDP broadcast: ${wsUrl}`);
+        udp.close();
+      }
+      connectController(wsUrl);
+    } catch {}
+  });
+  udp.on('error', err => console.warn('[Discovery] UDP error:', err.message));
+
+  // 3. mDNS fallback
+  try {
+    const bonjour = new Bonjour();
+    const browser = bonjour.find({ type: 'wisign' });
+    browser.on('up', (svc) => {
+      if (found) return;
+      found = true;
+      const host = svc.host || svc.addresses?.[0] || 'localhost';
+      const wsUrl = `ws://${host}:${svc.port || PORT}/ws`;
+      console.log(`[Discovery] Found controller via mDNS: ${wsUrl}`);
+      bonjour.destroy();
+      connectController(wsUrl);
+    });
+    setTimeout(() => {
+      if (!found) console.log('[Discovery] mDNS: no controller found yet, still listening on UDP...');
+    }, 10000);
+  } catch (err) {
+    console.warn('[Discovery] mDNS unavailable:', err.message);
+  }
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
