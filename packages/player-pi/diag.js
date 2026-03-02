@@ -25,7 +25,10 @@ async function run() {
   // 1. mDNS discovery
   await testMDNS();
 
-  // 2. HTTP + WS if host provided
+  // 2. UDP broadcast listener test
+  await testUDP();
+
+  // 3. HTTP + WS if host provided
   if (host) {
     await testHTTP(host, port);
     await testWS(host, port);
@@ -35,6 +38,43 @@ async function run() {
   }
 }
 
+
+function testUDP() {
+  return new Promise((resolve) => {
+    const dgram = require('dgram');
+    const DISC_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
+    console.log('── UDP Broadcast Discovery ──────────────────');
+    console.log('   Listening on port ' + DISC_PORT + ' for 8 seconds...');
+    const udp = dgram.createSocket({ type: 'udp4', reuseAddr: true });
+    let heard = false;
+    udp.bind(DISC_PORT, () => { udp.setBroadcast(true); });
+    udp.on('message', (buf, rinfo) => {
+      try {
+        const msg = JSON.parse(buf.toString());
+        if (msg.type === 'WISIGN_CONTROLLER') {
+          heard = true;
+          console.log('✅ Heard controller broadcast from ' + rinfo.address + ':' + rinfo.port);
+          console.log('   → WS URL: ws://' + rinfo.address + ':' + msg.port + '/ws');
+          console.log('   → Controller IPs: ' + (msg.ips || []).join(', '));
+          udp.close();
+          resolve();
+        }
+      } catch {}
+    });
+    udp.on('error', e => { console.log('❌ UDP error: ' + e.message); resolve(); });
+    setTimeout(() => {
+      if (!heard) {
+        console.log('❌ No UDP broadcast heard after 8s');
+        console.log('   Broadcasts are likely blocked by managed switches/VLANs');
+        console.log('   → Use: sudo systemctl edit wisign-player');
+        console.log('     Environment=WISIGN_CONTROLLER=ws://<controller-ip>:3000/ws');
+      }
+      try { udp.close(); } catch {}
+      console.log('');
+      resolve();
+    }, 8000);
+  });
+}
 function testMDNS() {
   return new Promise((resolve) => {
     console.log('── mDNS Discovery ──────────────────────────');
