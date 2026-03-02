@@ -28,7 +28,7 @@ function init() {
     const info = {
       id,
       name:   service.txt?.fn || service.name,
-      host:   service.host || (service.addresses && service.addresses[0]),
+      host:   (service.addresses && service.addresses[0]) || service.host,
       port:   service.port || 8009,
       model:  service.txt?.md || 'Unknown',
       status: 'available'
