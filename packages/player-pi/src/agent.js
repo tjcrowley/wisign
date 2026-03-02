@@ -132,6 +132,7 @@ let wisignWs      = null;
 let lastSignUrl   = null;
 let heartbeatTimer = null;
 let wsPingTimer    = null;
+let lastWsError    = null;
 let controllerUrl = null;
 let discovering   = false;
 
@@ -208,11 +209,11 @@ function connectController(wsUrl) {
     console.log('[WiSign] Disconnected code=' + code + ' reason=' + reason);
     clearInterval(heartbeatTimer);
     clearInterval(wsPingTimer);
-    if (!lastSignUrl) showMessage('Closed: ' + code, (reason ? reason.toString() : 'no reason') + ' — reconnecting');
+    if (!lastSignUrl) showMessage('Closed: ' + code, (lastWsError || (reason ? reason.toString() : 'no reason')) + ' — reconnecting'); lastWsError = null;
     setTimeout(() => connectController(wsUrl), 5000);
   });
 
-  wisignWs.on('error', err => { console.error('[WiSign] Error:', err.message); showMessage('Connection error', err.message); });
+  wisignWs.on('error', err => { console.error('[WiSign] Error:', err.message); lastWsError = err.message; });
 }
 
 // ── Discovery ─────────────────────────────────────────────────────────────────
