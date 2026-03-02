@@ -10,6 +10,8 @@
 const { Client, DefaultMediaReceiver } = require('castv2-client');
 const Bonjour = require('bonjour-service').Bonjour;
 
+const { renderSign } = require('./screenshot');
+
 const devices   = new Map(); // device_id -> device info
 const clients   = new Map(); // device_id -> { client, player }
 const playlists = new Map(); // device_id -> { items, index, timer, baseUrl, active }
@@ -142,7 +144,11 @@ async function castPlaylist(deviceId, items, baseUrl) {
     const url  = `${baseUrl}/api/signs/${item.sign_id}/screenshot.jpg`;
 
     try {
-      await castUrl(deviceId, url);
+      // Pre-render to disk so Chromecast gets an instant HTTP response
+      const renderUrl = `${baseUrl}/api/signs/${item.sign_id}/render`;
+      const cachedPath = await renderSign(item.sign_id, renderUrl);
+      const cachedUrl  = `${baseUrl}${cachedPath}`;
+      await castUrl(deviceId, cachedUrl);
       console.log(`[Cast] Playlist ${deviceId}: sign ${state.index + 1}/${state.items.length} (${item.duration_sec}s)`);
     } catch (err) {
       console.error(`[Cast] Playlist error on ${deviceId}:`, err.message);
