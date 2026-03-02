@@ -18,6 +18,8 @@ function setup(fastify) {
   fastify.wsClients = wsClients;
   fastify.get("/ws", { websocket: true }, (connection, req) => {
     const socket = connection.socket;
+    const remoteAddr = req.socket?.remoteAddress || req.ip || "unknown";
+    console.log("[WS] New connection from " + remoteAddr);
     let deviceId = null;
 
     socket.on('message', (raw) => {
