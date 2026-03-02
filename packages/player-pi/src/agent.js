@@ -193,7 +193,7 @@ function connectController(wsUrl) {
     // WS-level ping to keep connection alive through managed switches
     wsPingTimer = setInterval(() => {
       if (wisignWs?.readyState === WebSocket.OPEN) wisignWs.ping();
-    }, 30000);
+    }, 15000); // ping every 15s to prevent switch timeouts
   });
 
   wisignWs.on('message', (raw) => {

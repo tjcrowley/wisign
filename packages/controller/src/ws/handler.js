@@ -37,7 +37,6 @@ function setup(fastify) {
       if (msg.device_id) deviceId = msg.device_id;
     });
 
-    socket.on('ping', () => socket.pong());
     socket.on('close', () => {
       if (deviceId) {
         const conn = connections.get(deviceId);
