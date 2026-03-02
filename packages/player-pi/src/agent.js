@@ -150,7 +150,7 @@ function connectController(wsUrl) {
   console.log(`[WiSign] Connecting to ${wsUrl}`);
   showMessage('Connecting to controller...', wsUrl + ' (v2)');
 
-  wisignWs = new WebSocket(wsUrl);
+  wisignWs = new WebSocket(wsUrl, { handshakeTimeout: 8000 });
 
   wisignWs.on('open', () => {
     console.log('[WiSign] Connected ✓');
