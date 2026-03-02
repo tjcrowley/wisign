@@ -190,6 +190,7 @@ function connectController(wsUrl) {
         const { url } = msg.payload || {};
         if (url) {
           lastSignUrl = url;
+          try { fs.writeFileSync(path.join(DATA_DIR, "last-sign.txt"), url); } catch {}
           navigateTo(url);
           wisignWs.send(JSON.stringify({
             type: 'ACK', request_id: msg.request_id, device_id: DEVICE_ID,
@@ -282,6 +283,15 @@ async function main() {
   await sleep(2500);
   await connectCDP();
   await sleep(300);
+  // Show last sign immediately while connecting
+  try {
+    const saved = fs.readFileSync(path.join(DATA_DIR, 'last-sign.txt'), 'utf8').trim();
+    if (saved) {
+      console.log('[Cache] Restoring last sign:', saved);
+      lastSignUrl = saved;
+      navigateTo(saved);
+    }
+  } catch {}
   discover();
 }
 
