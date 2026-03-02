@@ -33,6 +33,20 @@ async function signsRoutes(fastify) {
     reply.code(204).send();
   });
 
+  // Screenshot: render sign to JPEG (for casting via Default Media Receiver)
+  fastify.get('/api/signs/:id/screenshot.jpg', async (req, reply) => {
+    const s = db.prepare('SELECT * FROM signs WHERE id = ?').get(req.params.id);
+    if (!s) return reply.code(404).send('Not found');
+    const { renderToJpeg } = require('../screenshot');
+    const renderUrl = `http://127.0.0.1:${fastify.serverPort}/api/signs/${s.id}/render`;
+    try {
+      const jpeg = await renderToJpeg(renderUrl);
+      reply.type('image/jpeg').send(jpeg);
+    } catch (err) {
+      reply.code(500).send({ error: 'Screenshot failed: ' + err.message });
+    }
+  });
+
   // Render sign HTML directly
   fastify.get('/api/signs/:id/render', async (req, reply) => {
     const s = db.prepare('SELECT * FROM signs WHERE id = ?').get(req.params.id);

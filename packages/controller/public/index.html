@@ -125,9 +125,17 @@
     <h3 style="margin-bottom:1rem;font-size:1rem">Cast a Sign</h3>
     <div class="form-row"><label>Device</label><select id="cast-device" style="width:100%"></select></div>
     <div class="form-row"><label>Sign</label><select id="cast-sign" style="width:100%"></select></div>
-    <button class="btn cast" onclick="doCast()">📡 Cast to TV</button>
+    <button class="btn cast" onclick="doCast()">📡 Cast Sign</button>
     <button class="btn secondary" style="margin-left:0.5rem" onclick="doStopCast()">⏹ Stop</button>
     <div id="cast-result" style="margin-top:1rem;color:var(--green)"></div>
+  </div>
+  <div class="card" style="max-width:500px;margin-top:1rem">
+    <h3 style="margin-bottom:1rem;font-size:1rem">Cast a Playlist</h3>
+    <div class="form-row"><label>Device</label><select id="cast-pl-device" style="width:100%"></select></div>
+    <div class="form-row"><label>Playlist</label><select id="cast-pl-playlist" style="width:100%"></select></div>
+    <button class="btn cast" onclick="doCastPlaylist()">▶ Cast Playlist</button>
+    <button class="btn secondary" style="margin-left:0.5rem" onclick="doStopCastPl()">⏹ Stop</button>
+    <div id="cast-pl-result" style="margin-top:1rem;color:var(--green)"></div>
   </div>
 </div>
 
@@ -144,7 +152,11 @@ function show(sec, btn) {
   if (sec === 'signs') loadSigns();
   if (sec === 'assign') { loadScreensInto('assign-screen'); loadSignsInto('assign-sign'); }
   if (sec === 'playlists') initPlaylists();
-  if (sec === 'cast') { loadCastDevices(); loadSignsInto('cast-sign'); }
+  if (sec === 'cast') {
+    loadCastDevices();
+    loadSignsInto('cast-sign');
+    loadPlaylistsInto('cast-pl-playlist');
+  }
 }
 
 // ── Screens ───────────────────────────────────────────────────────────────────
@@ -369,6 +381,11 @@ async function loadCastDevices() {
     </div>
   `).join('');
 
+  // Populate both device selects
+  const deviceOptions = _castDevices.map(d =>
+    `<option value="${d.id}" data-type="${d.type}">${d.name} (${d.type === 'firetv' ? '🔥 Fire TV' : '📺 Chromecast'})</option>`
+  ).join('');
+  g('cast-pl-device').innerHTML = deviceOptions;
   sel.innerHTML = _castDevices.map(d =>
     `<option value="${d.id}" data-type="${d.type}">${d.name} (${d.type === 'firetv' ? '🔥 Fire TV' : '📺 Chromecast'})</option>`
   ).join('');
@@ -411,6 +428,31 @@ async function doStopCast() {
 
   g('cast-result').textContent = res.ok ? 'Stopped' : (res.error || 'Error');
   g('cast-result').style.color = res.ok ? 'var(--muted)' : 'var(--red)';
+}
+
+async function doCastPlaylist() {
+  const device_id = g('cast-pl-device').value;
+  const playlist_id = g('cast-pl-playlist').value;
+  if (!device_id || !playlist_id) return alert('Select a device and playlist');
+  const res = await fetch('/api/cast/playlist', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ device_id, playlist_id })
+  }).then(r => r.json());
+  g('cast-pl-result').textContent = res.ok
+    ? `▶ Playing "${res.playlist}" (${res.total} signs)`
+    : (res.error || 'Error');
+  g('cast-pl-result').style.color = res.ok ? 'var(--green)' : 'var(--red)';
+}
+
+async function doStopCastPl() {
+  const device_id = g('cast-pl-device').value;
+  if (!device_id) return alert('Select a device');
+  const res = await fetch('/api/cast/stop', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ device_id })
+  }).then(r => r.json());
+  g('cast-pl-result').textContent = res.ok ? 'Stopped' : (res.error || 'Error');
+  g('cast-pl-result').style.color = res.ok ? 'var(--muted)' : 'var(--red)';
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────

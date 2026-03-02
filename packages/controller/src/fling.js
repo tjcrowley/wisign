@@ -133,6 +133,9 @@ function init() {
     const info = await fetchDialInfo(location);
     if (!info) return;
 
+    // Port 8008 = Google Cast / Chromecast built-in — skip, castv2 handles these
+    if (info.dialPort === 8008) return;
+
     // Use host as stable ID (Fire TVs don't always have a UUID in SSDP)
     const id = `firetv-${info.host}`;
     if (!devices.has(id)) {
