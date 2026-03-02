@@ -16,7 +16,7 @@ async function flingRoutes(fastify) {
     const sign = db.prepare('SELECT * FROM signs WHERE id = ?').get(sign_id);
     if (!sign) return reply.code(404).send({ error: 'Sign not found' });
 
-    const url = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${sign_id}/render`;
+    const url = `${fastify.castBaseUrl}/api/signs/${sign_id}/render`;
 
     try {
       const result = await flingManager.castUrl(device_id, url);

@@ -17,11 +17,10 @@ async function castRoutes(fastify) {
     if (!sign) return reply.code(404).send({ error: 'Sign not found' });
 
     const renderUrl = `http://127.0.0.1:${fastify.serverPort}/api/signs/${sign_id}/render`;
-    const baseUrl   = `http://${fastify.serverHost}:${fastify.serverPort}`;
     const { renderSign } = require('../screenshot');
     try {
       const cachedPath = await renderSign(sign_id, renderUrl);
-      const url = `${baseUrl}${cachedPath}`;
+      const url = `${fastify.castBaseUrl}${cachedPath}`;
       await castManager.castUrl(device_id, url);
       return { ok: true, url };
     } catch (err) {
@@ -41,7 +40,7 @@ async function castRoutes(fastify) {
     const items = JSON.parse(playlist.items || '[]');
     if (!items.length) return reply.code(400).send({ error: 'Playlist is empty' });
 
-    const baseUrl = `http://${fastify.serverHost}:${fastify.serverPort}`;
+    const baseUrl = fastify.castBaseUrl;
 
     try {
       const result = await castManager.castPlaylist(device_id, items, baseUrl);
