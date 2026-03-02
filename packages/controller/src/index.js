@@ -37,6 +37,7 @@ async function start() {
   fastify.register(require('./routes/assign'));
   fastify.register(require('./routes/playlists'));
   fastify.register(require('./routes/cast'));
+  fastify.register(require('./routes/fling'));
 
   await fastify.listen({ port: PORT, host: HOST });
 
@@ -48,6 +49,7 @@ async function start() {
 
   require('./discovery').advertise(PORT);
   require('./cast').init();
+  require('./fling').init();
 }
 
 start().catch((err) => {

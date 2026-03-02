@@ -40,6 +40,8 @@
   .section.active { display: block; }
   .pl-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
   .cast-device { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg); border-radius: 6px; margin-bottom: 0.5rem; }
+  .badge.chromecast { background: #1a3a1a; color: #4ade80; }
+  .badge.firetv { background: #3a1a00; color: #fb923c; }
 </style>
 </head>
 <body>
@@ -114,7 +116,7 @@
 <!-- CAST -->
 <div id="sec-cast" class="section">
   <h2>Cast Devices</h2>
-  <p class="muted" style="margin-bottom:1rem">Chromecasts and Cast-enabled TVs discovered on your network.</p>
+  <p class="muted" style="margin-bottom:1rem">Chromecasts and Amazon Fire TVs discovered on your network.</p>
   <div class="card" style="max-width:600px">
     <div id="cast-devices-list"><p class="muted">Scanning...</p></div>
     <button class="btn secondary" style="margin-top:1rem" onclick="loadCastDevices()">🔄 Refresh</button>
@@ -124,6 +126,7 @@
     <div class="form-row"><label>Device</label><select id="cast-device" style="width:100%"></select></div>
     <div class="form-row"><label>Sign</label><select id="cast-sign" style="width:100%"></select></div>
     <button class="btn cast" onclick="doCast()">📡 Cast to TV</button>
+    <button class="btn secondary" style="margin-left:0.5rem" onclick="doStopCast()">⏹ Stop</button>
     <div id="cast-result" style="margin-top:1rem;color:var(--green)"></div>
   </div>
 </div>
@@ -327,34 +330,87 @@ async function doAssignPlaylist() {
     : res.error;
 }
 
-// ── Cast ──────────────────────────────────────────────────────────────────────
+// ── Cast (Chromecast + Fire TV unified) ───────────────────────────────────────
+
+// Merged device list: { id, name, host, model, status, type }
+// type = 'chromecast' | 'firetv'
+let _castDevices = [];
+
 async function loadCastDevices() {
-  const devices = await fetch('/api/cast/devices').then(r => r.json());
   const el = g('cast-devices-list');
   const sel = g('cast-device');
-  if (!devices.length) {
+
+  const [chromecasts, firetvs] = await Promise.all([
+    fetch('/api/cast/devices').then(r => r.json()).catch(() => []),
+    fetch('/api/fling/devices').then(r => r.json()).catch(() => [])
+  ]);
+
+  _castDevices = [
+    ...chromecasts.map(d => ({ ...d, type: 'chromecast' })),
+    ...firetvs.map(d => ({ ...d, type: 'firetv' }))
+  ];
+
+  if (!_castDevices.length) {
     el.innerHTML = '<p class="muted">No Cast devices found. Make sure they are on the same network.</p>';
     sel.innerHTML = '';
     return;
   }
-  el.innerHTML = devices.map(d => `
+
+  el.innerHTML = _castDevices.map(d => `
     <div class="cast-device">
-      <div><strong>${d.name}</strong><div class="muted">${d.model} · ${d.host}</div></div>
-      <span class="badge ${d.status === 'available' ? 'online' : 'offline'}">${d.status}</span>
+      <div>
+        <strong>${d.name}</strong>
+        <div class="muted">${d.model || d.host} · ${d.host}</div>
+      </div>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <span class="badge ${d.type}">${d.type === 'firetv' ? '🔥 Fire TV' : '📺 Chromecast'}</span>
+        <span class="badge ${d.status === 'available' ? 'online' : 'offline'}">${d.status}</span>
+      </div>
     </div>
   `).join('');
-  sel.innerHTML = devices.map(d => `<option value="${d.id}">${d.name}</option>`).join('');
+
+  sel.innerHTML = _castDevices.map(d =>
+    `<option value="${d.id}" data-type="${d.type}">${d.name} (${d.type === 'firetv' ? '🔥 Fire TV' : '📺 Chromecast'})</option>`
+  ).join('');
 }
 
 async function doCast() {
-  const device_id = g('cast-device').value;
+  const sel = g('cast-device');
+  const device_id = sel.value;
   const sign_id = g('cast-sign').value;
   if (!device_id || !sign_id) return alert('Select a device and sign');
-  const res = await fetch('/api/cast/assign', {
+
+  const opt = sel.options[sel.selectedIndex];
+  const type = opt.dataset.type || 'chromecast';
+  const endpoint = type === 'firetv' ? '/api/fling/assign' : '/api/cast/assign';
+
+  const res = await fetch(endpoint, {
     method: 'POST', headers: {'Content-Type':'application/json'},
     body: JSON.stringify({ device_id, sign_id })
   }).then(r => r.json());
-  g('cast-result').textContent = res.ok ? 'Casting to TV' : res.error;
+
+  g('cast-result').textContent = res.ok
+    ? `Casting to ${type === 'firetv' ? '🔥 Fire TV' : '📺 Chromecast'}`
+    : (res.error || 'Error');
+  g('cast-result').style.color = res.ok ? 'var(--green)' : 'var(--red)';
+}
+
+async function doStopCast() {
+  const sel = g('cast-device');
+  const device_id = sel.value;
+  if (!device_id) return alert('Select a device first');
+
+  const opt = sel.options[sel.selectedIndex];
+  const type = opt.dataset.type || 'chromecast';
+  const endpoint = type === 'firetv' ? '/api/fling/stop' : '/api/cast/stop';
+
+  const res = await fetch(endpoint, {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ device_id })
+  }).then(r => r.json());
+
+  g('cast-result').textContent = res.ok ? 'Stopped' : (res.error || 'Error');
+  g('cast-result').style.color = res.ok ? 'var(--muted)' : 'var(--red)';
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
