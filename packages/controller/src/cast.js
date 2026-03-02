@@ -105,7 +105,9 @@ function getSession(deviceId) {
 
 // ── Single image load ─────────────────────────────────────────────────────────
 
-async function castUrl(deviceId, url) {
+async function castUrl(deviceId, url, _fromPlaylist = false) {
+  // Stop any running playlist unless this call IS from the playlist loop
+  if (!_fromPlaylist) stopPlaylist(deviceId);
   // If session is stale (e.g. after network change), clear it so we reconnect
   const session = await getSession(deviceId);
 
@@ -148,7 +150,7 @@ async function castPlaylist(deviceId, items, baseUrl) {
       const renderUrl = `${baseUrl}/api/signs/${item.sign_id}/render`;
       const cachedPath = await renderSign(item.sign_id, renderUrl);
       const cachedUrl  = `${baseUrl}${cachedPath}`;
-      await castUrl(deviceId, cachedUrl);
+      await castUrl(deviceId, cachedUrl, true);
       console.log(`[Cast] Playlist ${deviceId}: sign ${state.index + 1}/${state.items.length} (${item.duration_sec}s)`);
     } catch (err) {
       console.error(`[Cast] Playlist error on ${deviceId}:`, err.message);
