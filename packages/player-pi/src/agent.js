@@ -129,6 +129,7 @@ function showMessage(title, sub = '') {
 
 // ── WiSign WS ─────────────────────────────────────────────────────────────────
 let wisignWs      = null;
+let lastSignUrl   = null;
 let heartbeatTimer = null;
 let controllerUrl = null;
 let discovering   = false;
@@ -160,6 +161,7 @@ function connectController(wsUrl) {
       }
     }));
     clearInterval(heartbeatTimer);
+    clearInterval(_wsPingTimer);
     heartbeatTimer = setInterval(() => {
       if (wisignWs?.readyState === WebSocket.OPEN) {
         wisignWs.send(JSON.stringify({
@@ -168,6 +170,11 @@ function connectController(wsUrl) {
         }));
       }
     }, HB_INTERVAL * 1000);
+
+    // WS-level ping to keep connection alive through managed switches
+    let _wsPingTimer = setInterval(() => {
+      if (wisignWs?.readyState === WebSocket.OPEN) wisignWs.ping();
+    }, 30000);
   });
 
   wisignWs.on('message', (raw) => {
@@ -180,6 +187,7 @@ function connectController(wsUrl) {
       case 'LOAD_SIGN': {
         const { url } = msg.payload || {};
         if (url) {
+          lastSignUrl = url;
           navigateTo(url);
           wisignWs.send(JSON.stringify({
             type: 'ACK', request_id: msg.request_id, device_id: DEVICE_ID,
@@ -198,7 +206,7 @@ function connectController(wsUrl) {
   wisignWs.on('close', () => {
     console.log('[WiSign] Disconnected — reconnecting in 5s');
     clearInterval(heartbeatTimer);
-    showMessage('Connection lost', 'Reconnecting...');
+    if (!lastSignUrl) showMessage('Connection lost', 'Reconnecting...');
     setTimeout(() => connectController(wsUrl), 5000);
   });
 
