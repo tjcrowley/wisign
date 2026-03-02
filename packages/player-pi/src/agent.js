@@ -147,7 +147,7 @@ function connectController(wsUrl) {
   controllerUrl = wsUrl;
   if (wisignWs) { try { wisignWs.terminate(); } catch {} }
   console.log(`[WiSign] Connecting to ${wsUrl}`);
-  showMessage('Connecting to controller...', wsUrl);
+  showMessage('Connecting to controller...', wsUrl + ' (v2)');
 
   wisignWs = new WebSocket(wsUrl);
 
@@ -212,7 +212,7 @@ function connectController(wsUrl) {
     setTimeout(() => connectController(wsUrl), 5000);
   });
 
-  wisignWs.on('error', err => console.error('[WiSign] Error:', err.message));
+  wisignWs.on('error', err => { console.error('[WiSign] Error:', err.message); showMessage('Connection error', err.message); });
 }
 
 // ── Discovery ─────────────────────────────────────────────────────────────────
