@@ -204,11 +204,11 @@ function connectController(wsUrl) {
     }
   });
 
-  wisignWs.on('close', () => {
-    console.log('[WiSign] Disconnected — reconnecting in 5s');
+  wisignWs.on('close', (code, reason) => {
+    console.log('[WiSign] Disconnected code=' + code + ' reason=' + reason);
     clearInterval(heartbeatTimer);
     clearInterval(wsPingTimer);
-    if (!lastSignUrl) showMessage('Connection lost', 'Reconnecting...');
+    if (!lastSignUrl) showMessage('Closed: ' + code, (reason ? reason.toString() : 'no reason') + ' — reconnecting');
     setTimeout(() => connectController(wsUrl), 5000);
   });
 
