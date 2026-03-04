@@ -34,14 +34,17 @@ async function assignRoutes(fastify) {
 
         const ws = fastify.wsClients?.get(screen.device_id);
         if (ws && ws.readyState === 1) {
+          const portrait = (screen.orientation || 'landscape') === 'portrait';
+          const renderUrl = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${ref_id}/render${portrait ? '?orientation=portrait' : ''}`;
           ws.send(JSON.stringify({
             type: 'LOAD_SIGN',
             request_id: uuidv4(),
             timestamp: new Date().toISOString(),
             payload: {
               mode: 'url',
-              url: `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${ref_id}/render`,
+              url: renderUrl,
               sign_id: ref_id,
+              orientation: screen.orientation || 'landscape',
               cache_policy: 'no-cache'
             }
           }));

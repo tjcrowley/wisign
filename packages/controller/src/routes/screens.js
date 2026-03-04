@@ -14,9 +14,9 @@ async function screensRoutes(fastify) {
   });
 
   fastify.put('/api/screens/:id', async (req, reply) => {
-    const { display_name, location, tags, notes } = req.body || {};
-    db.prepare(`UPDATE screens SET display_name=COALESCE(?,display_name), location=COALESCE(?,location), tags=COALESCE(?,tags), notes=COALESCE(?,notes) WHERE id=?`)
-      .run(display_name, location, tags ? JSON.stringify(tags) : null, notes, req.params.id);
+    const { display_name, location, tags, notes, orientation } = req.body || {};
+    db.prepare(`UPDATE screens SET display_name=COALESCE(?,display_name), location=COALESCE(?,location), tags=COALESCE(?,tags), notes=COALESCE(?,notes), orientation=COALESCE(?,orientation) WHERE id=?`)
+      .run(display_name, location, tags ? JSON.stringify(tags) : null, notes, orientation ?? null, req.params.id);
     const s = db.prepare('SELECT * FROM screens WHERE id = ?').get(req.params.id);
     return s ? parseScreen(s) : reply.code(404).send({ error: 'Not found' });
   });

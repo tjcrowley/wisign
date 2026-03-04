@@ -103,4 +103,26 @@ if (count.c === 0) {
   );
 }
 
+// Migrations — safe to run repeatedly
+try { db.exec(`ALTER TABLE screens   ADD COLUMN orientation TEXT DEFAULT 'landscape'`); } catch {}
+try { db.exec(`ALTER TABLE screens   ADD COLUMN group_id    TEXT DEFAULT NULL`);        } catch {}
+try { db.exec(`ALTER TABLE playlists ADD COLUMN group_ids   TEXT DEFAULT '[]'`);        } catch {}
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS groups (
+    id         TEXT PRIMARY KEY,
+    name       TEXT NOT NULL UNIQUE,
+    color      TEXT NOT NULL DEFAULT '#6366f1',
+    created_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE TABLE IF NOT EXISTS device_config (
+    id           TEXT PRIMARY KEY,
+    display_name TEXT DEFAULT '',
+    group_id     TEXT DEFAULT NULL,
+    notes        TEXT DEFAULT '',
+    updated_at   TEXT DEFAULT (datetime('now'))
+  );
+`);
+
 module.exports = db;

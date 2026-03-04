@@ -4,7 +4,8 @@ const path = require('path');
 const fs   = require('fs');
 
 const CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const VIEWPORT    = { width: 1920, height: 1080 };
+const VIEWPORT           = { width: 1920, height: 1080 };
+const VIEWPORT_PORTRAIT  = { width: 1080, height: 1920 };
 const CACHE_DIR   = path.join(__dirname, '..', 'public', 'screenshots');
 const TIMEOUT_MS  = 20000;
 
@@ -27,23 +28,26 @@ async function getBrowser() {
   return _browser;
 }
 
-async function renderSign(signId, renderUrl) {
-  const outPath = path.join(CACHE_DIR, `${signId}.jpg`);
+async function renderSign(signId, renderUrl, options = {}) {
+  const portrait = !!options.portrait;
+  const suffix   = portrait ? '-portrait' : '';
+  const viewport = portrait ? VIEWPORT_PORTRAIT : VIEWPORT;
+  const outPath  = path.join(CACHE_DIR, `${signId}${suffix}.jpg`);
   let page;
   try {
     const browser = await getBrowser();
     page = await browser.newPage();
-    await page.setViewport(VIEWPORT);
+    await page.setViewport(viewport);
     await page.goto(renderUrl, { waitUntil: 'networkidle0', timeout: TIMEOUT_MS })
       .catch(() => page.goto(renderUrl, { waitUntil: 'domcontentloaded', timeout: TIMEOUT_MS }));
     await page.screenshot({ path: outPath, type: 'jpeg', quality: 90, fullPage: false });
-    return `/screenshots/${signId}.jpg`;
+    return `/screenshots/${signId}${suffix}.jpg`;
   } catch (err) {
     console.error(`[Screenshot] Failed for ${signId}:`, err.message);
     // Return cached version if available, otherwise rethrow
     if (fs.existsSync(outPath)) {
       console.log(`[Screenshot] Using cached version for ${signId}`);
-      return `/screenshots/${signId}.jpg`;
+      return `/screenshots/${signId}${suffix}.jpg`;
     }
     throw err;
   } finally {

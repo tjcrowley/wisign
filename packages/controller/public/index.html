@@ -42,6 +42,9 @@
   .cast-device { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--bg); border-radius: 6px; margin-bottom: 0.5rem; }
   .badge.chromecast { background: #1a3a1a; color: #4ade80; }
   .badge.firetv { background: #3a1a00; color: #fb923c; }
+  .group-dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; vertical-align:middle; }
+  .access-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+  .color-swatch { width:28px; height:28px; border-radius:6px; border:2px solid var(--border); cursor:pointer; }
 </style>
 </head>
 <body>
@@ -49,10 +52,10 @@
   <h1>📺 FTSign</h1>
   <button class="active" onclick="show('screens',this)">🖥 Screens</button>
   <button onclick="show('signs',this)">📄 Signs</button>
-  <button onclick="show('assign',this)">🎯 Assign</button>
   <button onclick="show('playlists',this)">🔄 Playlists</button>
-  <button onclick="show('cast',this)">📡 Cast</button>
+  <button onclick="show('push',this)">📡 Push</button>
   <button onclick="show('luma',this)">📅 Luma</button>
+  <button onclick="show('access',this)">🔐 Access</button>
 </nav>
 <main>
 
@@ -81,14 +84,74 @@
   <div id="signs-list" class="grid"></div>
 </div>
 
-<!-- ASSIGN (single sign) -->
-<div id="sec-assign" class="section">
-  <h2>Assign Sign to Screen</h2>
-  <div class="card" style="max-width:500px">
-    <div class="form-row"><label>Screen</label><select id="assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
-    <div class="form-row"><label>Sign</label><select id="assign-sign" style="width:100%"></select></div>
-    <button class="btn" onclick="doAssign()">Push to Screen →</button>
-    <div id="assign-result" style="margin-top:1rem;color:var(--green)"></div>
+<!-- PUSH TO DISPLAY (Assign + Cast combined) -->
+<div id="sec-push" class="section">
+  <h2>Push to Display</h2>
+
+  <!-- Connected Screens -->
+  <div style="margin-bottom:2rem">
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Connected Screens</h3>
+    <div class="grid" style="max-width:900px">
+      <div class="card">
+        <h4 style="margin-bottom:1rem;font-size:0.95rem">Push a Sign</h4>
+        <div class="form-row"><label>Screen</label><select id="assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
+        <div class="form-row"><label>Sign</label><select id="assign-sign" style="width:100%"></select></div>
+        <button class="btn" onclick="doAssign()">Push to Screen →</button>
+        <div id="assign-result" style="margin-top:1rem;color:var(--green)"></div>
+      </div>
+      <div class="card">
+        <h4 style="margin-bottom:1rem;font-size:0.95rem">Start a Playlist</h4>
+        <div class="form-row"><label>Screen</label><select id="pl-assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
+        <div class="form-row"><label>Playlist</label><select id="pl-assign-playlist" style="width:100%"></select></div>
+        <button class="btn" onclick="doAssignPlaylist()">▶ Start Playlist →</button>
+        <div id="pl-assign-result" style="margin-top:1rem;color:var(--green)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cast Devices -->
+  <div>
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Cast Devices</h3>
+    <div class="card" style="max-width:900px;margin-bottom:1rem">
+      <div id="cast-devices-list"><p class="muted">Scanning...</p></div>
+      <button class="btn secondary" style="margin-top:1rem" onclick="loadCastDevices()">🔄 Refresh</button>
+    </div>
+    <div class="grid" style="max-width:900px">
+      <div class="card">
+        <h4 style="margin-bottom:1rem;font-size:0.95rem">Cast a Sign</h4>
+        <div class="form-row"><label>Device</label><select id="cast-device" style="width:100%"></select></div>
+        <div class="form-row"><label>Sign</label><select id="cast-sign" style="width:100%"></select></div>
+        <div class="form-row">
+          <label>Orientation</label>
+          <div class="row" style="gap:0.4rem">
+            <button id="cast-orient-landscape" class="btn" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setCastOrient('landscape')">🌄 Landscape</button>
+            <button id="cast-orient-portrait" class="btn secondary" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setCastOrient('portrait')">📱 Portrait</button>
+          </div>
+        </div>
+        <div class="row" style="gap:0.5rem">
+          <button class="btn cast" onclick="doCast()">📡 Cast Sign</button>
+          <button class="btn secondary" onclick="doStopCast()">⏹ Stop</button>
+        </div>
+        <div id="cast-result" style="margin-top:1rem;color:var(--green)"></div>
+      </div>
+      <div class="card">
+        <h4 style="margin-bottom:1rem;font-size:0.95rem">Cast a Playlist</h4>
+        <div class="form-row"><label>Device</label><select id="cast-pl-device" style="width:100%"></select></div>
+        <div class="form-row"><label>Playlist</label><select id="cast-pl-playlist" style="width:100%"></select></div>
+        <div class="form-row">
+          <label>Orientation</label>
+          <div class="row" style="gap:0.4rem">
+            <button id="cast-pl-orient-landscape" class="btn" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setCastPlOrient('landscape')">🌄 Landscape</button>
+            <button id="cast-pl-orient-portrait" class="btn secondary" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setCastPlOrient('portrait')">📱 Portrait</button>
+          </div>
+        </div>
+        <div class="row" style="gap:0.5rem">
+          <button class="btn cast" onclick="doCastPlaylist()">▶ Cast Playlist</button>
+          <button class="btn secondary" onclick="doStopCastPl()">⏹ Stop</button>
+        </div>
+        <div id="cast-pl-result" style="margin-top:1rem;color:var(--green)"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -96,49 +159,19 @@
 <div id="sec-playlists" class="section">
   <h2>Playlists</h2>
   <div class="card" style="max-width:640px;margin-bottom:1.5rem">
-    <h3 style="margin-bottom:1rem;font-size:1rem">New Playlist</h3>
+    <h3 id="pl-form-title" style="margin-bottom:1rem;font-size:1rem">New Playlist</h3>
     <div class="form-row"><label>Name</label><input id="new-pl-name" placeholder="Playlist name" style="max-width:300px"></div>
     <div id="pl-items"></div>
     <div class="row" style="margin-top:0.75rem;gap:0.5rem">
       <button class="btn secondary" onclick="addPlItem()">+ Add Sign</button>
-      <button class="btn" onclick="createPlaylist()">Create Playlist</button>
+      <button id="pl-save-btn" class="btn" onclick="createPlaylist()">Create Playlist</button>
+      <button id="pl-cancel-btn" class="btn secondary" onclick="cancelEditPlaylist()" style="display:none">Cancel</button>
     </div>
   </div>
   <div id="playlists-list" class="grid"></div>
-  <div class="card" style="max-width:500px;margin-top:1.5rem">
-    <h3 style="margin-bottom:1rem;font-size:1rem">Assign Playlist to Screen</h3>
-    <div class="form-row"><label>Screen</label><select id="pl-assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
-    <div class="form-row"><label>Playlist</label><select id="pl-assign-playlist" style="width:100%"></select></div>
-    <button class="btn" onclick="doAssignPlaylist()">▶ Start Playlist →</button>
-    <div id="pl-assign-result" style="margin-top:1rem;color:var(--green)"></div>
-  </div>
 </div>
 
-<!-- CAST -->
-<div id="sec-cast" class="section">
-  <h2>Cast Devices</h2>
-  <p class="muted" style="margin-bottom:1rem">Chromecasts and Amazon Fire TVs discovered on your network.</p>
-  <div class="card" style="max-width:600px">
-    <div id="cast-devices-list"><p class="muted">Scanning...</p></div>
-    <button class="btn secondary" style="margin-top:1rem" onclick="loadCastDevices()">🔄 Refresh</button>
-  </div>
-  <div class="card" style="max-width:500px;margin-top:1rem">
-    <h3 style="margin-bottom:1rem;font-size:1rem">Cast a Sign</h3>
-    <div class="form-row"><label>Device</label><select id="cast-device" style="width:100%"></select></div>
-    <div class="form-row"><label>Sign</label><select id="cast-sign" style="width:100%"></select></div>
-    <button class="btn cast" onclick="doCast()">📡 Cast Sign</button>
-    <button class="btn secondary" style="margin-left:0.5rem" onclick="doStopCast()">⏹ Stop</button>
-    <div id="cast-result" style="margin-top:1rem;color:var(--green)"></div>
-  </div>
-  <div class="card" style="max-width:500px;margin-top:1rem">
-    <h3 style="margin-bottom:1rem;font-size:1rem">Cast a Playlist</h3>
-    <div class="form-row"><label>Device</label><select id="cast-pl-device" style="width:100%"></select></div>
-    <div class="form-row"><label>Playlist</label><select id="cast-pl-playlist" style="width:100%"></select></div>
-    <button class="btn cast" onclick="doCastPlaylist()">▶ Cast Playlist</button>
-    <button class="btn secondary" style="margin-left:0.5rem" onclick="doStopCastPl()">⏹ Stop</button>
-    <div id="cast-pl-result" style="margin-top:1rem;color:var(--green)"></div>
-  </div>
-</div>
+
 
 <!-- LUMA EVENTS -->
 <div id="sec-luma" class="section">
@@ -147,9 +180,65 @@
   <div class="row" style="margin-bottom:1.5rem;gap:0.5rem">
     <button class="btn" onclick="lumaSync()">🔄 Sync Now</button>
     <a href="/api/luma/sign" target="_blank"><button class="btn secondary">👁 Preview Slideshow</button></a>
+    <button class="btn secondary" onclick="toggleLumaPlaylistForm()">🎬 Create Playlist</button>
     <span id="luma-status" class="muted"></span>
   </div>
+  <div id="luma-pl-form" class="card" style="max-width:500px;margin-bottom:1.5rem;display:none">
+    <h3 style="margin-bottom:1rem;font-size:1rem">Create Playlist from Luma Events</h3>
+    <div class="form-row">
+      <label>Playlist Name</label>
+      <input id="luma-pl-name" placeholder="Luma Events – Mar 4" style="max-width:320px">
+    </div>
+    <div class="form-row">
+      <label>Duration per Slide (seconds)</label>
+      <input id="luma-pl-duration" type="number" value="15" min="5" style="width:100px">
+    </div>
+    <div class="row" style="gap:0.5rem;margin-top:0.25rem">
+      <button class="btn" onclick="createLumaPlaylist()">✓ Create Playlist</button>
+      <button class="btn secondary" onclick="toggleLumaPlaylistForm()">Cancel</button>
+    </div>
+    <div id="luma-pl-result" style="margin-top:0.75rem;font-size:0.9rem"></div>
+  </div>
   <div id="luma-events" class="grid"></div>
+</div>
+
+<!-- ACCESS CONTROL -->
+<div id="sec-access" class="section">
+  <h2>🔐 Access Control</h2>
+  <p class="muted" style="margin-bottom:1.5rem">Groups let you tag screens, cast devices, and playlists. Full enforcement (user accounts, role-based access) builds on top of this.</p>
+
+  <!-- Groups -->
+  <div style="max-width:900px;margin-bottom:2rem">
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Groups</h3>
+    <div class="card" style="max-width:500px;margin-bottom:1rem">
+      <h4 style="margin-bottom:1rem;font-size:0.95rem">New Group</h4>
+      <div class="row" style="gap:0.75rem;flex-wrap:nowrap">
+        <input id="new-grp-name" placeholder="Group name" style="flex:1">
+        <input id="new-grp-color" type="color" value="#6366f1" style="width:40px;height:36px;padding:2px;cursor:pointer;border-radius:6px">
+        <button class="btn" onclick="createGroup()">Add</button>
+      </div>
+    </div>
+    <div id="groups-list" class="access-grid"></div>
+  </div>
+
+  <!-- Screens -->
+  <div style="max-width:900px;margin-bottom:2rem">
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Screen Groups</h3>
+    <div id="access-screens-list" class="access-grid"></div>
+  </div>
+
+  <!-- Cast Devices -->
+  <div style="max-width:900px;margin-bottom:2rem">
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Cast Device Groups</h3>
+    <p class="muted" style="margin-bottom:1rem;font-size:0.82rem">Chromecasts and Fire TVs discovered on the network.</p>
+    <div id="access-devices-list" class="access-grid"></div>
+  </div>
+
+  <!-- Playlists -->
+  <div style="max-width:900px">
+    <h3 style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Playlist Groups</h3>
+    <div id="access-playlists-list" class="access-grid"></div>
+  </div>
 </div>
 
 </main>
@@ -163,29 +252,40 @@ function show(sec, btn) {
   if (btn) btn.classList.add('active');
   if (sec === 'screens') loadScreens();
   if (sec === 'signs') loadSigns();
-  if (sec === 'assign') { loadScreensInto('assign-screen'); loadSignsInto('assign-sign'); }
   if (sec === 'playlists') initPlaylists();
-  if (sec === 'cast') {
+  if (sec === 'push') {
+    loadScreensInto('assign-screen');
+    loadSignsInto('assign-sign');
+    loadScreensInto('pl-assign-screen');
+    loadPlaylistsInto('pl-assign-playlist');
     loadCastDevices();
     loadSignsInto('cast-sign');
     loadPlaylistsInto('cast-pl-playlist');
   }
-  if (sec === 'luma') loadLumaEvents();
+  if (sec === 'luma')   loadLumaEvents();
+  if (sec === 'access') loadAccess();
 }
 
 // ── Screens ───────────────────────────────────────────────────────────────────
 async function loadScreens() {
-  const screens = await fetch('/api/screens').then(r => r.json());
+  const [screens, groups] = await Promise.all([
+    fetch('/api/screens').then(r => r.json()),
+    fetch('/api/groups').then(r => r.json()).catch(() => [])
+  ]);
   const el = g('screens-list');
   if (!screens.length) {
     el.innerHTML = '<p class="muted">No screens registered yet. Connect a player to get started.</p>';
     return;
   }
-  el.innerHTML = screens.map(s => `
+  const groupMap = Object.fromEntries(groups.map(grp => [grp.id, grp]));
+  el.innerHTML = screens.map(s => {
+    const grp = s.group_id ? groupMap[s.group_id] : null;
+    return `
     <div class="card">
       <div class="row" style="margin-bottom:0.5rem">
         <span class="badge ${s.status}">${s.status}</span>
         <strong>${s.display_name}</strong>
+        ${grp ? `<span class="badge" style="background:${grp.color}22;color:${grp.color}"><span class="group-dot" style="background:${grp.color}"></span>${grp.name}</span>` : ''}
       </div>
       <div class="muted">${s.location || 'No location'} · ${s.platform}</div>
       <div class="muted" style="margin-top:0.25rem">IP: ${s.ip || '—'} · Last seen: ${s.last_seen_at ? new Date(s.last_seen_at + 'Z').toLocaleTimeString() : 'never'}</div>
@@ -194,8 +294,26 @@ async function loadScreens() {
           ? `▶ Playlist · sign ${(s.current_assignment.index || 0) + 1}`
           : `Sign: ${s.current_assignment.sign_id || '—'}`}
       </div>` : ''}
-    </div>
-  `).join('');
+      <div class="row" style="margin-top:0.75rem;gap:0.4rem">
+        <span class="muted" style="font-size:0.8rem">Orientation:</span>
+        <button class="btn ${(s.orientation||'landscape')==='landscape'?'':'secondary'}" style="font-size:0.78rem;padding:0.3rem 0.7rem"
+          onclick="setScreenOrientation('${s.id}','landscape',this)">🌄 Landscape</button>
+        <button class="btn ${(s.orientation||'landscape')==='portrait'?'':'secondary'}" style="font-size:0.78rem;padding:0.3rem 0.7rem"
+          onclick="setScreenOrientation('${s.id}','portrait',this)">📱 Portrait</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function setScreenOrientation(screenId, orientation, btn) {
+  await fetch('/api/screens/' + screenId, {
+    method: 'PUT', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ orientation })
+  });
+  // Update button styles in the same card
+  const card = btn.closest('.card');
+  card.querySelectorAll('button[onclick*="setScreenOrientation"]').forEach(b => b.classList.add('secondary'));
+  btn.classList.remove('secondary');
 }
 
 // ── Signs ─────────────────────────────────────────────────────────────────────
@@ -296,40 +414,85 @@ function getPlItems() {
   }));
 }
 
+let _editingPlaylistId = null;
+
 async function createPlaylist() {
   const name = g('new-pl-name').value.trim();
   if (!name) return alert('Name required');
   const items = getPlItems();
   if (!items.length) return alert('Add at least one sign');
-  await fetch('/api/playlists', { method: 'POST', headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({ name, items }) });
-  g('new-pl-name').value = '';
-  g('pl-items').innerHTML = '';
-  addPlItem();
+
+  if (_editingPlaylistId) {
+    await fetch('/api/playlists/' + _editingPlaylistId, {
+      method: 'PUT', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ name, items })
+    });
+    cancelEditPlaylist();
+  } else {
+    await fetch('/api/playlists', { method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ name, items }) });
+    g('new-pl-name').value = '';
+    g('pl-items').innerHTML = '';
+    addPlItem();
+  }
   loadPlaylists();
   loadPlaylistsInto('pl-assign-playlist');
 }
 
+async function editPlaylist(id) {
+  const p = await fetch('/api/playlists/' + id).then(r => r.json());
+  _editingPlaylistId = id;
+  g('new-pl-name').value = p.name;
+  g('pl-items').innerHTML = '';
+  _signs = await fetch('/api/signs').then(r => r.json());
+  p.items.forEach(item => {
+    addPlItem();
+    const row = g('pl-items').lastElementChild;
+    row.querySelector('select').value = item.sign_id;
+    row.querySelector('input[type=number]').value = item.duration_sec;
+  });
+  g('pl-save-btn').textContent  = '💾 Save Changes';
+  g('pl-cancel-btn').style.display = '';
+  g('pl-form-title').textContent = 'Edit Playlist';
+  g('pl-form-title').scrollIntoView({ behavior: 'smooth' });
+}
+
+function cancelEditPlaylist() {
+  _editingPlaylistId = null;
+  g('new-pl-name').value = '';
+  g('pl-items').innerHTML = '';
+  addPlItem();
+  g('pl-save-btn').textContent  = 'Create Playlist';
+  g('pl-cancel-btn').style.display = 'none';
+  g('pl-form-title').textContent = 'New Playlist';
+}
+
 async function loadPlaylists() {
-  const [lists, signs] = await Promise.all([
+  const [lists, signs, groups] = await Promise.all([
     fetch('/api/playlists').then(r => r.json()),
-    fetch('/api/signs').then(r => r.json())
+    fetch('/api/signs').then(r => r.json()),
+    fetch('/api/groups').then(r => r.json()).catch(() => [])
   ]);
-  const signMap = Object.fromEntries(signs.map(s => [s.id, s.name]));
-  g('playlists-list').innerHTML = lists.map(p => `
+  const signMap  = Object.fromEntries(signs.map(s => [s.id, s.name]));
+  const groupMap = Object.fromEntries(groups.map(g => [g.id, g]));
+  g('playlists-list').innerHTML = lists.map(p => {
+    const plGroups = (p.group_ids || []).map(gid => groupMap[gid]).filter(Boolean);
+    return `
     <div class="card">
       <div class="row" style="margin-bottom:0.5rem">
         <strong>${p.name}</strong>
         <span class="muted" style="font-size:0.8rem">${p.items.length} sign(s)</span>
+        ${plGroups.map(grp => `<span class="badge" style="background:${grp.color}22;color:${grp.color}"><span class="group-dot" style="background:${grp.color}"></span>${grp.name}</span>`).join('')}
       </div>
       <div style="font-size:0.82rem;color:var(--muted);line-height:1.8">
         ${p.items.map((item, i) => `<span>${i + 1}. ${signMap[item.sign_id] || 'Unknown'} <span style="color:var(--accent)">${item.duration_sec}s</span></span>`).join(' → ')}
       </div>
-      <div class="row" style="margin-top:0.75rem">
+      <div class="row" style="margin-top:0.75rem;gap:0.5rem">
+        <button class="btn secondary" style="font-size:0.8rem" onclick="editPlaylist('${p.id}')">✏️ Edit</button>
         <button class="btn danger" style="font-size:0.8rem" onclick="deletePlaylist('${p.id}')">Delete</button>
       </div>
-    </div>
-  `).join('') || '<p class="muted">No playlists yet.</p>';
+    </div>`;
+  }).join('') || '<p class="muted">No playlists yet.</p>';
 }
 
 async function loadPlaylistsInto(elId) {
@@ -354,6 +517,21 @@ async function doAssignPlaylist() {
   g('pl-assign-result').textContent = res.ok
     ? `Playlist started on ${res.screens_targeted} screen(s)`
     : res.error;
+}
+
+// ── Cast orientation toggles ──────────────────────────────────────────────────
+let _castOrientation   = 'landscape';
+let _castPlOrientation = 'landscape';
+
+function setCastOrient(o) {
+  _castOrientation = o;
+  g('cast-orient-landscape').className  = 'btn' + (o === 'landscape' ? '' : ' secondary');
+  g('cast-orient-portrait').className   = 'btn' + (o === 'portrait'  ? '' : ' secondary');
+}
+function setCastPlOrient(o) {
+  _castPlOrientation = o;
+  g('cast-pl-orient-landscape').className = 'btn' + (o === 'landscape' ? '' : ' secondary');
+  g('cast-pl-orient-portrait').className  = 'btn' + (o === 'portrait'  ? '' : ' secondary');
 }
 
 // ── Cast (Chromecast + Fire TV unified) ───────────────────────────────────────
@@ -417,7 +595,7 @@ async function doCast() {
 
   const res = await fetch(endpoint, {
     method: 'POST', headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({ device_id, sign_id })
+    body: JSON.stringify({ device_id, sign_id, orientation: _castOrientation })
   }).then(r => r.json());
 
   g('cast-result').textContent = res.ok
@@ -450,7 +628,7 @@ async function doCastPlaylist() {
   if (!device_id || !playlist_id) return alert('Select a device and playlist');
   const res = await fetch('/api/cast/playlist', {
     method: 'POST', headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({ device_id, playlist_id })
+    body: JSON.stringify({ device_id, playlist_id, orientation: _castPlOrientation })
   }).then(r => r.json());
   g('cast-pl-result').textContent = res.ok
     ? `▶ Playing "${res.playlist}" (${res.total} signs)`
@@ -509,6 +687,200 @@ async function lumaSync() {
   g('luma-status').textContent = res.ok ? `Synced ${res.count} events ✓` : 'Sync failed';
   g('luma-status').style.color = res.ok ? 'var(--green)' : 'var(--red)';
   loadLumaEvents();
+}
+
+// ── Luma Playlist ─────────────────────────────────────────────────────────────
+function toggleLumaPlaylistForm() {
+  const f = g('luma-pl-form');
+  const visible = f.style.display !== 'none';
+  f.style.display = visible ? 'none' : '';
+  if (!visible) {
+    const today = new Date();
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    g('luma-pl-name').value = `Luma Events – ${months[today.getMonth()]} ${today.getDate()}`;
+    g('luma-pl-result').textContent = '';
+  }
+}
+
+async function createLumaPlaylist() {
+  const name = g('luma-pl-name').value.trim();
+  if (!name) return alert('Enter a playlist name');
+  const duration = parseInt(g('luma-pl-duration').value) || 15;
+  const resultEl = g('luma-pl-result');
+
+  const events = await fetch('/api/luma/events').then(r => r.json()).catch(() => []);
+  if (!events.length) {
+    resultEl.textContent = 'No events loaded — sync first';
+    resultEl.style.color = 'var(--red)';
+    return;
+  }
+
+  const items = events.map(e => ({ sign_id: `luma-${e.api_id}`, duration_sec: duration }));
+  const res = await fetch('/api/playlists', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ name, items })
+  }).then(r => r.json()).catch(() => ({}));
+
+  if (res.id || res.name) {
+    resultEl.textContent = `✓ Created "${name}" with ${items.length} events`;
+    resultEl.style.color = 'var(--green)';
+    setTimeout(() => toggleLumaPlaylistForm(), 1800);
+  } else {
+    resultEl.textContent = res.error || 'Failed to create playlist';
+    resultEl.style.color = 'var(--red)';
+  }
+}
+
+// ── Access Control ────────────────────────────────────────────────────────────
+
+let _groups = [];
+
+async function loadAccess() {
+  const [groups, screens, playlists, chromecasts, firetvs] = await Promise.all([
+    fetch('/api/groups').then(r => r.json()).catch(() => []),
+    fetch('/api/screens').then(r => r.json()).catch(() => []),
+    fetch('/api/playlists').then(r => r.json()).catch(() => []),
+    fetch('/api/cast/devices').then(r => r.json()).catch(() => []),
+    fetch('/api/fling/devices').then(r => r.json()).catch(() => [])
+  ]);
+  _groups = groups;
+  const allDevices = [
+    ...chromecasts.map(d => ({ ...d, type: 'chromecast' })),
+    ...firetvs.map(d => ({ ...d, type: 'firetv' }))
+  ];
+
+  // Load device configs for all cast devices
+  const configs = await Promise.all(
+    allDevices.map(d => fetch('/api/device-config/' + d.id).then(r => r.json()).catch(() => ({})))
+  );
+  const configMap = Object.fromEntries(allDevices.map((d, i) => [d.id, configs[i]]));
+
+  renderGroups(groups);
+  renderAccessScreens(screens, groups);
+  renderAccessDevices(allDevices, configMap, groups);
+  renderAccessPlaylists(playlists, groups);
+}
+
+function groupOptions(groups, selectedId) {
+  return `<option value="">— No group —</option>` +
+    groups.map(g => `<option value="${g.id}" ${g.id === selectedId ? 'selected' : ''}>${g.name}</option>`).join('');
+}
+
+function renderGroups(groups) {
+  g('groups-list').innerHTML = groups.length
+    ? groups.map(grp => `
+      <div class="card" style="display:flex;align-items:center;gap:0.75rem">
+        <span class="group-dot" style="background:${grp.color};width:14px;height:14px;flex-shrink:0"></span>
+        <strong style="flex:1">${grp.name}</strong>
+        <input type="color" value="${grp.color}" style="width:32px;height:28px;padding:2px;cursor:pointer;border-radius:4px"
+          onchange="updateGroupColor('${grp.id}',this.value)">
+        <button class="btn danger" style="font-size:0.78rem;padding:0.3rem 0.6rem" onclick="deleteGroup('${grp.id}')">✕</button>
+      </div>`).join('')
+    : '<p class="muted">No groups yet. Create one above.</p>';
+}
+
+function renderAccessScreens(screens, groups) {
+  g('access-screens-list').innerHTML = screens.length
+    ? screens.map(s => `
+      <div class="card">
+        <div class="row" style="margin-bottom:0.75rem">
+          <span class="badge ${s.status}">${s.status}</span>
+          <strong>${s.display_name}</strong>
+        </div>
+        <div class="form-row">
+          <label>Group</label>
+          <select style="width:100%" onchange="setScreenGroup('${s.id}',this.value)">
+            ${groupOptions(groups, s.group_id)}
+          </select>
+        </div>
+      </div>`).join('')
+    : '<p class="muted">No screens registered.</p>';
+}
+
+function renderAccessDevices(devices, configMap, groups) {
+  g('access-devices-list').innerHTML = devices.length
+    ? devices.map(d => {
+        const cfg = configMap[d.id] || {};
+        return `
+      <div class="card">
+        <div class="row" style="margin-bottom:0.75rem">
+          <span class="badge ${d.type}">${d.type === 'firetv' ? '🔥 Fire TV' : '📺 Chromecast'}</span>
+          <strong>${d.name}</strong>
+        </div>
+        <div class="form-row">
+          <label>Group</label>
+          <select style="width:100%" onchange="setDeviceGroup('${d.id}',this.value)">
+            ${groupOptions(groups, cfg.group_id)}
+          </select>
+        </div>
+      </div>`;
+      }).join('')
+    : '<p class="muted">No cast devices discovered.</p>';
+}
+
+function renderAccessPlaylists(playlists, groups) {
+  g('access-playlists-list').innerHTML = playlists.length
+    ? playlists.map(p => `
+      <div class="card">
+        <strong style="display:block;margin-bottom:0.75rem">${p.name}</strong>
+        <div class="form-row">
+          <label>Groups</label>
+          <div style="display:flex;flex-direction:column;gap:0.3rem">
+            ${groups.map(grp => `
+              <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text);cursor:pointer">
+                <input type="checkbox" value="${grp.id}"
+                  ${(p.group_ids||[]).includes(grp.id) ? 'checked' : ''}
+                  onchange="setPlaylistGroups('${p.id}',this.closest('div'))">
+                <span class="group-dot" style="background:${grp.color}"></span>${grp.name}
+              </label>`).join('')}
+            ${!groups.length ? '<span class="muted">No groups defined.</span>' : ''}
+          </div>
+        </div>
+      </div>`).join('')
+    : '<p class="muted">No playlists yet.</p>';
+}
+
+async function createGroup() {
+  const name  = g('new-grp-name').value.trim();
+  const color = g('new-grp-color').value;
+  if (!name) return alert('Group name required');
+  await fetch('/api/groups', { method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ name, color }) });
+  g('new-grp-name').value = '';
+  loadAccess();
+}
+
+async function deleteGroup(id) {
+  if (!confirm('Delete this group? Screens and playlists will be unassigned.')) return;
+  await fetch('/api/groups/' + id, { method: 'DELETE' });
+  loadAccess();
+}
+
+async function updateGroupColor(id, color) {
+  await fetch('/api/groups/' + id, { method: 'PUT', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ color }) });
+}
+
+async function setScreenGroup(screenId, groupId) {
+  await fetch('/api/screens/' + screenId + '/group', {
+    method: 'PUT', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ group_id: groupId || null })
+  });
+}
+
+async function setDeviceGroup(deviceId, groupId) {
+  await fetch('/api/device-config/' + encodeURIComponent(deviceId), {
+    method: 'PUT', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ group_id: groupId || null })
+  });
+}
+
+async function setPlaylistGroups(playlistId, container) {
+  const checked = Array.from(container.querySelectorAll('input[type=checkbox]:checked')).map(c => c.value);
+  await fetch('/api/playlists/' + playlistId + '/groups', {
+    method: 'PUT', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ group_ids: checked })
+  });
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────

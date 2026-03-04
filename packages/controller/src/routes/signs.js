@@ -47,10 +47,97 @@ async function signsRoutes(fastify) {
     }
   });
 
-  // Render sign HTML directly
+  // Render sign HTML directly (supports ?orientation=portrait for CSS-rotation wrapper)
   fastify.get('/api/signs/:id/render', async (req, reply) => {
     const s = db.prepare('SELECT * FROM signs WHERE id = ?').get(req.params.id);
     if (!s) return reply.code(404).send('Not found');
+
+    const wantPortrait = req.query.orientation === 'portrait';
+    const wantKiosk    = req.query.kiosk === '1';
+
+    if (wantPortrait || wantKiosk) {
+      // Use the same host the client used — 127.0.0.1 breaks remote devices like Fire TV
+      const clientHost = req.headers.host || `${fastify.serverHost}:${fastify.serverPort}`;
+      const rawUrl = `http://${clientHost}/api/signs/${s.id}/render`;
+
+      // Signs may use fixed 1920×1080 pixel dimensions (e.g. Luma events).
+      // Set the iframe to exactly that size and CSS-scale it to fit the screen,
+      // same way a proper digital signage player works.
+      const SW = 1920, SH = 1080; // sign native resolution
+
+      const scaleScript = `
+  <script>
+    function scaleSign() {
+      var f = document.getElementById('sign-frame');
+      var aw = window.innerWidth, ah = window.innerHeight;
+      ${wantPortrait
+        // Portrait: wrapper is rotated so available area is SH wide × SW tall
+        ? `var scale = Math.min(aw / ${SH}, ah / ${SW});`
+        : `var scale = Math.min(aw / ${SW}, ah / ${SH});`}
+      var x = (aw - ${SW} * scale) / 2;
+      var y = (ah - ${SH} * scale) / 2;
+      f.style.transform = 'scale(' + scale + ')';
+      f.style.left = x + 'px';
+      f.style.top  = y + 'px';
+    }
+    window.addEventListener('load',   scaleSign);
+    window.addEventListener('resize', scaleSign);
+  </script>`;
+
+      const fsScript = wantKiosk ? `
+  <script>
+    function goFullscreen() {
+      var el = document.documentElement;
+      var fn = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
+      if (fn) fn.call(el).catch(function(){});
+    }
+    window.addEventListener('load', function() {
+      goFullscreen();
+      setTimeout(goFullscreen, 600);
+      setTimeout(goFullscreen, 2000);
+    });
+    document.addEventListener('fullscreenchange', function() {
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        setTimeout(goFullscreen, 200);
+      }
+    });
+  </script>` : '';
+
+      const wrapStyle = wantPortrait ? `
+  .wrap {
+    position: fixed;
+    width: 100vh; height: 100vw;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    transform-origin: center center;
+    overflow: hidden;
+  }` : `
+  .wrap { position: fixed; inset: 0; overflow: hidden; }`;
+
+      const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }${wrapStyle}
+  #sign-frame {
+    position: absolute;
+    width: ${SW}px; height: ${SH}px;
+    border: none; display: block;
+    transform-origin: 0 0;
+  }
+</style>${scaleScript}${fsScript}
+</head>
+<body>
+  <div class="wrap">
+    <iframe id="sign-frame" src="${rawUrl}" scrolling="no" allowfullscreen></iframe>
+  </div>
+</body>
+</html>`;
+      return reply.type('text/html').send(html);
+    }
+
     if (s.type === 'url') {
       reply.redirect(s.url);
     } else {

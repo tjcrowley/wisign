@@ -41,7 +41,7 @@ async function playlistRoutes(fastify) {
 }
 
 function parse(p) {
-  return { ...p, items: JSON.parse(p.items || '[]') };
+  return { ...p, items: JSON.parse(p.items || '[]'), group_ids: JSON.parse(p.group_ids || '[]') };
 }
 
 module.exports = playlistRoutes;

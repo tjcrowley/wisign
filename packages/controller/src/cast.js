@@ -134,7 +134,7 @@ async function castUrl(deviceId, url, _fromPlaylist = false) {
 
 // ── Playlist loop ─────────────────────────────────────────────────────────────
 
-async function castPlaylist(deviceId, items, baseUrl) {
+async function castPlaylist(deviceId, items, baseUrl, options = {}) {
   if (!items || !items.length) throw new Error('Playlist has no items');
 
   stopPlaylist(deviceId);
@@ -150,9 +150,12 @@ async function castPlaylist(deviceId, items, baseUrl) {
 
     try {
       // Pre-render to disk so Chromecast gets an instant HTTP response
-      const renderUrl = `${baseUrl}/api/signs/${item.sign_id}/render`;
-      const cachedPath = await renderSign(item.sign_id, renderUrl);
-      const cachedUrl  = `${baseUrl}${cachedPath}`;
+      // Use localBaseUrl (127.0.0.1) for Puppeteer — no dependency on Tailscale tunnel
+      const portrait      = !!options.portrait;
+      const localBaseUrl  = options.localBaseUrl || baseUrl;
+      const renderUrl     = `${localBaseUrl}/api/signs/${item.sign_id}/render${portrait ? '?orientation=portrait' : ''}`;
+      const cachedPath    = await renderSign(item.sign_id, renderUrl, { portrait });
+      const cachedUrl     = `${baseUrl}${cachedPath}`;
       await castUrl(deviceId, cachedUrl, true);
       console.log(`[Cast] Playlist ${deviceId}: sign ${state.index + 1}/${state.items.length} (${item.duration_sec}s)`);
     } catch (err) {

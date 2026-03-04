@@ -62,6 +62,7 @@ async function start() {
   fastify.register(require('./routes/cast'));
   fastify.register(require('./routes/fling'));
   fastify.register(require('./routes/luma'));
+  fastify.register(require('./routes/groups'));
 
   await fastify.listen({ port: PORT, host: HOST });
 
@@ -73,7 +74,7 @@ async function start() {
 
   require('./discovery').advertise(PORT);
   require('./cast').init();
-  require('./fling').init();
+  require('./fling').init(fastify);
   require('./luma').init(fastify);
 
   // Use Tailscale Funnel for public HTTPS (required by Chromecast's receiver
