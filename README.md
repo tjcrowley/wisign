@@ -1,4 +1,4 @@
-# WiSign 📺
+# FTSign 📺
 
 Local-network HTML digital signage. Control a fleet of TVs from a single admin UI.
 
@@ -42,7 +42,7 @@ Open http://localhost:3000, go to **Assign**, pick a screen and sign → Push.
 
 ## Chromecast / Cast Support
 
-WiSign discovers Cast-enabled devices (Chromecasts, Android TVs, smart TVs) on your LAN automatically.
+FTSign discovers Cast-enabled devices (Chromecasts, Android TVs, smart TVs) on your LAN automatically.
 
 ### MVP (works now)
 - The controller discovers Cast devices via mDNS (`_googlecast._tcp`)
@@ -60,7 +60,7 @@ The Default Media Receiver has limited HTML support. For full arbitrary HTML:
    ```
 3. Note your App ID and set it:
    ```bash
-   export WISIGN_CAST_APP_ID=<your-app-id>
+   export FTSIGN_CAST_APP_ID=<your-app-id>
    ```
 
 ### Apple TV
@@ -86,10 +86,10 @@ Apple TV doesn't support Cast. Options:
 
 | Variable | Default | Description |
 |---|---|---|
-| `WISIGN_PORT` | `3000` | Controller HTTP/WS port |
-| `WISIGN_DB` | `wisign.db` | SQLite database path |
-| `WISIGN_CAST_APP_ID` | `CC1AD845` | Cast receiver App ID |
-| `WISIGN_CONTROLLER` | `ws://localhost:3000/ws` | Player fallback (if mDNS fails) |
+| `FTSIGN_PORT` | `3000` | Controller HTTP/WS port |
+| `FTSIGN_DB` | `ftsign.db` | SQLite database path |
+| `FTSIGN_CAST_APP_ID` | `CC1AD845` | Cast receiver App ID |
+| `FTSIGN_CONTROLLER` | `ws://localhost:3000/ws` | Player fallback (if mDNS fails) |
 
 ---
 

@@ -1,0 +1,2083 @@
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (0fcfe6e8-d8ac-4510-f32b-287b451ba7dd.local)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+(node:57784) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message listeners added to [Client]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+[Cast] Playlist cast error on 0fcfe6e8d8ac4510f32b287b451ba7dd: Load cancelled
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (0fcfe6e8-d8ac-4510-f32b-287b451ba7dd.local)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (0fcfe6e8-d8ac-4510-f32b-287b451ba7dd.local)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+/Users/darren/wisign/node_modules/castv2-client/lib/controllers/media.js:93
+    var status = response.status[0];
+                                ^
+
+TypeError: Cannot read properties of undefined (reading '0')
+    at /Users/darren/wisign/node_modules/castv2-client/lib/controllers/media.js:93:33
+    at fn.onmessage (/Users/darren/wisign/node_modules/castv2-client/lib/controllers/request-response.js:27:7)
+    at fn.emit (node:events:519:35)
+    at Channel.onmessage (/Users/darren/wisign/node_modules/castv2-client/lib/controllers/controller.js:16:10)
+    at Channel.emit (node:events:507:28)
+    at Client.onmessage (/Users/darren/wisign/node_modules/castv2/lib/channel.js:23:10)
+    at Client.emit (node:events:519:35)
+    at PacketStreamWrapper.onpacket (/Users/darren/wisign/node_modules/castv2/lib/client.js:81:10)
+    at PacketStreamWrapper.emit (node:events:507:28)
+    at TLSSocket.<anonymous> (/Users/darren/wisign/node_modules/castv2/lib/packet-stream-wrapper.js:28:16)
+    at TLSSocket.emit (node:events:507:28)
+    at emitReadable_ (node:internal/streams/readable:832:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+Node.js v23.11.0
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+/Users/darren/wisign/node_modules/castv2-client/lib/controllers/media.js:93
+    var status = response.status[0];
+                                ^
+
+TypeError: Cannot read properties of undefined (reading '0')
+    at /Users/darren/wisign/node_modules/castv2-client/lib/controllers/media.js:93:33
+    at fn.onmessage (/Users/darren/wisign/node_modules/castv2-client/lib/controllers/request-response.js:27:7)
+    at fn.emit (node:events:519:35)
+    at Channel.onmessage (/Users/darren/wisign/node_modules/castv2-client/lib/controllers/controller.js:16:10)
+    at Channel.emit (node:events:507:28)
+    at Client.onmessage (/Users/darren/wisign/node_modules/castv2/lib/channel.js:23:10)
+    at Client.emit (node:events:519:35)
+    at PacketStreamWrapper.onpacket (/Users/darren/wisign/node_modules/castv2/lib/client.js:81:10)
+    at PacketStreamWrapper.emit (node:events:507:28)
+    at TLSSocket.<anonymous> (/Users/darren/wisign/node_modules/castv2/lib/packet-stream-wrapper.js:28:16)
+    at TLSSocket.emit (node:events:507:28)
+    at emitReadable_ (node:internal/streams/readable:832:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+Node.js v23.11.0
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[HTTP] 192.168.107.223 GET /api/signs
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/screens
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 GET /api/screens
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[HTTP] 100.110.162.12 POST /api/cast/assign
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: Navigation timeout of 15000 ms exceeded
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: Load cancelled
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Tunnel] HTTPS cast URL: https://many-pugs-cut.loca.lt
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[Fling] Discovered: My Fire TV (192.168.41.30)
+[Fling] Discovered: Tom-CleverRascal's FireTVStick (192.168.40.26)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[HTTP] 100.110.162.12 GET /api/screens
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Tunnel] HTTPS cast URL: https://chatty-sides-follow.loca.lt
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[Tunnel] HTTPS cast URL: https://itchy-numbers-sit.loca.lt
+Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at node:net:2205:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at node:net:2205:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at node:net:2205:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Cast] Discovered: SmartTV 4K FFM (192.168.107.219)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 2/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 3/3 (10s)
+[Cast] Playlist 0fcfe6e8d8ac4510f32b287b451ba7dd: sign 1/3 (10s)
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[HTTP] 100.110.162.12 POST /api/cast/playlist
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect EHOSTDOWN 192.168.107.219:8009 - Local (192.168.107.223:63757)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect EHOSTDOWN 192.168.107.219:8009 - Local (192.168.107.223:63765)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Fling] Discovered: Tom-CleverRascal's FireTVStick (192.168.40.26)
+[Fling] Discovered: My Fire TV (192.168.42.122)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:63118)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:52329)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:56614)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:57575)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:59635)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:64753)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:50527)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:52882)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:59046)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:61381)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:64659)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:52637)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:54489)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:58591)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:62642)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:64586)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:50930)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:55247)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:57954)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:61237)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:49979)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:52282)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:55472)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:61587)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:64313)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:50823)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:54946)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:56659)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:59950)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:64719)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:50299)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:54205)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:58524)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:60390)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:63317)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:51415)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:53443)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:57471)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: net::ERR_NETWORK_CHANGED at https://hermes.tailb3d66d.ts.net/api/signs/437969f1-e6f3-4a81-a044-196d4ea3987b/render
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /
+[HTTP] 100.110.162.12 GET /api/screens
+[HTTP] 100.110.162.12 GET /api/cast/devices
+[HTTP] 100.110.162.12 GET /api/fling/devices
+[HTTP] 100.110.162.12 GET /api/signs
+[HTTP] 100.110.162.12 GET /api/playlists
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:61626)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:50238)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: net::ERR_INTERNET_DISCONNECTED at https://hermes.tailb3d66d.ts.net/api/signs/437969f1-e6f3-4a81-a044-196d4ea3987b/render
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:52113)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:53144)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:55506)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: net::ERR_INTERNET_DISCONNECTED at https://hermes.tailb3d66d.ts.net/api/signs/437969f1-e6f3-4a81-a044-196d4ea3987b/render
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:57437)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:59323)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:61786)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Navigation timeout of 20000 ms exceeded
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:50408)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:52634)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ENETUNREACH 192.168.107.219:8009 - Local (0.0.0.0:56176)
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: net::ERR_NETWORK_CHANGED at https://hermes.tailb3d66d.ts.net/api/signs/437969f1-e6f3-4a81-a044-196d4ea3987b/render
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Fling] Discovered: Hisense•Roku TV - X027007D3SGS (192.168.107.119)
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Fling] Discovered: Darren's 2nd FireTVStick (192.168.107.105)
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on 0fcfe6e8d8ac4510f32b287b451ba7dd: connect ETIMEDOUT 192.168.107.219:8009
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: Darren's 2nd FireTVStick (192.168.107.105)
+[Fling] Discovered: PROTO7YPE MakerSpace (192.168.107.119)
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Screenshot] Failed for 437969f1-e6f3-4a81-a044-196d4ea3987b: Protocol error (Page.captureScreenshot): Target closed
+[Screenshot] Using cached version for 437969f1-e6f3-4a81-a044-196d4ea3987b
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: Darren's 2nd FireTVStick (192.168.107.105)
+[Fling] Discovered: PROTO7YPE MakerSpace (192.168.107.119)
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: Darren's 2nd FireTVStick (192.168.107.105)
+[Fling] Discovered: PROTO7YPE MakerSpace (192.168.107.119)
+[HTTP] 192.168.107.105 GET /
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /favicon.ico
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: PROTO7YPE MakerSpace (192.168.107.119)
+[Fling] Discovered: PR0T07YPE Lobby (192.168.107.105)
+[Fling] ADB pre-connect failed for 192.168.107.119: ADB connect to 192.168.107.119:5555 failed: failed to connect to '192.168.107.119:5555': Connection refused
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/cast/devices
+[HTTP] 192.168.107.105 GET /api/fling/devices
+[HTTP] 192.168.107.105 GET /api/signs
+[HTTP] 192.168.107.105 GET /api/playlists
+[HTTP] 192.168.107.105 GET /api/signs/a53e11f4-fe45-42ce-8fb5-7dffa17df2a0/render
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[HTTP] 192.168.107.105 GET /api/signs/437969f1-e6f3-4a81-a044-196d4ea3987b/render
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+[Cast] Playlist error on firetv-192.168.107.119: Device firetv-192.168.107.119 not found
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: PR0T07YPE Lobby (192.168.107.105)
+[Fling] Discovered: PROTO7YPE MakerSpace (192.168.107.119)
+[Fling] Kiosk mode configured on 192.168.107.105
+[Fling] ADB pre-connect failed for 192.168.107.119: ADB connect to 192.168.107.119:5555 failed: failed to connect to '192.168.107.119:5555': Connection refused
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: PR0T07YPE Lobby (192.168.107.105)
+[Fling] Kiosk mode configured on 192.168.107.105
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: PR0T07YPE Lobby (192.168.107.105)
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Kiosk mode configured on 192.168.107.105
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/signs/437969f1-e6f3-4a81-a044-196d4ea3987b/render
+[HTTP] 192.168.107.105 GET /api/signs/730c7adb-7e5c-479c-b24e-234ca9f8d176/render
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Discovered: PR0T07YPE Lobby (192.168.107.105)
+[Fling] Kiosk mode configured on 192.168.107.105
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Task 26 locked on 192.168.107.105
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Task 33 locked on 192.168.107.105
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Task 36 locked on 192.168.107.105
+[HTTP] 192.168.107.105 GET /
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /favicon.ico
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Task 36 locked on 192.168.107.105
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+
+🖥️  FTSign Controller
+   Local:   http://localhost:3000
+   Network: http://192.168.107.223:3000
+📡 WebSocket: ws://192.168.107.223:3000/ws
+
+[Discovery] mDNS advertising _ftsign._tcp.local
+[Cast] Scanning for Cast devices...
+[Fling] Scanning for Fire TV devices...
+[Cast] Public HTTPS URL: https://hermes.tailb3d66d.ts.net
+[Discovery] Broadcasting on UDP port 3002 every 5s
+[Discovery] Broadcast targets: 192.168.107.255, 100.110.162.12, 255.255.255.255
+[Fling] Discovered: PR0T07YPE Lobby (192.168.107.105)
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Kiosk mode configured on 192.168.107.105
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/screens
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/signs/90b783f8-c3fa-460e-8cc3-f4204744837b/render
+[HTTP] 192.168.107.105 GET /favicon.ico
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/signs/730c7adb-7e5c-479c-b24e-234ca9f8d176/render
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[HTTP] 192.168.107.105 GET /api/signs/a53e11f4-fe45-42ce-8fb5-7dffa17df2a0/render
+[HTTP] 192.168.107.105 GET /favicon.ico
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[HTTP] 192.168.107.105 GET /api/signs/a53e11f4-fe45-42ce-8fb5-7dffa17df2a0/render
+[HTTP] 192.168.107.105 GET /favicon.ico
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Fling] Skipping Roku device: PROTO7YPE MakerSpace
+[Cast] Playlist error on firetv-192.168.107.105: Device firetv-192.168.107.105 not found

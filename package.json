@@ -1,10 +1,15 @@
 {
-  "name": "wisign",
+  "name": "ftsign",
   "version": "0.1.0",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev:controller": "npm run dev --workspace=packages/controller",
     "dev:player": "npm run start --workspace=packages/player"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.37.5"
   }
 }

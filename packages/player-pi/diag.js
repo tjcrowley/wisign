@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * WiSign Pi Diagnostics
+ * FTSign Pi Diagnostics
  * Run this on the Pi to check connectivity to the controller.
  * Usage: node diag.js [controller-ip] [port]
  */
@@ -11,10 +11,10 @@ const WebSocket = require('ws');
 const { Bonjour } = require('bonjour-service');
 const os = require('os');
 
-const host = process.argv[2] || process.env.WISIGN_CONTROLLER_HOST || null;
-const port = parseInt(process.argv[3] || process.env.WISIGN_PORT || '3000', 10);
+const host = process.argv[2] || process.env.FTSIGN_CONTROLLER_HOST || null;
+const port = parseInt(process.argv[3] || process.env.FTSIGN_PORT || '3000', 10);
 
-console.log('\n🔍 WiSign Pi Diagnostics\n');
+console.log('\n🔍 FTSign Pi Diagnostics\n');
 console.log(`Hostname : ${os.hostname()}`);
 console.log(`Platform : ${os.platform()} ${os.arch()}`);
 console.log(`Node.js  : ${process.version}`);
@@ -42,7 +42,7 @@ async function run() {
 function testUDP() {
   return new Promise((resolve) => {
     const dgram = require('dgram');
-    const DISC_PORT = parseInt(process.env.WISIGN_DISCOVERY_PORT || '3002', 10);
+    const DISC_PORT = parseInt(process.env.FTSIGN_DISCOVERY_PORT || '3002', 10);
     console.log('── UDP Broadcast Discovery ──────────────────');
     console.log('   Listening on port ' + DISC_PORT + ' for 8 seconds...');
     const udp = dgram.createSocket({ type: 'udp4', reuseAddr: true });
@@ -51,7 +51,7 @@ function testUDP() {
     udp.on('message', (buf, rinfo) => {
       try {
         const msg = JSON.parse(buf.toString());
-        if (msg.type === 'WISIGN_CONTROLLER') {
+        if (msg.type === 'FTSIGN_CONTROLLER') {
           heard = true;
           console.log('✅ Heard controller broadcast from ' + rinfo.address + ':' + rinfo.port);
           console.log('   → WS URL: ws://' + rinfo.address + ':' + msg.port + '/ws');
@@ -66,8 +66,8 @@ function testUDP() {
       if (!heard) {
         console.log('❌ No UDP broadcast heard after 8s');
         console.log('   Broadcasts are likely blocked by managed switches/VLANs');
-        console.log('   → Use: sudo systemctl edit wisign-player');
-        console.log('     Environment=WISIGN_CONTROLLER=ws://<controller-ip>:3000/ws');
+        console.log('   → Use: sudo systemctl edit ftsign-player');
+        console.log('     Environment=FTSIGN_CONTROLLER=ws://<controller-ip>:3000/ws');
       }
       try { udp.close(); } catch {}
       console.log('');
@@ -79,7 +79,7 @@ function testMDNS() {
   return new Promise((resolve) => {
     console.log('── mDNS Discovery ──────────────────────────');
     const bonjour = new Bonjour();
-    const browser = bonjour.find({ type: 'wisign' });
+    const browser = bonjour.find({ type: 'ftsign' });
     let found = false;
 
     browser.on('up', (svc) => {

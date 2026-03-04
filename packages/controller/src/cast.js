@@ -1,29 +1,22 @@
 'use strict';
 /**
- * Chromecast / Cast-enabled device manager
+ * FTSign Chromecast manager
  *
- * Uses castv2-client to discover and control Cast devices on the local network.
- *
- * NOTE: To cast arbitrary HTML, you need a registered Cast Receiver App:
- *   1. Sign up at https://cast.google.com/publish ($5 one-time fee)
- *   2. Register a "Custom Receiver" pointing to:
- *      http://<controller-ip>:<port>/cast-receiver.html
- *   3. Set WISIGN_CAST_APP_ID=<your-app-id> in your environment
- *
- * Without a registered App ID, we fall back to the Default Media Receiver
- * which can only play media files (not arbitrary HTML).
- *
- * For development/testing, you can use the "Staging Backdrop" App ID:
- *   E8C28D3C  (Google's test receiver — loads a URL in an iframe)
+ * Launches DefaultMediaReceiver once per device and reuses the player
+ * session for all subsequent loads — avoids "Load cancelled" errors
+ * that occur when re-launching the app for every playlist slide.
  */
 
 const { Client, DefaultMediaReceiver } = require('castv2-client');
 const Bonjour = require('bonjour-service').Bonjour;
 
-const APP_ID = process.env.WISIGN_CAST_APP_ID || 'CC1AD845'; // Default Media Receiver
+const { renderSign } = require('./screenshot');
 
-const devices = new Map(); // device_id -> { name, host, port, service }
-const clients = new Map(); // device_id -> Client instance
+const devices   = new Map(); // device_id -> device info
+const clients   = new Map(); // device_id -> { client, player }
+const playlists = new Map(); // device_id -> { items, index, timer, baseUrl, active }
+
+// ── Discovery ─────────────────────────────────────────────────────────────────
 
 function init() {
   const bonjour = new Bonjour();
@@ -34,10 +27,10 @@ function init() {
     const existing = devices.get(id);
     const info = {
       id,
-      name: service.txt?.fn || service.name,
-      host: service.host || (service.addresses && service.addresses[0]),
-      port: service.port || 8009,
-      model: service.txt?.md || 'Unknown',
+      name:   service.txt?.fn || service.name,
+      host:   (service.addresses && service.addresses[0]) || service.host,
+      port:   service.port || 8009,
+      model:  service.txt?.md || 'Unknown',
       status: 'available'
     };
     devices.set(id, info);
@@ -49,6 +42,7 @@ function init() {
     const dev = devices.get(id);
     if (dev) {
       dev.status = 'unavailable';
+      clients.delete(id);
       console.log(`[Cast] Lost: ${dev.name}`);
     }
   });
@@ -57,63 +51,142 @@ function init() {
 }
 
 function getDevices() {
-  return Array.from(devices.values());
+  return Array.from(devices.values()).map(d => ({
+    ...d,
+    playlist: playlists.has(d.id) ? {
+      index:   playlists.get(d.id).index,
+      total:   playlists.get(d.id).items.length,
+      sign_id: playlists.get(d.id).items[playlists.get(d.id).index]?.sign_id
+    } : null
+  }));
 }
 
-function connectDevice(deviceId) {
+// ── Session management ────────────────────────────────────────────────────────
+
+/**
+ * Get (or create) a { client, player } session for a device.
+ * Launches DefaultMediaReceiver only once; subsequent calls reuse the player.
+ */
+function getSession(deviceId) {
   return new Promise((resolve, reject) => {
+    const existing = clients.get(deviceId);
+    if (existing && existing.player) return resolve(existing);
+
     const device = devices.get(deviceId);
     if (!device) return reject(new Error(`Device ${deviceId} not found`));
 
-    if (clients.has(deviceId)) {
-      return resolve(clients.get(deviceId));
-    }
-
     const client = new Client();
+    client.setMaxListeners(20);
+
     client.connect({ host: device.host, port: device.port }, () => {
-      clients.set(deviceId, client);
-      resolve(client);
+      client.launch(DefaultMediaReceiver, (err, player) => {
+        if (err) {
+          client.close();
+          return reject(err);
+        }
+        const session = { client, player };
+        clients.set(deviceId, session);
+
+        // Clean up session if player or client closes
+        player.on('close', () => clients.delete(deviceId));
+        client.on('error', () => clients.delete(deviceId));
+        client.on('close', () => clients.delete(deviceId));
+
+        resolve(session);
+      });
     });
+
     client.on('error', (err) => {
       clients.delete(deviceId);
       reject(err);
     });
-    client.on('close', () => clients.delete(deviceId));
   });
 }
 
-async function castUrl(deviceId, url) {
-  const client = await connectDevice(deviceId);
+// ── Single image load ─────────────────────────────────────────────────────────
+
+async function castUrl(deviceId, url, _fromPlaylist = false) {
+  if (!_fromPlaylist) stopPlaylist(deviceId);
+  // Clear stale session if client is no longer connected (e.g. after network change), clear it so we reconnect
+  const session = await getSession(deviceId);
+
   return new Promise((resolve, reject) => {
-    client.launch(DefaultMediaReceiver, (err, player) => {
-      if (err) return reject(err);
-
-      // For a Custom Receiver with WISIGN_CAST_APP_ID, you'd send a custom
-      // message to load the URL in a WebView. With DefaultMediaReceiver we
-      // load it as a "web page" media item — works for simple HTML.
-      const media = {
-        contentId: url,
-        contentType: 'text/html',
-        streamType: 'NONE',
-        metadata: {
-          type: 0,
-          metadataType: 0,
-          title: 'WiSign'
+    const media = {
+      contentId:   url,
+      contentType: 'image/jpeg',
+      streamType:  'NONE',
+      metadata: { type: 0, metadataType: 0, title: 'FTSign' }
+    };
+    try {
+      session.player.load(media, { autoplay: true }, (err, status) => {
+        if (err) {
+          clients.delete(deviceId);
+          return reject(new Error(err.message || 'Load failed'));
         }
-      };
-
-      player.load(media, { autoplay: true }, (err, status) => {
-        if (err) return reject(err);
         resolve(status);
       });
-    });
+    } catch (err) {
+      clients.delete(deviceId);
+      reject(err);
+    }
   });
 }
 
-async function stopCast(deviceId) {
-  const client = clients.get(deviceId);
-  if (!client) return;
-  return new Promise((resolve) => client.stop(resolve));
+// ── Playlist loop ─────────────────────────────────────────────────────────────
+
+async function castPlaylist(deviceId, items, baseUrl) {
+  if (!items || !items.length) throw new Error('Playlist has no items');
+
+  stopPlaylist(deviceId);
+
+  const state = { items, index: 0, baseUrl, timer: null, active: true };
+  playlists.set(deviceId, state);
+
+  async function castNext() {
+    if (!state.active) return;
+
+    const item = state.items[state.index];
+    const url  = `${baseUrl}/api/signs/${item.sign_id}/screenshot.jpg`;
+
+    try {
+      // Pre-render to disk so Chromecast gets an instant HTTP response
+      const renderUrl = `${baseUrl}/api/signs/${item.sign_id}/render`;
+      const cachedPath = await renderSign(item.sign_id, renderUrl);
+      const cachedUrl  = `${baseUrl}${cachedPath}`;
+      await castUrl(deviceId, cachedUrl, true);
+      console.log(`[Cast] Playlist ${deviceId}: sign ${state.index + 1}/${state.items.length} (${item.duration_sec}s)`);
+    } catch (err) {
+      console.error(`[Cast] Playlist error on ${deviceId}:`, err.message);
+    }
+
+    if (!state.active) return;
+
+    state.index = (state.index + 1) % state.items.length;
+    state.timer = setTimeout(castNext, item.duration_sec * 1000);
+  }
+
+  await castNext();
+  return { ok: true, total: items.length };
 }
 
-module.exports = { init, getDevices, castUrl, stopCast };
+function stopPlaylist(deviceId) {
+  const state = playlists.get(deviceId);
+  if (!state) return;
+  state.active = false;
+  if (state.timer) clearTimeout(state.timer);
+  playlists.delete(deviceId);
+}
+
+// ── Stop ──────────────────────────────────────────────────────────────────────
+
+async function stopCast(deviceId) {
+  stopPlaylist(deviceId);
+  const session = clients.get(deviceId);
+  clients.delete(deviceId);
+  if (!session) return;
+  return new Promise((resolve) => {
+    try { session.client.stop(resolve); } catch { resolve(); }
+  });
+}
+
+module.exports = { init, getDevices, castUrl, castPlaylist, stopCast };
