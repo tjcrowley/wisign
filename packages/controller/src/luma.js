@@ -199,6 +199,173 @@ function buildEventSignHTML(event, baseUrl) {
 </html>`;
 }
 
+function buildEventSignHTMLPortrait(event, baseUrl) {
+  const startDate = new Date(event.start_at);
+  const endDate = new Date(event.end_at);
+
+  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const day = dayNames[startDate.getDay()];
+  const month = monthNames[startDate.getMonth()];
+  const date = startDate.getDate();
+  const hours = startDate.getHours();
+  const minutes = startDate.getMinutes().toString().padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const hour12 = hours % 12 || 12;
+  const endHours = endDate.getHours();
+  const endMinutes = endDate.getMinutes().toString().padStart(2, '0');
+  const endAmpm = endHours >= 12 ? 'PM' : 'AM';
+  const endHour12 = endHours % 12 || 12;
+  const dateStr = `${day}, ${month} ${date} · ${hour12}:${minutes} ${ampm} – ${endHour12}:${endMinutes} ${endAmpm}`;
+
+  const lumaUrl = event.luma_url;
+  const coverUrl = event.cover_url;
+  const title = event.name.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+  const location = (event.location || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+
+  return `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080,height=1920">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1920px; overflow: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0a0a0f;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover {
+    width: 1080px; height: 800px;
+    background: url('${coverUrl}') center/cover no-repeat;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .cover::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, #0a0a0f 100%);
+  }
+  .info {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; padding: 48px 60px;
+    position: relative; z-index: 1;
+  }
+  .date {
+    font-size: 24px; font-weight: 600;
+    color: #a78bfa; margin-bottom: 20px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .title {
+    font-size: 44px; font-weight: 800;
+    line-height: 1.15; margin-bottom: 24px;
+    max-height: 260px; overflow: hidden;
+  }
+  .location {
+    font-size: 20px; color: #94a3b8;
+    margin-bottom: 40px; line-height: 1.4;
+  }
+  .qr-section {
+    display: flex; align-items: center; gap: 24px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 24px 32px;
+    max-width: 520px;
+  }
+  .qr-section canvas { border-radius: 12px; flex-shrink: 0; }
+  .qr-text { font-size: 18px; color: #cbd5e1; line-height: 1.5; }
+  .qr-text strong { color: #a78bfa; font-weight: 700; display: block; font-size: 20px; margin-bottom: 4px; }
+  .badge {
+    display: inline-block; padding: 8px 20px;
+    background: ${event.is_free ? '#16532d' : '#3b1764'};
+    color: ${event.is_free ? '#4ade80' : '#c084fc'};
+    border-radius: 999px; font-size: 16px; font-weight: 700;
+    margin-bottom: 16px; align-self: flex-start;
+  }
+  .ft-brand {
+    text-align: center; padding: 24px 0;
+    font-size: 14px; color: #475569; font-weight: 600;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+  <div class="cover"></div>
+  <div class="info">
+    <div class="badge">${event.is_free ? 'FREE' : 'RSVP'}</div>
+    <div class="date">${dateStr}</div>
+    <div class="title">${title}</div>
+    ${location ? `<div class="location">📍 ${location}</div>` : ''}
+    <div class="qr-section">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(lumaUrl)}" width="120" height="120" style="border-radius:12px;flex-shrink:0" alt="QR">
+      <div class="qr-text">
+        <strong>Scan to RSVP</strong>
+        lu.ma/${event.url_slug}
+      </div>
+    </div>
+  </div>
+  <div class="ft-brand">FRONTIER TOWER</div>
+</body>
+</html>`;
+}
+
+function buildCyclingSignHTMLPortrait(baseUrl) {
+  return `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080,height=1920">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #0a0a0f; }
+  iframe { width: 100%; height: 100%; border: none; }
+  .empty {
+    display: flex; align-items: center; justify-content: center;
+    height: 100%; color: #6366f1; font-family: system-ui, sans-serif;
+    font-size: 48px; text-align: center; flex-direction: column; gap: 1rem;
+  }
+  .empty p { color: #64748b; font-size: 28px; }
+</style>
+</head>
+<body>
+<iframe id="frame"></iframe>
+<script>
+let events = [];
+let index = 0;
+const CYCLE_SEC = 15;
+const REFRESH_MIN = 15;
+
+async function load() {
+  try {
+    const res = await fetch('${baseUrl}/api/luma/events');
+    events = await res.json();
+  } catch(e) { console.error('Luma fetch error', e); }
+
+  if (!events.length) {
+    document.body.innerHTML = '<div class="empty"><h2>📅 No upcoming events</h2><p>Check back soon!</p></div>';
+    return;
+  }
+  show();
+}
+
+function show() {
+  if (!events.length) return;
+  document.getElementById('frame').src = '${baseUrl}/api/luma/sign/' + index + '?orientation=portrait';
+  index = (index + 1) % events.length;
+  setTimeout(show, CYCLE_SEC * 1000);
+}
+
+load();
+setInterval(load, REFRESH_MIN * 60 * 1000);
+</script>
+</body>
+</html>`;
+}
+
 function buildCyclingSignHTML(baseUrl) {
   return `<!DOCTYPE html>
 <html>
@@ -272,12 +439,13 @@ function syncSignsToDB(events, baseUrl) {
     const html = buildEventSignHTML(event, baseUrl);
     const existingSign = db.prepare('SELECT id FROM signs WHERE id = ?').get(signId);
 
+    const eventJson = JSON.stringify(event);
     if (existingSign) {
-      db.prepare("UPDATE signs SET name = ?, html = ?, updated_at = datetime('now') WHERE id = ?")
-        .run(`📅 ${event.name}`, html, signId);
+      db.prepare("UPDATE signs SET name = ?, html = ?, assets = ?, updated_at = datetime('now') WHERE id = ?")
+        .run(`📅 ${event.name}`, html, eventJson, signId);
     } else {
-      db.prepare("INSERT INTO signs (id, name, type, html, version, published) VALUES (?, ?, 'luma_event', ?, 1, 1)")
-        .run(signId, `📅 ${event.name}`, html);
+      db.prepare("INSERT INTO signs (id, name, type, html, assets, version, published) VALUES (?, ?, 'luma_event', ?, ?, 1, 1)")
+        .run(signId, `📅 ${event.name}`, html, eventJson);
       console.log(`[Luma] Created sign: ${event.name}`);
     }
   }
@@ -322,4 +490,4 @@ function getEventByIndex(index) {
   return cachedEvents[index];
 }
 
-module.exports = { init, refresh, getEvents, getEventByIndex, buildEventSignHTML, buildCyclingSignHTML };
+module.exports = { init, refresh, getEvents, getEventByIndex, buildEventSignHTML, buildCyclingSignHTML, buildEventSignHTMLPortrait, buildCyclingSignHTMLPortrait };

@@ -271,21 +271,16 @@ function buildPlayerHtml(deviceId) {
   .wrap { position: fixed; inset: 0; overflow: hidden; }
   #sign-frame {
     position: absolute;
-    width: 1920px; height: 1080px;
+    width: 100vw; height: 100vh;
     border: none; display: block;
-    transform-origin: 0 0;
+    left: 0; top: 0;
   }
 </style>
 <script>
   var currentUrl = '';
 
   function scaleSign() {
-    var f = document.getElementById('sign-frame');
-    if (!f) return;
-    var scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-    f.style.transform = 'scale(' + scale + ')';
-    f.style.left = ((window.innerWidth  - 1920 * scale) / 2) + 'px';
-    f.style.top  = ((window.innerHeight - 1080 * scale) / 2) + 'px';
+    // no-op: iframe fills viewport via CSS
   }
 
   function goFullscreen() {

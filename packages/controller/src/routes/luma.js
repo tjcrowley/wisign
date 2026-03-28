@@ -20,7 +20,9 @@ async function lumaRoutes(fastify) {
     if (!event) return reply.code(404).send('Event not found');
 
     const baseUrl = `http://${fastify.serverHost}:${fastify.serverPort}`;
-    const html = luma.buildEventSignHTML(event, baseUrl);
+    const html = req.query.orientation === 'portrait'
+      ? luma.buildEventSignHTMLPortrait(event, baseUrl)
+      : luma.buildEventSignHTML(event, baseUrl);
     reply.type('text/html').send(html);
   });
 
