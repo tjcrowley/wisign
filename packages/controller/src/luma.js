@@ -227,23 +227,25 @@ function buildEventSignHTMLPortrait(event, baseUrl) {
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1080,height=1920">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    width: 1080px; height: 1920px; overflow: hidden;
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
     font-family: 'Inter', system-ui, sans-serif;
     background: #0a0a0f;
     color: #fff;
+  }
+  .container {
+    width: 100%; height: 100%;
     display: flex;
     flex-direction: column;
   }
   .cover {
-    width: 1080px; height: 800px;
+    width: 100%; flex: 0 0 42%;
     background: url('${coverUrl}') center/cover no-repeat;
     position: relative;
-    flex-shrink: 0;
   }
   .cover::after {
     content: '';
@@ -252,63 +254,65 @@ function buildEventSignHTMLPortrait(event, baseUrl) {
   }
   .info {
     flex: 1; display: flex; flex-direction: column;
-    justify-content: center; padding: 48px 60px;
+    justify-content: center; padding: 3% 6%;
     position: relative; z-index: 1;
+    overflow: hidden;
   }
   .date {
-    font-size: 24px; font-weight: 600;
-    color: #a78bfa; margin-bottom: 20px;
+    font-size: 1.2em; font-weight: 600;
+    color: #a78bfa; margin-bottom: 0.5em;
     text-transform: uppercase; letter-spacing: 1px;
   }
   .title {
-    font-size: 44px; font-weight: 800;
-    line-height: 1.15; margin-bottom: 24px;
-    max-height: 260px; overflow: hidden;
+    font-size: 2.2em; font-weight: 800;
+    line-height: 1.15; margin-bottom: 0.5em;
+    overflow: hidden;
   }
   .location {
-    font-size: 20px; color: #94a3b8;
-    margin-bottom: 40px; line-height: 1.4;
+    font-size: 1em; color: #94a3b8;
+    margin-bottom: 1em; line-height: 1.4;
   }
   .qr-section {
-    display: flex; align-items: center; gap: 24px;
+    display: flex; align-items: center; gap: 1em;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px; padding: 24px 32px;
-    max-width: 520px;
+    border-radius: 1em; padding: 1em 1.2em;
   }
-  .qr-section canvas { border-radius: 12px; flex-shrink: 0; }
-  .qr-text { font-size: 18px; color: #cbd5e1; line-height: 1.5; }
-  .qr-text strong { color: #a78bfa; font-weight: 700; display: block; font-size: 20px; margin-bottom: 4px; }
+  .qr-img { border-radius: 0.5em; flex-shrink: 0; width: 5em; height: 5em; }
+  .qr-text { font-size: 0.9em; color: #cbd5e1; line-height: 1.5; }
+  .qr-text strong { color: #a78bfa; font-weight: 700; display: block; font-size: 1em; margin-bottom: 0.2em; }
   .badge {
-    display: inline-block; padding: 8px 20px;
+    display: inline-block; padding: 0.3em 1em;
     background: ${event.is_free ? '#16532d' : '#3b1764'};
     color: ${event.is_free ? '#4ade80' : '#c084fc'};
-    border-radius: 999px; font-size: 16px; font-weight: 700;
-    margin-bottom: 16px; align-self: flex-start;
+    border-radius: 999px; font-size: 0.9em; font-weight: 700;
+    margin-bottom: 0.5em; align-self: flex-start;
   }
   .ft-brand {
-    text-align: center; padding: 24px 0;
-    font-size: 14px; color: #475569; font-weight: 600;
+    text-align: center; padding: 1em 0;
+    font-size: 0.7em; color: #475569; font-weight: 600;
     letter-spacing: 2px;
   }
 </style>
 </head>
 <body>
-  <div class="cover"></div>
-  <div class="info">
-    <div class="badge">${event.is_free ? 'FREE' : 'RSVP'}</div>
-    <div class="date">${dateStr}</div>
-    <div class="title">${title}</div>
-    ${location ? `<div class="location">📍 ${location}</div>` : ''}
-    <div class="qr-section">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(lumaUrl)}" width="120" height="120" style="border-radius:12px;flex-shrink:0" alt="QR">
-      <div class="qr-text">
-        <strong>Scan to RSVP</strong>
-        lu.ma/${event.url_slug}
+  <div class="container">
+    <div class="cover"></div>
+    <div class="info">
+      <div class="badge">${event.is_free ? 'FREE' : 'RSVP'}</div>
+      <div class="date">${dateStr}</div>
+      <div class="title">${title}</div>
+      ${location ? '<div class="location">📍 ${location}</div>' : ''}
+      <div class="qr-section">
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(lumaUrl)}" alt="QR">
+        <div class="qr-text">
+          <strong>Scan to RSVP</strong>
+          lu.ma/${event.url_slug}
+        </div>
       </div>
     </div>
+    <div class="ft-brand">FRONTIER TOWER</div>
   </div>
-  <div class="ft-brand">FRONTIER TOWER</div>
 </body>
 </html>`;
 }
@@ -318,17 +322,17 @@ function buildCyclingSignHTMLPortrait(baseUrl) {
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1080,height=1920">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { width: 1080px; height: 1920px; overflow: hidden; background: #0a0a0f; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0a0f; margin: 0; }
   iframe { width: 100%; height: 100%; border: none; }
   .empty {
     display: flex; align-items: center; justify-content: center;
     height: 100%; color: #6366f1; font-family: system-ui, sans-serif;
-    font-size: 48px; text-align: center; flex-direction: column; gap: 1rem;
+    font-size: 4vh; text-align: center; flex-direction: column; gap: 1rem;
   }
-  .empty p { color: #64748b; font-size: 28px; }
+  .empty p { color: #64748b; font-size: 2.5vh; }
 </style>
 </head>
 <body>
