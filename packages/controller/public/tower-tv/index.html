@@ -12,52 +12,13 @@
   <script src="./building.js"></script>
   <script type="module" crossorigin src="./assets/index-BoqpVrMy.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-D7zaq-Nd.css">
-  <style>
-    /* Portrait Fire TV: OS rotation is active but Silk still reports
-       landscape viewport (980×490). The physical display after rotation
-       is ~490px wide × 980px tall. Silk's 100vh = 490px = half the
-       physical height. So we use 400vh for height and 100vw for width. */
-    html, body {
-      width: 100vw !important;
-      height: 400vh !important;
-      overflow: hidden !important;
-    }
-    #display, .event-slide {
-      width: 100vw !important;
-      height: 400vh !important;
-    }
-    .event-card {
-      width: 100vw !important;
-      min-height: 400vh !important;
-    }
-    .event-cover {
-      max-height: 160vh !important;
-    }
-    #building-view {
-      width: 100vw !important;
-      height: 400vh !important;
-    }
-    #building-canvas {
-      width: 100vw !important;
-      height: 400vh !important;
-    }
-    #no-events-view {
-      width: 100vw !important;
-      height: 400vh !important;
-    }
-    #header {
-      width: 100vw !important;
-    }
-    #footer {
-      width: 100vw !important;
-    }
-  </style>
+  <link rel="stylesheet" href="./branding/frontier-tower.css">
 </head>
 <body>
 
   <header id="header">
     <div class="header-left">
-      <img src="./logo.png" alt="Frontier Tower" class="logo">
+      <img src="./branding/logo-white-horizontal.svg" alt="Frontier Tower" class="logo">
     </div>
     <div class="header-right">
       <div id="date"></div>

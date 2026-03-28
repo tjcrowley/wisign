@@ -27,7 +27,7 @@ const devices = new Map();
 
 // Persistent player state — avoids re-navigating the browser between signs
 // (address bar appears on every am start; with the player page it only appears once)
-const deviceState    = new Map(); // deviceId -> { url }
+const deviceState    = new Map(); // deviceId -> { url, orientation }
 const playerLaunched = new Set(); // deviceIds where player page is already running
 
 // Set by init() so castUrl can build the player URL
@@ -199,13 +199,20 @@ async function getSilkTaskId(host) {
  * Update the sign shown by the persistent player page.
  * If the player isn't running yet, launch it via ADB (only happens once per device).
  * Subsequent sign changes just update the state — no browser navigation, no address bar.
+ *
+ * @param {string} deviceId
+ * @param {string} url
+ * @param {object} [options]
+ * @param {string} [options.orientation] - 'landscape' (default) or 'portrait'
  */
-async function castUrl(deviceId, url) {
+async function castUrl(deviceId, url, options = {}) {
   const device = devices.get(deviceId);
   if (!device) throw new Error(`Fire TV device ${deviceId} not found`);
 
+  const orientation = options.orientation || 'landscape';
+
   // Always update state first so the player can pick it up immediately
-  deviceState.set(deviceId, { url });
+  deviceState.set(deviceId, { url, orientation });
 
   if (!playerLaunched.has(deviceId)) {
     playerLaunched.add(deviceId);
@@ -257,31 +264,60 @@ async function stopCast(deviceId) {
 // ── Player state API ──────────────────────────────────────────────────────────
 
 function getState(deviceId) {
-  return deviceState.get(deviceId) || null;
+  const state = deviceState.get(deviceId);
+  if (!state) return null;
+  return { url: state.url, orientation: state.orientation || 'landscape' };
 }
 
 function buildPlayerHtml(deviceId) {
+  // Portrait rotation strategy:
+  // Fire TV Silk Browser always reports a landscape viewport (980×490)
+  // regardless of OS rotation settings. When the TV is physically turned
+  // on its side, we need to rotate the iframe 90° inside the player page.
+  //
+  // The player polls /api/fling/state/:id which returns { url, orientation }.
+  // When orientation is "portrait", we:
+  //   1. Size the iframe to 490×980 (swapped dimensions)
+  //   2. Rotate it 90° with transform-origin centered
+  //   3. The physical TV rotation makes it read correctly
+  //
+  // This keeps the sign content completely untouched — it renders in its
+  // native landscape layout and the player wrapper handles the rotation.
+
   return `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=980, initial-scale=1.0">
 <style>
-  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+  * { margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
   .wrap { position: fixed; inset: 0; overflow: hidden; }
+
+  /* Landscape (default) — iframe fills viewport */
   #sign-frame {
     position: absolute;
-    width: 100vw; height: 100vh;
     border: none; display: block;
     left: 0; top: 0;
+    width: 100vw; height: 100vh;
+  }
+
+  /* Portrait — iframe is tall/narrow, rotated 90° CW.
+     Silk viewport = 980×490. We make iframe 490×980 (portrait)
+     then rotate it so it spans the full 980×490 landscape viewport.
+     After physical TV rotation (90° CCW), the user sees 1080×1920 portrait. */
+  body.portrait #sign-frame {
+    width: 490px;
+    height: 980px;
+    left: 50%;
+    top: 50%;
+    transform: rotate(90deg) translate(-50%, -50%);
+    transform-origin: 0 0;
   }
 </style>
 <script>
   var currentUrl = '';
-
-  function scaleSign() {
-    // no-op: iframe fills viewport via CSS
-  }
+  var currentOrientation = 'landscape';
 
   function goFullscreen() {
     var el = document.documentElement;
@@ -289,13 +325,26 @@ function buildPlayerHtml(deviceId) {
     if (fn) fn.call(el).catch(function(){});
   }
 
+  function applyOrientation(o) {
+    if (o === currentOrientation) return;
+    currentOrientation = o;
+    if (o === 'portrait') {
+      document.body.classList.add('portrait');
+    } else {
+      document.body.classList.remove('portrait');
+    }
+  }
+
   function poll() {
     fetch('/api/fling/state/${deviceId}')
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        if (data && data.url && data.url !== currentUrl) {
-          currentUrl = data.url;
-          document.getElementById('sign-frame').src = currentUrl;
+        if (data) {
+          if (data.orientation) applyOrientation(data.orientation);
+          if (data.url && data.url !== currentUrl) {
+            currentUrl = data.url;
+            document.getElementById('sign-frame').src = currentUrl;
+          }
         }
       })
       .catch(function(){})
@@ -303,13 +352,11 @@ function buildPlayerHtml(deviceId) {
   }
 
   window.addEventListener('load', function() {
-    scaleSign();
     goFullscreen();
     setTimeout(goFullscreen, 600);
     setTimeout(goFullscreen, 2500);
     poll();
   });
-  window.addEventListener('resize', scaleSign);
   document.addEventListener('fullscreenchange', function() {
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
       setTimeout(goFullscreen, 200);
@@ -356,7 +403,8 @@ async function castPlaylist(deviceId, items, baseUrl, options = {}) {
     try {
       // For playlist transitions: just update state — player polls and swaps iframe src
       // Use castUrl on first item (may need to launch player); after that it's a no-op launch
-      await castUrl(deviceId, renderUrl);
+      const orientation = options.portrait ? 'portrait' : 'landscape';
+      await castUrl(deviceId, renderUrl, { orientation });
       console.log(`[Fling] Playlist ${deviceId}: sign ${state.index + 1}/${state.items.length} (${item.duration_sec}s)`);
     } catch (err) {
       console.error(`[Fling] Playlist error on ${deviceId}:`, err.message);

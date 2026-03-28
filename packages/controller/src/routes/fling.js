@@ -28,8 +28,9 @@ async function flingRoutes(fastify) {
     }
 
     try {
-      const result = await flingManager.castUrl(device_id, url);
-      return { ok: true, url, ...result };
+      // Pass orientation to the player wrapper — it handles CSS rotation
+      const result = await flingManager.castUrl(device_id, url, { orientation });
+      return { ok: true, url, orientation, ...result };
     } catch (err) {
       return reply.code(500).send({ error: err.message });
     }
@@ -42,7 +43,7 @@ async function flingRoutes(fastify) {
 
   // Current sign state for a device (polled by the player page)
   fastify.get('/api/fling/state/:deviceId', async (req) => {
-    return flingManager.getState(req.params.deviceId) || { url: '' };
+    return flingManager.getState(req.params.deviceId) || { url: '', orientation: 'landscape' };
   });
 
   // Stop casting on a Fire TV

@@ -48,7 +48,7 @@ function initBuilding(canvas) {
   TOTAL_H = NUM_FLOORS * FLOOR_H;
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x06060c);
+  scene.background = new THREE.Color(0x0a0a0a);
 
   camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 120);
 
@@ -136,7 +136,7 @@ function createTower() {
 
   // Glass windows
   const glassMat = new THREE.MeshStandardMaterial({
-    color: 0x88bbff, emissive: 0x112233, emissiveIntensity: 0.4,
+    color: 0x938DEE, emissive: 0x150d25, emissiveIntensity: 0.4,
     roughness: 0.05, metalness: 0.95,
     transparent: true, opacity: 0.5, side: THREE.DoubleSide,
   });
@@ -215,12 +215,12 @@ function createTower() {
   buildingGroup.add(rightRail);
 
   // ---- Basement / The Underground ----
-  basementGlow = new THREE.PointLight(0x8844cc, 0.3, 6);
+  basementGlow = new THREE.PointLight(0x764AE2, 0.3, 6);
   basementGlow.position.set(0, -0.2, B_D/2 * 0.5);
   buildingGroup.add(basementGlow);
 
   const entranceMat = new THREE.MeshStandardMaterial({
-    color: 0x1a1025, emissive: 0x220033, emissiveIntensity: 0.4,
+    color: 0x1a1025, emissive: 0x1a0a30, emissiveIntensity: 0.4,
     roughness: 0.5, metalness: 0.3,
   });
   const entrance = new THREE.Mesh(new THREE.BoxGeometry(B_W * 0.4, 0.04, 0.6), entranceMat);
@@ -364,7 +364,7 @@ function animateBuilding() {
     if (spotlightFloorIndex >= 0 && mesh._floorIndex === spotlightFloorIndex) {
       mat.emissiveIntensity = 0.6 + baseGlow * 0.4;
       mat.opacity = 0.6 + baseGlow * 0.3;
-      mat.emissive.setHex(0x334466);
+      mat.emissive.setHex(0x2a1a4a);
     } else {
       mat.emissiveIntensity = 0.2 + baseGlow * 0.5;
       mat.opacity = 0.35 + baseGlow * 0.35;
