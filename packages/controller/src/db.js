@@ -60,7 +60,7 @@ db.exec(`
   );
 `);
 
-// Remove old luma signs (replaced by tower-tv app)
+// Clean up legacy sign types on startup (luma replaced by frontier-tower-tv Convex app)
 db.prepare("DELETE FROM signs WHERE type IN ('luma_event', 'luma_cycle')").run();
 
 // Ensure the tower-tv sign exists

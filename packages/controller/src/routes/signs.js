@@ -48,7 +48,7 @@ async function signsRoutes(fastify) {
   });
 
   // Render sign HTML directly
-  // ?orientation=portrait  → portrait-native HTML for luma types, raw_html served as-is
+  // ?orientation=portrait  → portrait-native HTML for raw_html types
   // ?orientation=landscape (or omitted) → landscape iframe wrapper
   // ?kiosk=1 → fullscreen script injection
   fastify.get('/api/signs/:id/render', async (req, reply) => {
