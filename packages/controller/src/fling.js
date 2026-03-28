@@ -341,10 +341,17 @@ async function castPlaylist(deviceId, items, baseUrl, options = {}) {
     if (!state.active) return;
 
     const item  = state.items[state.index];
-    const portrait = !!options.portrait;
-    const params = new URLSearchParams({ kiosk: '1' });
-    if (portrait) params.set('orientation', 'portrait');
-    const renderUrl = `${state.baseUrl}/api/signs/${item.sign_id}/render?${params}`;
+    const db = require('./db');
+    const sign = db.prepare('SELECT type FROM signs WHERE id = ?').get(item.sign_id);
+    let renderUrl;
+    if (sign && sign.type === 'tower_tv') {
+      renderUrl = `${state.baseUrl}/tower-tv/index.html`;
+    } else {
+      const portrait = !!options.portrait;
+      const params = new URLSearchParams({ kiosk: '1' });
+      if (portrait) params.set('orientation', 'portrait');
+      renderUrl = `${state.baseUrl}/api/signs/${item.sign_id}/render?${params}`;
+    }
 
     try {
       // For playlist transitions: just update state — player polls and swaps iframe src

@@ -60,9 +60,19 @@ db.exec(`
   );
 `);
 
-// Insert sample sign if none exist
+// Remove old luma signs (replaced by tower-tv app)
+db.prepare("DELETE FROM signs WHERE type IN ('luma_event', 'luma_cycle')").run();
+
+// Ensure the tower-tv sign exists
+const towerTv = db.prepare("SELECT id FROM signs WHERE id = 'tower-tv'").get();
+if (!towerTv) {
+  db.prepare("INSERT INTO signs (id, name, type, html, published) VALUES (?, ?, ?, ?, ?)")
+    .run('tower-tv', 'Frontier Tower Events', 'tower_tv', '', 1);
+}
+
+// Insert sample sign if none exist (besides tower-tv)
 const count = db.prepare('SELECT COUNT(*) as c FROM signs').get();
-if (count.c === 0) {
+if (count.c <= 1) {
   const { v4: uuidv4 } = require('uuid');
   db.prepare(`INSERT INTO signs (id, name, type, html) VALUES (?, ?, ?, ?)`).run(
     uuidv4(),

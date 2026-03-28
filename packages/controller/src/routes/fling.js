@@ -17,10 +17,15 @@ async function flingRoutes(fastify) {
     if (!sign) return reply.code(404).send({ error: 'Sign not found' });
 
     // Fire TV is on the local LAN — use local HTTP URL (no Tailscale/HTTPS needed)
-    const portrait = orientation === 'portrait';
-    const params = new URLSearchParams({ kiosk: '1' });
-    if (portrait) params.set('orientation', 'portrait');
-    const url = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${sign_id}/render?${params}`;
+    let url;
+    if (sign.type === 'tower_tv') {
+      url = `http://${fastify.serverHost}:${fastify.serverPort}/tower-tv/index.html`;
+    } else {
+      const portrait = orientation === 'portrait';
+      const params = new URLSearchParams({ kiosk: '1' });
+      if (portrait) params.set('orientation', 'portrait');
+      url = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${sign_id}/render?${params}`;
+    }
 
     try {
       const result = await flingManager.castUrl(device_id, url);

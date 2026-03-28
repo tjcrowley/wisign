@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontier Tower — Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <script src="./building.js"></script>
+  <script type="module" crossorigin src="./assets/index-BoqpVrMy.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D7zaq-Nd.css">
+</head>
+<body>
+
+  <header id="header">
+    <div class="header-left">
+      <img src="./logo.png" alt="Frontier Tower" class="logo">
+    </div>
+    <div class="header-right">
+      <div id="date"></div>
+      <div id="clock"></div>
+    </div>
+  </header>
+
+  <main id="display">
+    <div class="event-slide" id="slide-a"></div>
+    <div class="event-slide" id="slide-b"></div>
+  </main>
+
+  <div id="building-view">
+    <canvas id="building-canvas"></canvas>
+    <div id="building-overlay">
+      <div id="building-overlay-left">
+        <div id="floor-directory"></div>
+        <div id="event-summary"></div>
+      </div>
+      <div id="floor-spotlight">
+        <div class="spotlight-num"></div>
+        <div class="spotlight-name"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="no-events-view">
+    <h2>FRONTIER TOWER</h2>
+    <p>No events scheduled right now</p>
+  </div>
+
+  <footer id="footer">
+    <div id="progress-dots"></div>
+    <div id="event-count"></div>
+  </footer>
+
+
+</body>
+</html>

@@ -34,8 +34,11 @@ async function assignRoutes(fastify) {
 
         const ws = fastify.wsClients?.get(screen.device_id);
         if (ws && ws.readyState === 1) {
+          const sign = db.prepare('SELECT type FROM signs WHERE id = ?').get(ref_id);
           const portrait = (screen.orientation || 'landscape') === 'portrait';
-          const renderUrl = `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${ref_id}/render${portrait ? '?orientation=portrait' : ''}`;
+          const renderUrl = sign && sign.type === 'tower_tv'
+            ? `http://${fastify.serverHost}:${fastify.serverPort}/tower-tv/index.html`
+            : `http://${fastify.serverHost}:${fastify.serverPort}/api/signs/${ref_id}/render${portrait ? '?orientation=portrait' : ''}`;
           ws.send(JSON.stringify({
             type: 'LOAD_SIGN',
             request_id: uuidv4(),

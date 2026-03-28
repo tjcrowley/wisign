@@ -1,7 +1,6 @@
 'use strict';
 const { v4: uuidv4 } = require('uuid');
 const db = require('../db');
-const { buildEventSignHTMLPortrait, buildCyclingSignHTMLPortrait } = require('../luma');
 
 async function signsRoutes(fastify) {
   fastify.get('/api/signs', async () => {
@@ -78,25 +77,16 @@ async function signsRoutes(fastify) {
     });
   </script>`;
 
+    // ── tower_tv: redirect to the static app ──
+    if (s.type === 'tower_tv') {
+      return reply.redirect('/tower-tv/index.html');
+    }
+
     // ── Portrait mode: serve portrait-native HTML directly ──
     if (wantPortrait) {
-      let portraitHtml;
-      const clientHost = req.headers.host || `${fastify.serverHost}:${fastify.serverPort}`;
-      const baseUrl = `http://${clientHost}`;
-
-      if (s.type === 'luma_event') {
-        const event = JSON.parse(s.assets || '{}');
-        if (!event.name) return reply.code(500).send('No event data stored for this sign');
-        portraitHtml = buildEventSignHTMLPortrait(event, baseUrl);
-      } else if (s.type === 'luma_cycle') {
-        portraitHtml = buildCyclingSignHTMLPortrait(baseUrl);
-      } else {
-        // raw_html: serve as-is (expected to use vw/vh and adapt naturally)
-        portraitHtml = s.html;
-      }
+      let portraitHtml = s.html;
 
       if (wantKiosk) {
-        // Inject fullscreen script before closing </body>
         portraitHtml = portraitHtml.replace('</body>', fsScript + '\n</body>');
       }
       return reply.type('text/html').send(portraitHtml);

@@ -17,6 +17,17 @@ async function castRoutes(fastify) {
     const sign = db.prepare('SELECT * FROM signs WHERE id = ?').get(sign_id);
     if (!sign) return reply.code(404).send({ error: 'Sign not found' });
 
+    if (sign.type === 'tower_tv') {
+      // tower_tv is a live web app — cast the URL directly
+      const url = `${fastify.castBaseUrl}/tower-tv/index.html`;
+      try {
+        await castManager.castUrl(device_id, url);
+        return { ok: true, url };
+      } catch (err) {
+        return reply.code(500).send({ error: err.message });
+      }
+    }
+
     const portrait = orientation === 'portrait';
     const renderUrl = `http://127.0.0.1:${fastify.serverPort}/api/signs/${sign_id}/render${portrait ? '?orientation=portrait' : ''}`;
     const { renderSign } = require('../screenshot');
