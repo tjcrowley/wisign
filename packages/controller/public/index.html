@@ -96,7 +96,14 @@
         <div class="form-row"><label>Screen</label><select id="assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
         <div class="form-row"><label>Sign</label><select id="assign-sign" style="width:100%"></select></div>
         <button class="btn" onclick="doAssign()">Push to Screen →</button>
-        <button class="btn" style="background:var(--accent2)" onclick="doBroadcastSign()">📡 Broadcast to All TVs</button>
+        <div style="margin-top:0.75rem">
+          <label style="font-size:0.85rem;color:var(--muted);display:block;margin-bottom:0.4rem">Broadcast Orientation</label>
+          <div class="row" style="gap:0.4rem;margin-bottom:0.5rem">
+            <button id="bc-sign-orient-landscape" class="btn" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setBcSignOrient('landscape')">🌄 Landscape</button>
+            <button id="bc-sign-orient-portrait" class="btn secondary" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setBcSignOrient('portrait')">📱 Portrait</button>
+          </div>
+          <button class="btn" style="background:var(--accent2)" onclick="doBroadcastSign()">📡 Broadcast to All TVs</button>
+        </div>
         <div id="assign-result" style="margin-top:1rem;color:var(--green)"></div>
       </div>
       <div class="card">
@@ -104,7 +111,14 @@
         <div class="form-row"><label>Screen</label><select id="pl-assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
         <div class="form-row"><label>Playlist</label><select id="pl-assign-playlist" style="width:100%"></select></div>
         <button class="btn" onclick="doAssignPlaylist()">▶ Start Playlist →</button>
-        <button class="btn" style="background:var(--accent2)" onclick="doBroadcastPlaylist()">📡 Broadcast to All TVs</button>
+        <div style="margin-top:0.75rem">
+          <label style="font-size:0.85rem;color:var(--muted);display:block;margin-bottom:0.4rem">Broadcast Orientation</label>
+          <div class="row" style="gap:0.4rem;margin-bottom:0.5rem">
+            <button id="bc-pl-orient-landscape" class="btn" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setBcPlOrient('landscape')">🌄 Landscape</button>
+            <button id="bc-pl-orient-portrait" class="btn secondary" style="font-size:0.78rem;padding:0.3rem 0.7rem" onclick="setBcPlOrient('portrait')">📱 Portrait</button>
+          </div>
+          <button class="btn" style="background:var(--accent2)" onclick="doBroadcastPlaylist()">📡 Broadcast to All TVs</button>
+        </div>
         <div id="pl-assign-result" style="margin-top:1rem;color:var(--green)"></div>
       </div>
     </div>
@@ -649,12 +663,26 @@ async function doStopCastPl() {
 }
 
 // ── Broadcast to All Fire TVs ────────────────────────────────────────────────
+let _bcSignOrientation = 'landscape';
+let _bcPlOrientation   = 'landscape';
+
+function setBcSignOrient(o) {
+  _bcSignOrientation = o;
+  document.getElementById('bc-sign-orient-landscape').className = 'btn' + (o === 'landscape' ? '' : ' secondary');
+  document.getElementById('bc-sign-orient-portrait').className  = 'btn' + (o === 'portrait'  ? '' : ' secondary');
+}
+function setBcPlOrient(o) {
+  _bcPlOrientation = o;
+  document.getElementById('bc-pl-orient-landscape').className = 'btn' + (o === 'landscape' ? '' : ' secondary');
+  document.getElementById('bc-pl-orient-portrait').className  = 'btn' + (o === 'portrait'  ? '' : ' secondary');
+}
+
 async function doBroadcastSign() {
   const sign_id = g('assign-sign').value;
   if (!sign_id) return alert('Select a sign first');
   const res = await fetch('/api/fling/broadcast', {
     method: 'POST', headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({ sign_id })
+    body: JSON.stringify({ sign_id, orientation: _bcSignOrientation })
   }).then(r => r.json());
   const el = g('assign-result');
   el.style.color = res.ok ? 'var(--green)' : 'var(--yellow)';
@@ -668,7 +696,7 @@ async function doBroadcastPlaylist() {
   if (!playlist_id) return alert('Select a playlist first');
   const res = await fetch('/api/fling/broadcast', {
     method: 'POST', headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({ playlist_id })
+    body: JSON.stringify({ playlist_id, orientation: _bcPlOrientation })
   }).then(r => r.json());
   const el = g('pl-assign-result');
   el.style.color = res.ok ? 'var(--green)' : 'var(--yellow)';
