@@ -150,6 +150,23 @@ function init(fastify) {
   scan();
   setInterval(scan, 30_000);
   console.log('[Fling] Scanning for Fire TV devices...');
+
+  // ── Wake heartbeat — keeps Fire TVs from sleeping ──────────────────────────
+  // Sends KEYCODE_WAKEUP + re-applies kiosk settings every 4 minutes
+  setInterval(async () => {
+    for (const device of devices.values()) {
+      try {
+        const s = `adb -s ${device.host}:${ADB_PORT} shell`;
+        await run(`${s} input keyevent KEYCODE_WAKEUP`);
+        await run(`${s} settings put global stay_on_while_plugged_in 3`);
+        await run(`${s} settings put system screen_off_timeout 2147483647`);
+        await run(`${s} settings put global policy_control immersive.full=\\*`);
+        console.log(`[Fling] Wake heartbeat sent to ${device.name}`);
+      } catch (err) {
+        console.warn(`[Fling] Wake heartbeat failed for ${device.name}: ${err.message}`);
+      }
+    }
+  }, 4 * 60 * 1000);
 }
 
 function getDevices() {
