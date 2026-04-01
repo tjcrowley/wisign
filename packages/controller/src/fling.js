@@ -229,15 +229,20 @@ async function castUrl(deviceId, url, options = {}) {
     );
 
     // Post-launch: re-apply immersive mode + tap to dismiss address bar
-    setTimeout(async () => {
+    // Two passes: first at 2s (page loading), second at 5s (fully rendered)
+    const postLaunchKiosk = async () => {
       try {
         const s = `adb -s ${device.host}:${ADB_PORT} shell`;
         await run(`${s} settings put global policy_control immersive.full=\\*`);
         await run(`${s} input tap 960 540`);
+        console.log(`[Fling] Post-launch kiosk tap sent to ${device.host}`);
       } catch (err) {
         console.warn(`[Fling] Post-launch kiosk step failed: ${err.message}`);
       }
-    }, 2000);
+    };
+    setTimeout(postLaunchKiosk, 2000);
+    setTimeout(postLaunchKiosk, 5000);
+    setTimeout(postLaunchKiosk, 10000);
   }
   // Player is running — it polls /api/fling/state/:id and will pick up the new URL
 
@@ -355,8 +360,13 @@ function buildPlayerHtml(deviceId) {
     goFullscreen();
     setTimeout(goFullscreen, 600);
     setTimeout(goFullscreen, 2500);
+    setTimeout(goFullscreen, 5000);
+    setTimeout(goFullscreen, 10000);
     poll();
   });
+  // Also go fullscreen on any user interaction (required by some browsers)
+  document.addEventListener('click', goFullscreen);
+  document.addEventListener('touchstart', goFullscreen);
   document.addEventListener('fullscreenchange', function() {
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
       setTimeout(goFullscreen, 200);
