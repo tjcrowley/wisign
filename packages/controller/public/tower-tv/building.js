@@ -294,14 +294,14 @@ let spotlightFloorIndex = -1;
 
 function animateBuilding() {
   animationId = requestAnimationFrame(animateBuilding);
-  time += 0.001;
+  time += 0.003;
 
   switch (mode) {
     case 'overview': {
       const angle = Math.PI * 0.25 + Math.sin(time) * 0.5;
-      camGoal.x = B_X + 16 * Math.cos(angle);
-      camGoal.z = 16 * Math.sin(angle);
-      camGoal.y = 6 + Math.sin(time * 0.5) * 1.5;
+      camGoal.x = B_X + 24 * Math.cos(angle);
+      camGoal.z = 24 * Math.sin(angle);
+      camGoal.y = 10 + Math.sin(time * 0.5) * 2;
       camLookGoal.x = B_X;
       camLookGoal.y = 4.5;
       camLookGoal.z = 0;
@@ -318,9 +318,9 @@ function animateBuilding() {
       elevatorLight.position.y = elevY;
 
       const angle = Math.PI * 0.32;
-      camGoal.x = B_X + 13 * Math.cos(angle);
-      camGoal.z = 13 * Math.sin(angle);
-      camGoal.y = elevY + 2.5;
+      camGoal.x = B_X + 20 * Math.cos(angle);
+      camGoal.z = 20 * Math.sin(angle);
+      camGoal.y = elevY + 4;
       camLookGoal.x = B_X;
       camLookGoal.y = elevY;
       camLookGoal.z = 0;
@@ -337,8 +337,8 @@ function animateBuilding() {
     case 'spotlight': {
       const sway = Math.sin(time * 3) * 0.15;
       const angle = Math.PI * 0.28 + sway;
-      camGoal.x = B_X + 10 * Math.cos(angle);
-      camGoal.z = 10 * Math.sin(angle);
+      camGoal.x = B_X + 16 * Math.cos(angle);
+      camGoal.z = 16 * Math.sin(angle);
       spotlightFloorIndex = Math.round((camLookGoal.y - FLOOR_H * 0.5) / FLOOR_H);
       if (spotlightFloorIndex < 0 || spotlightFloorIndex >= NUM_FLOORS) spotlightFloorIndex = -1;
       break;
