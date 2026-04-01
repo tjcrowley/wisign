@@ -21,7 +21,7 @@ let cam = { x: 0, y: 6, z: 0 };
 let camLook = { x: B_X, y: 4.5, z: 0 };
 let camGoal = { x: 0, y: 6, z: 0 };
 let camLookGoal = { x: B_X, y: 4.5, z: 0 };
-const CAM_LERP = 0.025;
+const CAM_LERP = 0.08;
 
 let mode = 'overview';
 let elevY = FLOOR_H * 0.5;
