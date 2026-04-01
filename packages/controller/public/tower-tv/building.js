@@ -355,20 +355,22 @@ function animateBuilding() {
   camera.position.set(cam.x, cam.y, cam.z);
   camera.lookAt(camLook.x, camLook.y, camLook.z);
 
-  // Window glow
-  for (let i = 0; i < windowMeshes.length; i++) {
-    const mesh = windowMeshes[i];
-    const mat = mesh.material;
-    const baseGlow = Math.sin(time * 2.5 + i * 0.37) * 0.5 + 0.5;
+  // Window glow — update every 3rd frame to reduce Pi GPU load
+  if (Math.round(time * 1000) % 3 === 0) {
+    for (let i = 0; i < windowMeshes.length; i++) {
+      const mesh = windowMeshes[i];
+      const mat = mesh.material;
+      const baseGlow = Math.sin(time * 1.0 + i * 0.37) * 0.5 + 0.5;
 
-    if (spotlightFloorIndex >= 0 && mesh._floorIndex === spotlightFloorIndex) {
-      mat.emissiveIntensity = 0.6 + baseGlow * 0.4;
-      mat.opacity = 0.6 + baseGlow * 0.3;
-      mat.emissive.setHex(0x2a1a4a);
-    } else {
-      mat.emissiveIntensity = 0.2 + baseGlow * 0.5;
-      mat.opacity = 0.35 + baseGlow * 0.35;
-      mat.emissive.setHex(0x112233);
+      if (spotlightFloorIndex >= 0 && mesh._floorIndex === spotlightFloorIndex) {
+        mat.emissiveIntensity = 0.6 + baseGlow * 0.4;
+        mat.opacity = 0.6 + baseGlow * 0.3;
+        mat.emissive.setHex(0x2a1a4a);
+      } else {
+        mat.emissiveIntensity = 0.2 + baseGlow * 0.5;
+        mat.opacity = 0.35 + baseGlow * 0.35;
+        mat.emissive.setHex(0x112233);
+      }
     }
   }
 
