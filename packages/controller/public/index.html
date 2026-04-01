@@ -54,7 +54,6 @@
   <button onclick="show('signs',this)">📄 Signs</button>
   <button onclick="show('playlists',this)">🔄 Playlists</button>
   <button onclick="show('push',this)">📡 Push</button>
-  <button onclick="show('luma',this)">📅 Luma</button>
   <button onclick="show('access',this)">🔐 Access</button>
 </nav>
 <main>
@@ -97,6 +96,7 @@
         <div class="form-row"><label>Screen</label><select id="assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
         <div class="form-row"><label>Sign</label><select id="assign-sign" style="width:100%"></select></div>
         <button class="btn" onclick="doAssign()">Push to Screen →</button>
+        <button class="btn" style="background:var(--accent2)" onclick="doBroadcastSign()">📡 Broadcast to All TVs</button>
         <div id="assign-result" style="margin-top:1rem;color:var(--green)"></div>
       </div>
       <div class="card">
@@ -104,6 +104,7 @@
         <div class="form-row"><label>Screen</label><select id="pl-assign-screen" style="width:100%"><option value="all">All Screens</option></select></div>
         <div class="form-row"><label>Playlist</label><select id="pl-assign-playlist" style="width:100%"></select></div>
         <button class="btn" onclick="doAssignPlaylist()">▶ Start Playlist →</button>
+        <button class="btn" style="background:var(--accent2)" onclick="doBroadcastPlaylist()">📡 Broadcast to All TVs</button>
         <div id="pl-assign-result" style="margin-top:1rem;color:var(--green)"></div>
       </div>
     </div>
@@ -173,8 +174,8 @@
 
 
 
-<!-- LUMA EVENTS -->
-<div id="sec-luma" class="section">
+<!-- LUMA EVENTS (hidden, kept for reference) -->
+<div id="sec-luma" class="section" style="display:none!important">
   <h2>📅 Luma Events</h2>
   <p class="muted" style="margin-bottom:1rem">Upcoming events from the Frontier Tower Luma calendar. Each event is auto-synced as a sign you can add to playlists or cast.</p>
   <div class="row" style="margin-bottom:1.5rem;gap:0.5rem">
@@ -645,6 +646,35 @@ async function doStopCastPl() {
   }).then(r => r.json());
   g('cast-pl-result').textContent = res.ok ? 'Stopped' : (res.error || 'Error');
   g('cast-pl-result').style.color = res.ok ? 'var(--muted)' : 'var(--red)';
+}
+
+// ── Broadcast to All Fire TVs ────────────────────────────────────────────────
+async function doBroadcastSign() {
+  const sign_id = g('assign-sign').value;
+  if (!sign_id) return alert('Select a sign first');
+  const res = await fetch('/api/fling/broadcast', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ sign_id })
+  }).then(r => r.json());
+  const el = g('assign-result');
+  el.style.color = res.ok ? 'var(--green)' : 'var(--yellow)';
+  el.textContent = res.ok
+    ? `📡 Broadcast to ${res.succeeded} TV(s) ✓`
+    : `⚠ ${res.succeeded}/${res.total} succeeded — ${res.errors.map(e => e.name + ': ' + e.error).join(', ')}`;
+}
+
+async function doBroadcastPlaylist() {
+  const playlist_id = g('pl-assign-playlist').value;
+  if (!playlist_id) return alert('Select a playlist first');
+  const res = await fetch('/api/fling/broadcast', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ playlist_id })
+  }).then(r => r.json());
+  const el = g('pl-assign-result');
+  el.style.color = res.ok ? 'var(--green)' : 'var(--yellow)';
+  el.textContent = res.ok
+    ? `📡 Playlist broadcast to ${res.succeeded} TV(s) ✓`
+    : `⚠ ${res.succeeded}/${res.total} succeeded — ${res.errors.map(e => e.name + ': ' + e.error).join(', ')}`;
 }
 
 // ── Luma Events ───────────────────────────────────────────────────────────────
